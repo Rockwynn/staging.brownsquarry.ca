@@ -652,6 +652,10 @@ code {
   justify-content: center;
 }
 
+.tiles .item:hover {
+  text-decoration: none;
+}
+
 .tiles .item .image {
   height: 100%;
   width: 100%;
@@ -673,7 +677,7 @@ code {
   color: #3c3c3c;
   font-weight: 300;
   margin: 0;
-  opacity: 0;
+  opacity: 0.7;
   transition: all .15s;
 }
 
