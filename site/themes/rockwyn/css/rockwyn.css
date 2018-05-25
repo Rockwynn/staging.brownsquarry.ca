@@ -652,10 +652,6 @@ code {
   justify-content: center;
 }
 
-.tiles .item:hover {
-  text-decoration: none;
-}
-
 .tiles .item .image {
   height: 100%;
   width: 100%;
