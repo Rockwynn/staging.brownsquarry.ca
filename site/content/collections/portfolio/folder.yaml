@@ -1,0 +1,8 @@
+title: Portfolio
+fieldset: portfolio
+template: gallery
+order: number
+columns:
+  - title
+  - image_url
+  - slug

@@ -1,0 +1,34 @@
+title: 'Main Assets'
+path: assets
+url: /assets
+assets:
+  img/black-bear-cubs.jpg:
+    title: 'Black Bear Cubs'
+    alt: 'Some black bears standing up'
+  img/coffee-mug.jpg:
+    title: 'Coffee Mug'
+  img/me.jpg:
+    title: Me
+    alt: 'Niles Peppertrout'
+  img/redwood-sign.jpg:
+    title: 'redwood sign'
+  img/desert.jpg:
+    focus: 77-70
+  portfolio/28dscf0729.jpg:
+    title: 'Lakeside Armour Stone Project'
+    alt: 'Lakeside Armour Stone Project'
+  portfolio/32_024.jpg:
+    title: 'Stone Amphitheatre Project'
+    alt: 'Stone Amphitheatre Project'
+  portfolio/eagle_lake_rich_first_job069.jpg:
+    title: 'Multi-tiered Stone Walkway Project'
+    alt: 'Multi-tiered Stone Walkway Project'
+  portfolio/29_dsc_1058.jpg:
+    title: 'Flagstone Courtyard Project'
+    alt: 'Flagstone Courtyard Project'
+  portfolio/cover_frenchs_front_00320_web.jpg:
+    title: 'Landscaping - Driveway, Entryways, Path and Stairs to Dock'
+    alt: 'Landscaping - Driveway, Entryways, Path and Stairs to Dock'
+  portfolio/bench_web.jpg:
+    title: 'Decorative Bench'
+    alt: 'Decorative Bench'
