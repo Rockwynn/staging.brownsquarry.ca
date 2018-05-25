@@ -13,17 +13,20 @@
 
         <div class="collapse navbar-collapse" id="nav-main">
             <ul class="nav navbar-nav">
-                {{ nav from="/" include_home="true" scope="tag" }}
+                {{ nav from="/" max_depth="3" folders_only="true" include_home="true" scope="tag" }}
                     <li{{ if is_current or is_parent }} class="active"{{ /if }}>
                         <a href="{{ url }}">{{ tag:nav_title or title }}
                         </a>
+                        {{ if children }}
+        <ul class="nav"><li><a href="{{ url }}">{{ *recursive children* }}</a></li></ul>
+      {{ /if }}
                     </li>
                 {{ /nav }}
 
             </ul>
 
 
-            <form class="navbar-form navbar-right" role="search" action="{{ link to='search' }}">
+            <!--<form class="navbar-form navbar-right" role="search" action="{{ link to='search' }}">
                 <div class="form-group">
                     <input type="text" class="form-control search" name="q" placeholder="Search">
                 </div>
@@ -36,7 +39,7 @@
                     <li><a href="{{ link to='login' }}">Log in</a></li>
                     <li><a href="{{ link to='register' }}">Register</a></li>
                 {{ /if }}
-            </ul>
+            </ul>-->
         </div>
 
     </div>
