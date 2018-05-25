@@ -1,5 +1,5 @@
 ---
-title: Flagstone-Courtyard
+title: Flagstone Courtyard
 nav_title: flagstone-courtyard
 images:
   - /assets/flagstone-courtyard/01_dscf0635.jpg
