@@ -1,5 +1,5 @@
 ---
-title: Flagstone Courtyard
+title: Flagstone Courtyard Gallery
 nav_title: flagstone-courtyard
 images:
   - /assets/flagstone-courtyard/01_dscf0635.jpg
@@ -34,4 +34,3 @@ template: gallery
 fieldset: gallery
 id: d6fcfe93-9968-4aad-bab8-83503ec2079c
 ---
-flagstone courtyard gallery
