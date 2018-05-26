@@ -677,6 +677,7 @@ code {
   margin: 0;
   opacity: 0.7;
   transition: all .15s;
+  width: 100%;
 }
 
 .tiles .item:hover .caption {

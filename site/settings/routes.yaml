@@ -1,7 +1,8 @@
 collections:
   blog: '/blog/{year}/{month}/{day}/{slug}'
   things: '/things/{slug}'
-  portfolio: '/portfolio/'
+  portfolio: /portfolio/
+  products: /products/
 taxonomies:
   tags: '/blog/tags/{slug}'
 routes:

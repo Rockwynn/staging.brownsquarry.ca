@@ -1,0 +1,17 @@
+sections:
+  main:
+    display: Main
+    fields:
+      title:
+        type: text
+        display: Title
+        localizable: true
+      image_url:
+        type: text
+        display: 'Image URL'
+      slug:
+        type: text
+        display: Slug
+taxonomies: true
+title: Products
+create_title: 'Create a Product'

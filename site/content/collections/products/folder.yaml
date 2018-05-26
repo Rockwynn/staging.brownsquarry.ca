@@ -1,0 +1,8 @@
+title: Products
+fieldset: products
+template: gallery
+order: alphabetical
+columns:
+  - title
+  - image_url
+  - slug

@@ -13,17 +13,48 @@
 
         <div class="collapse navbar-collapse" id="nav-main">
             <ul class="nav navbar-nav">
-                {{ nav from="/" max_depth="3" folders_only="true" include_home="true" scope="tag" }}
-                    <li{{ if is_current or is_parent }} class="active"{{ /if }}>
-                        <a href="{{ url }}">{{ tag:nav_title or title }}
-                        </a>
+                {{ nav from="/" max_depth="3"  include_home="true" scope="tag" }}
+                    <li
+                        {{ if is_current or is_parent }} class="active"{{ /if }}>
+                            <a href="{{ url }}">{{ tag:nav_title or title }}</a>
                         {{ if children }}
-        <ul class="nav"><li><a href="{{ url }}">{{ *recursive children* }}</a></li></ul>
-      {{ /if }}
+            <ul class="nav navbar-nav dropdown-menu">
+                <!--{{ children }}-->
+                            <a href="{{ url }}">{{ tag:nav_title or title }}{{ *recursive children* }}</a>
+                <!--{{ /children }}-->
+                </ul>
+                        {{ /if }}
                     </li>
                 {{ /nav }}
 
             </ul>
+
+
+
+            <!--{{ nav from="/" max_depth="3" exclude="site-map|search|tags" }}
+                            {{ if children }}
+
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown">{{ title }} <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        {{ children }}
+                                            <li class="{{ if is_current }} active {{ endif }} {{ if children }} dropdown-submenu {{ endif }}"><a href="{{ url }}">{{ title }}</a>
+
+                                                {{ if children }}
+                                                    <ul class="dropdown-menu">
+                                                        {{ theme:partial src="sub-menu" use_context="true" }}
+                                                    </ul>
+                                                {{ endif }}
+
+                                            </li>
+                                        {{ /children }}
+                                    </ul>
+
+                                </li>
+                            {{ else }}
+                                <li {{ if is_current }}class="active"{{ endif }}><a href="{{ url }}">{{ title }}</a></li>
+                            {{ endif }}
+                        {{ /nav }}-->
 
 
             <!--<form class="navbar-form navbar-right" role="search" action="{{ link to='search' }}">
