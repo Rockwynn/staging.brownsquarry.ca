@@ -14,19 +14,17 @@
         <div class="collapse navbar-collapse" id="nav-main">
             <ul class="nav navbar-nav">
                 {{ nav from="/" max_depth="3"  include_home="true" scope="tag" }}
-                    <li
-                        {{ if is_current or is_parent }} class="active"{{ /if }}>
-                            <a href="{{ url }}">{{ tag:nav_title or title }}</a>
+                <li{{ if is_current or is_parent }} class="active"{{ /if }}>
+                    <a href="{{ url }}">{{ tag:nav_title or title }}</a></li>
                         {{ if children }}
-            <ul class="nav navbar-nav dropdown-menu">
+                        <ul class="nav navbar-nav dropdown-menu">
                 <!--{{ children }}-->
-                            <a href="{{ url }}">{{ tag:nav_title or title }}{{ *recursive children* }}</a>
+                            <li><a href="{{ url }}">{{ tag:nav_title or title }}{{ *recursive children* }}</a></li>
                 <!--{{ /children }}-->
-                </ul>
+                        </ul>
                         {{ /if }}
-                    </li>
+                </li>
                 {{ /nav }}
-
             </ul>
 
 

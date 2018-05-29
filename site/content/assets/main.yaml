@@ -32,3 +32,11 @@ assets:
   portfolio/bench_web.jpg:
     title: 'Decorative Bench'
     alt: 'Decorative Bench'
+  panorama_quarry.jpg:
+    focus: 99-53
+  panorama3.jpg:
+    focus: 98-94
+  4_0129.jpg:
+    focus: 97-96
+  quarryface.jpg:
+    focus: 48-92
