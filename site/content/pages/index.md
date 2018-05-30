@@ -1,4 +1,5 @@
 ---
+nav_title: Home
 title: Spring has Sprung
 sub_title: It's time to reshape your Landscape!
 hero_image: /assets/quarryface.jpg
