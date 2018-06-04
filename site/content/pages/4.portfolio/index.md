@@ -1,5 +1,5 @@
 ---
-title: Landscaping Portfolio
+title: Landscaping Gallery
 nav_title: Gallery
 template: portfolio
 mount: portfolio
