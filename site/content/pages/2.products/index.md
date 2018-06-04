@@ -1,5 +1,5 @@
 ---
-title: Products
+title: 'Our Products'
 nav_title: Products
 template: products
 mount: products

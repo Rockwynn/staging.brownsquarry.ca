@@ -1,9 +1,32 @@
+<section class="hero">
+
+	<div class="hero-background" style="background-image: url(/assets/panoramas/panorama-gallery-672x1722.jpg)">
+		<div class="overlay"></div>
+		<header>
+			<h1>{{ title }}</h1>
+			<h2>Click on Projects to view Before & After Photos</h2>
+		</header>
+		<div class="meta">
+			<div class="avatar">
+				<img src="/assets/avatar.jpg" class="img-circle" width="48" height="48">
+			</div>
+			<div class="name">
+				<h5 class="name">{{ owner_name }}</h5>
+				<h5 class="name">{{ author_name }}</h5>
+			</div>
+			<!--<div class="length">{{ content | read_time }} minute read</div>-->
+			<div class="date">
+				{{ date format="F j, Y" }}
+			</div>
+		</div>
+	</div>
+
+
+</section>
+
 <section class="container-fluid">
 
-	<header>
-		<h1>{{ title }}</h1>
-		{{ content_raw wrap="h2" }}
-	</header>
+
 
     <div class="tiles">
         {{ collection:portfolio }}

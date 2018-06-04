@@ -509,10 +509,10 @@ code {
 }
 
 .navbar-rockwyn {
-  background-color: #1a0d00;
+  background-color: #000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0;
-  min-height: 50px;
+  min-height: 70px;
 }
 
 .navbar-rockwyn .nav {
@@ -570,8 +570,11 @@ code {
   color: #ffffff;
   font-weight: 900;
   font-size: 32px;
-  height: 60px;
-  padding: 20px 15px;
+  height: 101px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 15px;
   letter-spacing: -.05em;
 }
 

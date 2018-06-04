@@ -1,6 +1,5 @@
 ---
 title: 'Engraved Stones'
-nav_title: engraved-stones
 images:
   - /assets/engraved-stones/1_prentice.jpg
   - /assets/engraved-stones/2_1122.jpg
@@ -14,9 +13,8 @@ images:
   - /assets/engraved-stones/911_monument_stone_1554.jpg
   - /assets/engraved-stones/912_monument_stone_1551.jpg
   - /assets/engraved-stones/9_jim_lori.jpg
+nav_title: engravings
 template: gallery
 fieldset: gallery
 id: 381a0533-9a46-47f8-b9bb-889e7d99ed67
 ---
-We custom carve anything in to stone, that you can imagine.
-Mobile service is available. Price is determined by design and size.
