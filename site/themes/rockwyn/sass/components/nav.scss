@@ -1,18 +1,18 @@
 .navbar-rockwyn {
-    background: #fff;
+    background-color:  #1a0d00;
 	border-bottom: 1px solid rgba(0,0,0,.1);
 	border-radius: 0;
-	min-height: 60px;
+	min-height: 50px;
 
 	.nav {
-		color: $color_light;
+		color: $color_white;
 		font-family: $font_sans;
-		font-size: 12px;
+		font-size: 15px;
 		//overflow: hidden;
 	}
 
 	.nav a {
-		color: $color_light;
+		color: $color_white;
 		letter-spacing: .1em;
 		margin-left: 32px;
 		padding: 20px 0;
@@ -24,7 +24,7 @@
 			bottom: -3px;
 			width: 100%;
 			height: 2px;
-			background: $color_light;
+			background: $color_white;
 			content: '';
 			transition: all 100ms ease;
 			opacity: 0;
@@ -40,19 +40,19 @@
 	}
 
 	.nav .active a {
-		color: $color_dark;
+		color: $color_teal;
 		font-weight: bold;
 		position: relative;
 		&:before {
 			bottom: 0;
 			height: 2px;
-			background: $color_dark;
+			background: $color_white;
 			opacity: 1;
 		}
 	}
 
 	.navbar-brand {
-		color: $color_dark;
+		color: $color_white;
 		font-weight: 900;
 		font-size: 32px;
 		height: 60px;
@@ -85,4 +85,27 @@
 	.icon-bar {
 		background: #aaa;
 	}
+}
+.jumbotron ul {
+    float: right;
+    list-style-type: none;
+}
+.jumbotron {
+    background-image: url("/assets/header_bg.png");
+    padding: 0;
+    margin-bottom: 10px;
+}
+.jumbotron-fluid {
+    a {
+
+
+
+
+    color: $color_teal;
+    font-weight: 900;
+    font-size: 32px;
+    height: 60px;
+    padding: 20px 15px;
+    letter-spacing: -.05em;
+}
 }

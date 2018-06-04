@@ -1,6 +1,4 @@
----
 title: 'Driveway, Entryways, Path and Stairs to Dock'
-nav_title: driveway-entryways-path-and-stairs-to-dock
 images:
   - /assets/driveway-entryways-path-stairs-and-path-to-dock/back_stairs_1_web.jpg
   - /assets/driveway-entryways-path-stairs-and-path-to-dock/back_stairs_2_web.jpg
@@ -30,6 +28,7 @@ images:
   - /assets/driveway-entryways-path-stairs-and-path-to-dock/front10_web.jpg
   - /assets/driveway-entryways-path-stairs-and-path-to-dock/front11_web.jpg
   - /assets/driveway-entryways-path-stairs-and-path-to-dock/front12_web.jpg
+  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front13_32_024.jpg
 nav_title: driveway-entryways-path-and-stairs-to-dock
 template: gallery
 fieldset: gallery

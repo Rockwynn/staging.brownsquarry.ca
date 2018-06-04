@@ -40,5 +40,14 @@ assets:
     focus: 97-96
   quarryface.jpg:
     focus: 48-92
-  bquarrylogo.png:
+  treelogo.png:
     focus: 52-34
+  aggregates/01_58_crusher_run_m_0576.jpg:
+    title: '5/8" Crusher run type "M"'
+    alt: '5/8" Crusher run type "M"'
+  aggregates/02_58_crusher_run_m_1405.jpg:
+    title: '5/8" Crusher run type "M"'
+    alt: '5/8" Crusher run type "M"'
+  aggregates/03a_78_crusher_run_a_1560.jpg:
+    title: '7/8" Crusher run type "A"'
+    alt: '7/8" Crusher run type "A"'
