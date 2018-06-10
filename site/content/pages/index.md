@@ -16,5 +16,5 @@ id: db0ae4e3-4f10-4802-bc40-0b880cbf02c7
 <p>Whether you need flagstone for your patio, custom cutting of a hearth, or a custom carved sign rock we’re here to help. All you need to do is give us a call and we’ll take care of the rest. In the mean time, feel free to take a look around our site to learn more about our services. If you have any questions or concerns, please don’t hesitate to contact us at any time.</p>
 <p>President – Budd Brown</p>
 <p>
-<img src="/assets/portfolio/28dscf0729.jpg" class="oversized captioned" alt="Another Happy Customer!" data-action=zoom>
+<img src="/assets/portfolio/28dscf0729.jpg" class="oversized captioned" alt="Another Happy Customer! thanks" data-action=zoom>
 </p>
