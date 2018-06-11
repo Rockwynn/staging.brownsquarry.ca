@@ -9,4 +9,8 @@
 		<img src="{{ glide:value width='325' fit='crop' }}" width="325"  sort="title:desc" />
 		<!--<figcaption>{{ caption }}</figcaption>-->
 	</div>
+	<div class="gallery-images">
+		{{ images }}<img src="{{ value }}" alt="{{ value | get:alt }}"/>{{ /images }}
+		<h1 class="italic text-sm">{{ value | get:alt }}</h1>
+	</div>
 </section>
