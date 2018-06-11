@@ -9,11 +9,13 @@
 		{{ images }}<img src="{{ value }}" sort="title:desc" />{{ /images }}-->
 		<!--<figcaption>{{ caption }}</figcaption>-->
 	<!--</div>-->
-	<!--commented out above and added below to have glide generate smaller images for mobile and cache them, this stopped the Serve scaled images warning on gtmetrix.com-->
+	<!--commented out above and added below to have glide generate smaller images for mobile and cache them,
+	this stopped the Serve scaled images warning on gtmetrix.com-->
 
 
 	<div class="gallery-images">
-		{{ images }}<img src="{{ glide:value width='325' fit='crop' }}" width="325"  sort="title:desc" />{{ /images }}		<!--<figcaption>{{ caption }}</figcaption>-->
+		{{ images }}<img src="{{ glide:value width='325' fit='crop' }}" width="325"  sort="title:desc" />{{ /images }}
+		<!--<figcaption>{{ caption }}</figcaption>-->
 	</div>
 
 	<!--<div class="gallery-images">
