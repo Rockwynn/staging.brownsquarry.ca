@@ -1,6 +1,7 @@
 ---
 title: 'Our Quarry'
 images:
+  - /assets/our-quarry/wire_saw_656x325_00240.jpg
   - /assets/our-quarry/panorama01.jpg
   - /assets/our-quarry/panorama1.jpg
   - /assets/our-quarry/panorama2.jpg
