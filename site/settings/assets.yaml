@@ -4,5 +4,11 @@ auto_crop: true
 image_manipulation_driver: imagick
 image_manipulation_cached: true
 image_manipulation_cached_path: img
+image_manipulation_presets:
+  small:
+    w: 300
+    h: 500
+    q: 75
+    fit: contain
 thumbnail_max_width: 6000
 thumbnail_max_height: 6000
