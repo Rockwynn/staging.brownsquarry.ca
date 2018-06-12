@@ -1,6 +1,6 @@
 title: 'Main Assets'
-path: assets
-url: /assets
+path: assets/fullsize
+url: /assets/fullsize
 assets:
   img/black-bear-cubs.jpg:
     title: 'Black Bear Cubs'
@@ -14,40 +14,3 @@ assets:
     title: 'redwood sign'
   img/desert.jpg:
     focus: 77-70
-  portfolio/28dscf0729.jpg:
-    title: 'Lakeside Armour Stone Project'
-    alt: 'Lakeside Armour Stone Project'
-  portfolio/32_024.jpg:
-    title: 'Stone Amphitheater Project'
-    alt: 'Stone Amphitheater Project'
-  portfolio/eagle_lake_rich_first_job069.jpg:
-    title: 'Multi-tiered Stone Walkway Project'
-    alt: 'Multi-tiered Stone Walkway Project'
-  portfolio/29_dsc_1058.jpg:
-    title: 'Flagstone Courtyard Project'
-    alt: 'Flagstone Courtyard Project'
-  portfolio/cover_frenchs_front_00320_web.jpg:
-    title: 'Driveway, Entryways, Path and Stairs to Dock'
-    alt: 'Driveway, Entryways, Path and Stairs to Dock'
-  portfolio/bench_web.jpg:
-    title: 'Decorative Bench'
-    alt: 'Decorative Bench'
-  panorama_quarry.jpg:
-    focus: 99-53
-  panorama3.jpg:
-    focus: 98-94
-  4_0129.jpg:
-    focus: 97-96
-  quarryface.jpg:
-    focus: 48-92
-  treelogo.png:
-    focus: 52-34
-  aggregates/01_58_crusher_run_m_0576.jpg:
-    title: '5/8" Crusher run type "M"'
-    alt: '5/8" Crusher run type "M"'
-  aggregates/02_58_crusher_run_m_1405.jpg:
-    title: '5/8" Crusher run type "M"'
-    alt: '5/8" Crusher run type "M"'
-  aggregates/03a_78_crusher_run_a_1560.jpg:
-    title: '7/8" Crusher run type "A"'
-    alt: '7/8" Crusher run type "A"'

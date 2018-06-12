@@ -12,10 +12,11 @@
     <title>{{ title ensure_right=" / " }}{{ site_name }}</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ theme:css }}">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/bq-avatar.jpg" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/fullsize/bq-avatar.jpg" />
+    <script src="/site/themes/rockwyn/js/elixir.min.js"></script>
 </head>
 
-<body style="background-image: url("/assets/header_bg.png");" class="section-{{ segment_1 or "home" }}">
+<body style="background-image: url("/assets/fullsize/header_bg.png");" class="section-{{ segment_1 or "home" }}">
     {{ partial:nav }}
 
     {{ template_content }}
@@ -24,7 +25,6 @@
         <p class="copyright">&copy; {{ now format="Y" }} {{ author_name }}</p>
         <p class="tribute">Designed by Rockwynn Web Design</p>
     </footer>
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{{ theme:js }}"></script>

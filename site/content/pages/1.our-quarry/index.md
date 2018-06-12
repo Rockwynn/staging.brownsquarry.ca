@@ -1,15 +1,15 @@
 ---
 title: 'Our Quarry'
 images:
-  - /assets/our-quarry/wire_saw_656x325_00240.jpg
-  - /assets/our-quarry/panorama01.jpg
-  - /assets/our-quarry/panorama1.jpg
-  - /assets/our-quarry/panorama2.jpg
-  - /assets/our-quarry/panorama3.jpg
-  - /assets/our-quarry/panorama_quarry_back_half.jpg
-  - /assets/our-quarry/panorama_quarry_left_stone_prod.jpg
-  - /assets/our-quarry/panorama_truck_trailer.jpg
-  - /assets/our-quarry/panorama_quarry_front_half.jpg
+  - /assets/fullsize/our-quarry/wire_saw_656x325_00240.jpg
+  - /assets/fullsize/our-quarry/panorama01.jpg
+  - /assets/fullsize/our-quarry/panorama1.jpg
+  - /assets/fullsize/our-quarry/panorama2.jpg
+  - /assets/fullsize/our-quarry/panorama3.jpg
+  - /assets/fullsize/our-quarry/panorama_quarry_back_half.jpg
+  - /assets/fullsize/our-quarry/panorama_quarry_left_stone_prod.jpg
+  - /assets/fullsize/our-quarry/panorama_truck_trailer.jpg
+  - /assets/fullsize/our-quarry/panorama_quarry_front_half.jpg
 nav_title: 'our quarry'
 template: gallery
 fieldset: gallery
@@ -19,6 +19,6 @@ id: 57649ac5-6899-403e-a2e9-83836580202f
 <h4>The result is a 100% granite aggregate.</h4>
 <h4>Brown&#8217;s Quarry operates a diamond wire saw which utilizes the most advanced granite cutting technology. Stone is sawn on the beds to specific heights &amp; lengths. Alongside our cut granite products, we offer a complete line of natural stone in a variety of colors and thickness for a number of creative applications.</h4>
 <!--<p>
-<img src="/assets/wire_saw_656x325_00240.jpg" class="oversized captioned" alt="Custom Build Diamond Wire Saw" data-action="zoom">
+<img src="/assets/fullsize/wire_saw_656x325_00240.jpg" class="oversized captioned" alt="Custom Build Diamond Wire Saw" data-action="zoom">
 </p>
-<div><a href="/assets/wire_saw_656x325_00240.jpg"><img src="/assets/wire_saw_656x325_00240.jpg" /></a><h4>Custom Build Diamond Wire Saw</h4></div>-->
+<div><a href="/assets/fullsize/wire_saw_656x325_00240.jpg"><img src="/assets/fullsize/wire_saw_656x325_00240.jpg" /></a><h4>Custom Build Diamond Wire Saw</h4></div>-->

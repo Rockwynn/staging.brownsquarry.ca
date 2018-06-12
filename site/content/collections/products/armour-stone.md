@@ -1,3 +1,3 @@
 title: 'Armour Stone'
-image_url: /assets/products/armour-stone.jpg
+image_url: /assets/fullsize/products/armour-stone.jpg
 id: 13252911-70b8-4f01-aea6-ee8015f11841
