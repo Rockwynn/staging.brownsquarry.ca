@@ -11,7 +11,7 @@ class Plugin_elixir extends Plugin {
 
 
 	public function index()
-	{ 
+	{
 		// Grab all our widths
 		$widths = array(320,640,800,1200,1500,1800,2400,2880);
 
@@ -43,7 +43,7 @@ class Plugin_elixir extends Plugin {
 		$background = false;
 
 		if ($this->fetchParam('background', null, null, true)) {
-			$background = true;	
+			$background = true;
 		}
 
 
@@ -83,7 +83,7 @@ class Plugin_elixir extends Plugin {
 			if ($background) {
 				return Parse::contextualTemplate(str_replace('data-elixir', 'style', $content), $fallbackArr, $this->context);
 			} else {
-				return Parse::contextualTemplate(str_replace('data-elixir', 'src', $content), $fallbackArr, $this->context);	
+				return Parse::contextualTemplate(str_replace('data-elixir', 'src', $content), $fallbackArr, $this->context);
 			}
 		}
 	}
@@ -96,7 +96,7 @@ class Plugin_elixir extends Plugin {
  			$this->session->set('js', true);
  			return null;
  		} else {
- 			$js = 
+ 			$js =
  			'<form name="jsform" id="jsform" method="post" style="display:none">
  	  	  <input name="jstest" type="text" value="true" />
  	  	  <script language="javascript">
@@ -107,6 +107,6 @@ class Plugin_elixir extends Plugin {
  		  </form>';
  		  $this->session->set('js', false);
       return $js;
- 		}	
+ 		}
 	}
 }
