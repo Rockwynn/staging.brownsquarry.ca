@@ -1,31 +1,31 @@
 title: 'Armour Stone Amphitheater'
 images:
-  - /assets/img/Amphitheater/01_0531.jpg
-  - /assets/img/Amphitheater/02_0533.jpg
-  - /assets/img/Amphitheater/03_0539.jpg
-  - /assets/img/Amphitheater/04_0541.jpg
-  - /assets/img/Amphitheater/05_0545.jpg
-  - /assets/img/Amphitheater/06_0546.jpg
-  - /assets/img/Amphitheater/07_0547.jpg
-  - /assets/img/Amphitheater/08_0548.jpg
-  - /assets/img/Amphitheater/09_0549.jpg
-  - /assets/img/Amphitheater/10_0550.jpg
-  - /assets/img/Amphitheater/11_0558.jpg
-  - /assets/img/Amphitheater/12_0560.jpg
-  - /assets/img/Amphitheater/13_0559.jpg
-  - /assets/img/Amphitheater/14_0570.jpg
-  - /assets/img/Amphitheater/15_0571.jpg
-  - /assets/img/Amphitheater/16_0572.jpg
-  - /assets/img/Amphitheater/17_0575.jpg
-  - /assets/img/Amphitheater/18_0576.jpg
-  - /assets/img/Amphitheater/19_0581.jpg
-  - /assets/img/Amphitheater/20_0582.jpg
-  - /assets/img/Amphitheater/21_0584.jpg
-  - /assets/img/Amphitheater/22_0585.jpg
-  - /assets/img/Amphitheater/23_0586.jpg
-  - /assets/img/Amphitheater/24_0587.jpg
-  - /assets/img/Amphitheater/25_0588.jpg
-  - /assets/img/Amphitheater/26_rich_2nd_finished_Panorama.jpg
+  - /assets/amphitheater/01_0531.jpg
+  - /assets/amphitheater/02_0533.jpg
+  - /assets/amphitheater/03_0539.jpg
+  - /assets/amphitheater/04_0541.jpg
+  - /assets/amphitheater/05_0545.jpg
+  - /assets/amphitheater/06_0546.jpg
+  - /assets/amphitheater/07_0547.jpg
+  - /assets/amphitheater/08_0548.jpg
+  - /assets/amphitheater/09_0549.jpg
+  - /assets/amphitheater/10_0550.jpg
+  - /assets/amphitheater/11_0558.jpg
+  - /assets/amphitheater/12_0560.jpg
+  - /assets/amphitheater/13_0559.jpg
+  - /assets/amphitheater/14_0570.jpg
+  - /assets/amphitheater/15_0571.jpg
+  - /assets/amphitheater/16_0572.jpg
+  - /assets/amphitheater/17_0575.jpg
+  - /assets/amphitheater/18_0576.jpg
+  - /assets/amphitheater/19_0581.jpg
+  - /assets/amphitheater/20_0582.jpg
+  - /assets/amphitheater/21_0584.jpg
+  - /assets/amphitheater/22_0585.jpg
+  - /assets/amphitheater/23_0586.jpg
+  - /assets/amphitheater/24_0587.jpg
+  - /assets/amphitheater/25_0588.jpg
+  - /assets/amphitheater/26-rich.jpg
 nav_title: armour-stone-amphitheater
 template: gallery
 fieldset: gallery

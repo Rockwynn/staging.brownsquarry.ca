@@ -9,7 +9,7 @@
 		<img src="{{ glide:value width='325' fit='crop' }}" width="325" />-->
 		<!--<figcaption>{{ caption }}</figcaption>-->
 	<!--</div>-->
-	<div class="gallery-images">
+	<!--<div class="gallery-images">
 		{{ elixir widths="200,400,600,800,1000" fallback="2"}}
 		  {{ get_files in="/assets" limit="12" }}
 		    <img data-elixir="{{ transform
@@ -27,9 +27,14 @@
 	<div class="gallery-images lazy">
 		{{ images }}<img data-elixir="{{ value }}" alt="{{ value | get:alt }}"/>{{ /images }}
 	</div>
+</section>-->
+
+<div class="gallery-images">
+	{{ images }}<img src="{{ value }}" alt="{{ value | get:alt }}"/>{{ /images }}
+</div>
 </section>
 
-<script>
+<!--<script>
 elixir({
 	".lazy": {
 		"widths": [200,400,600,800,1000]
@@ -37,4 +42,4 @@ elixir({
 });
 
 //$(".lazy img").unveil();
-</script>
+</script>-->

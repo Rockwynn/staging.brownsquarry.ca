@@ -1,22 +1,22 @@
 ---
 title: Aggregates
-nav_title: aggregates
 images:
-  - /assets/img/aggregates/01_58_crusher_run_m_0576.jpg
-  - /assets/img/aggregates/02_58_crusher_run_m_1405.jpg
-  - /assets/img/aggregates/03_78_crusher_run_a_0573.jpg
-  - /assets/img/aggregates/03a_78_crusher_run_a_1560.jpg
-  - /assets/img/aggregates/04_34-1_clear_0568.jpg
-  - /assets/img/aggregates/05_34-1_clear_0583.jpg
-  - /assets/img/aggregates/06_2_inch_minus_0571.jpg
-  - /assets/img/aggregates/07_2_inch_minus_1400.jpg
-  - /assets/img/aggregates/08_2_inch_clear_1414.jpg
-  - /assets/img/aggregates/09_2_inch_clear_1420.jpg
-  - /assets/img/aggregates/10_4_inch_minus_1413.jpg
-  - /assets/img/aggregates/10a4_inch_minus_1558.jpg
-  - /assets/img/aggregates/11_4_to_8_inch_gabion_0574.jpg
-  - /assets/img/aggregates/12_4_to_8_inch_gabion_1403.jpg
-  - /assets/img/aggregates/13_bridge_product_1404.jpg
+  - /assets/aggregates/01-58-crusher-run-0576.jpg
+  - /assets/aggregates/02-58-crusher-run-1405.jpg
+  - /assets/aggregates/03-78-crusher-run-0573.jpg
+  - /assets/aggregates/04-78-crusher-run-1560.jpg
+  - /assets/aggregates/05-34-1-clear-0568.jpg
+  - /assets/aggregates/06-34-1-clear-0583.jpg
+  - /assets/aggregates/07-2-inch-minus-0571.jpg
+  - /assets/aggregates/08-2-inch-minus-1400.jpg
+  - /assets/aggregates/09-2-inch-clear-1414.jpg
+  - /assets/aggregates/10-2-inch-clear-1420.jpg
+  - /assets/aggregates/11-4-inch-minus-1413.jpg
+  - /assets/aggregates/12-4-inch-minus-1558.jpg
+  - /assets/aggregates/13-4-to-8-inch-gabion-0574.jpg
+  - /assets/aggregates/14-4-to-8-inch-gabion-1403.jpg
+  - /assets/aggregates/15-bridge-product-1404.jpg
+nav_title: aggregates
 template: gallery
 fieldset: gallery
 id: 200e2e47-c7da-4ee8-ab60-3bc2676cfa92

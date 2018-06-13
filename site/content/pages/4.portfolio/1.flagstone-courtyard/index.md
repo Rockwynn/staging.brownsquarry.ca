@@ -1,31 +1,31 @@
 title: 'Flagstone Courtyard Gallery'
 images:
-  - /assets/img/flagstone-courtyard/01_dscf0635.jpg
-  - /assets/img/flagstone-courtyard/04_dscf0642.jpg
-  - /assets/img/flagstone-courtyard/05_dscf0643.jpg
-  - /assets/img/flagstone-courtyard/06_dscf0646.jpg
-  - /assets/img/flagstone-courtyard/07_dscf0649.jpg
-  - /assets/img/flagstone-courtyard/08_dscf0651.jpg
-  - /assets/img/flagstone-courtyard/09_dscf0652.jpg
-  - /assets/img/flagstone-courtyard/10_dscf0654.jpg
-  - /assets/img/flagstone-courtyard/11_dscf0655.jpg
-  - /assets/img/flagstone-courtyard/12_dscf0658.jpg
-  - /assets/img/flagstone-courtyard/13_dscf0663.jpg
-  - /assets/img/flagstone-courtyard/14_dscf0666.jpg
-  - /assets/img/flagstone-courtyard/15_dscf0671.jpg
-  - /assets/img/flagstone-courtyard/16_dscf0672.jpg
-  - /assets/img/flagstone-courtyard/17_dscf0673.jpg
-  - /assets/img/flagstone-courtyard/18_dscf0674.jpg
-  - /assets/img/flagstone-courtyard/19_dscf0675.jpg
-  - /assets/img/flagstone-courtyard/20_dscf0640.jpg
-  - /assets/img/flagstone-courtyard/22_dscf0685.jpg
-  - /assets/img/flagstone-courtyard/23_dscf0639.jpg
-  - /assets/img/flagstone-courtyard/24_dscf0684.jpg
-  - /assets/img/flagstone-courtyard/25_dsc_1055.jpg
-  - /assets/img/flagstone-courtyard/26_dsc_1054.jpg
-  - /assets/img/flagstone-courtyard/27_dsc_1068.jpg
-  - /assets/img/flagstone-courtyard/28_dsc_1070.jpg
-  - /assets/img/flagstone-courtyard/29_dsc_1058.jpg
+  - assets/flagstone-courtyard/01-dscf0635.jpg
+  - assets/flagstone-courtyard/02-dscf0642.jpg
+  - assets/flagstone-courtyard/03-dscf0643.jpg
+  - assets/flagstone-courtyard/04-dscf0646.jpg
+  - assets/flagstone-courtyard/05-dscf0649.jpg
+  - assets/flagstone-courtyard/06-dscf0651.jpg
+  - assets/flagstone-courtyard/07-dscf0652.jpg
+  - assets/flagstone-courtyard/08-dscf0654.jpg
+  - assets/flagstone-courtyard/09-dscf0655.jpg
+  - assets/flagstone-courtyard/10-dscf0658.jpg
+  - assets/flagstone-courtyard/11-dscf0663.jpg
+  - assets/flagstone-courtyard/12-dscf0666.jpg
+  - assets/flagstone-courtyard/13-dscf0671.jpg
+  - assets/flagstone-courtyard/14-dscf0672.jpg
+  - assets/flagstone-courtyard/15-dscf0673.jpg
+  - assets/flagstone-courtyard/16-dscf0674.jpg
+  - assets/flagstone-courtyard/17-dscf0675.jpg
+  - assets/flagstone-courtyard/18-dscf0640.jpg
+  - assets/flagstone-courtyard/19-dscf0685.jpg
+  - assets/flagstone-courtyard/20-dscf0639.jpg
+  - assets/flagstone-courtyard/21-dscf0684.jpg
+  - assets/flagstone-courtyard/22-dsc1055.jpg
+  - assets/flagstone-courtyard/23-dsc1054.jpg
+  - assets/flagstone-courtyard/24-dsc1068.jpg
+  - assets/flagstone-courtyard/25-dsc1070.jpg
+  - assets/flagstone-courtyard/26-dsc1058.jpg
 nav_title: flagstone-courtyard
 template: gallery
 fieldset: gallery
