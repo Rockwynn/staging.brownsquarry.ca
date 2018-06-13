@@ -11,7 +11,7 @@
 	<!--</div>-->
 	<div class="gallery-images">
 		{{ elixir widths="200,400,600,800,1000" fallback="2"}}
-		  {{ get_files in="/assets/fullsize" limit="12" }}
+		  {{ get_files in="/assets" limit="12" }}
 		    <img data-elixir="{{ transform
 				 src='{ file }'
 				 destination='/assets/resized'

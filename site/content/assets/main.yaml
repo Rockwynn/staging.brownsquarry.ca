@@ -1,6 +1,6 @@
 title: 'Main Assets'
-path: assets/fullsize
-url: /assets/fullsize
+path: assets
+url: assets/
 assets:
   img/black-bear-cubs.jpg:
     title: 'Black Bear Cubs'

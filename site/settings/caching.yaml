@@ -1,3 +1,0 @@
-static_caching_enabled: true
-static_caching_type: file
-static_caching_default_cache_length: 5
