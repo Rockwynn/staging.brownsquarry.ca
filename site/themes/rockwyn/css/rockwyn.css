@@ -604,26 +604,6 @@ code {
   background: #aaa;
 }
 
-.jumbotron ul {
-  float: right;
-  list-style-type: none;
-}
-
-.jumbotron {
-  background-image: url(/assets/header_bg.png);
-  padding: 0;
-  margin-bottom: 10px;
-}
-
-.jumbotron-fluid a {
-  color: #005566;
-  font-weight: 900;
-  font-size: 32px;
-  height: 60px;
-  padding: 20px 15px;
-  letter-spacing: -.05em;
-}
-
 .tags {
   display: block;
   margin: 0 0 32px;
