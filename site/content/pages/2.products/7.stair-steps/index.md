@@ -1,22 +1,21 @@
----
 title: 'Stair Steps'
-nav_title: stair-steps
 images:
-  - /assets/stair-steps/20_split_stair_steps_0550.jpg
-  - /assets/stair-steps/2_sawn_stair_steps_1385.jpg
-  - /assets/stair-steps/3_sawn_stair_steps_1384.jpg
-  - /assets/stair-steps/4_sawn_stair_steps_1346.jpg
-  - /assets/stair-steps/4_split_stair_steps_1395.jpg
-  - /assets/stair-steps/5_sawn_stair_steps_044.jpg
-  - /assets/stair-steps/5_split_stair_step_1523.jpg
-  - /assets/stair-steps/60_split_stair_1522.jpg
-  - /assets/stair-steps/6_sawn_stair_1550.jpg
-  - /assets/stair-steps/7_sawn_stair_1548.jpg
-  - /assets/stair-steps/7_split_stair_1526.jpg
-  - /assets/stair-steps/91_split_stair_step_6_feet_1552.jpg
-  - /assets/stair-steps/92_sawn_stairs_1353.jpg
-  - /assets/stair-steps/9_split_stair_1521.jpg
+  - /assets/stair-steps/01-sawn-1385.jpg
+  - /assets/stair-steps/02-sawn-1384.jpg
+  - /assets/stair-steps/03-sawn-1346.jpg
+  - /assets/stair-steps/04-split-1395.jpg
+  - /assets/stair-steps/05-sawn-044.jpg
+  - /assets/stair-steps/06-split-1523.jpg
+  - /assets/stair-steps/07-split-1522.jpg
+  - /assets/stair-steps/08-sawn-1548.jpg
+  - /assets/stair-steps/09-sawn-1550.jpg
+  - /assets/stair-steps/10-split-1526.jpg
+  - /assets/stair-steps/11-split-1521.jpg
+  - /assets/stair-steps/12-split-5-feet-1553.jpg
+  - /assets/stair-steps/13-split-0550.jpg
+  - /assets/stair-steps/15-sawn-1353.jpg
+  - /assets/stair-steps/14-split-6-feet-1552.jpg
+nav_title: stair-steps
 template: gallery
 fieldset: gallery
 id: 29577d8b-5e0b-4f5a-aa45-7a85ed5c73ae
----

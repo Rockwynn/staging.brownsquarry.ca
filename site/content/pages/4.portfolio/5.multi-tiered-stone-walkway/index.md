@@ -1,33 +1,33 @@
 title: 'Multi-tiered Stone Walkway'
 images:
-  - /assets/multi-tiered-stone-walkway/01_011.jpg
-  - /assets/multi-tiered-stone-walkway/02and3.jpg
-  - /assets/multi-tiered-stone-walkway/05_013.jpg
-  - /assets/multi-tiered-stone-walkway/06_012.jpg
-  - /assets/multi-tiered-stone-walkway/07_014.jpg
-  - /assets/multi-tiered-stone-walkway/08_029.jpg
-  - /assets/multi-tiered-stone-walkway/09_030.jpg
-  - /assets/multi-tiered-stone-walkway/10_028.jpg
-  - /assets/multi-tiered-stone-walkway/11_032.jpg
-  - /assets/multi-tiered-stone-walkway/12_034.jpg
-  - /assets/multi-tiered-stone-walkway/13_037.jpg
-  - /assets/multi-tiered-stone-walkway/14_040.jpg
-  - /assets/multi-tiered-stone-walkway/15_041.jpg
-  - /assets/multi-tiered-stone-walkway/16_044.jpg
-  - /assets/multi-tiered-stone-walkway/18_047.jpg
-  - /assets/multi-tiered-stone-walkway/17_045.jpg
-  - /assets/multi-tiered-stone-walkway/19_049.jpg
-  - /assets/multi-tiered-stone-walkway/20_061.jpg
-  - /assets/multi-tiered-stone-walkway/21_053.jpg
-  - /assets/multi-tiered-stone-walkway/22_056.jpg
-  - /assets/multi-tiered-stone-walkway/23_057.jpg
-  - /assets/multi-tiered-stone-walkway/24_059.jpg
-  - /assets/multi-tiered-stone-walkway/25_063.jpg
-  - /assets/multi-tiered-stone-walkway/26_064.jpg
-  - /assets/multi-tiered-stone-walkway/27_067.jpg
-  - /assets/multi-tiered-stone-walkway/28_068.jpg
-  - /assets/multi-tiered-stone-walkway/29_070.jpg
-  - /assets/multi-tiered-stone-walkway/30_071.jpg
+  - /assets/multi-tiered-stone-walkway/01-011.jpg
+  - /assets/multi-tiered-stone-walkway/02-pano.jpg
+  - /assets/multi-tiered-stone-walkway/03-013.jpg
+  - /assets/multi-tiered-stone-walkway/04-012.jpg
+  - /assets/multi-tiered-stone-walkway/05-014.jpg
+  - /assets/multi-tiered-stone-walkway/06-029.jpg
+  - /assets/multi-tiered-stone-walkway/07-030.jpg
+  - /assets/multi-tiered-stone-walkway/08-028.jpg
+  - /assets/multi-tiered-stone-walkway/09-032.jpg
+  - /assets/multi-tiered-stone-walkway/10-034.jpg
+  - /assets/multi-tiered-stone-walkway/11-037.jpg
+  - /assets/multi-tiered-stone-walkway/12-040.jpg
+  - /assets/multi-tiered-stone-walkway/13-041.jpg
+  - /assets/multi-tiered-stone-walkway/14-044.jpg
+  - /assets/multi-tiered-stone-walkway/15-045.jpg
+  - /assets/multi-tiered-stone-walkway/16-047.jpg
+  - /assets/multi-tiered-stone-walkway/17-049.jpg
+  - /assets/multi-tiered-stone-walkway/18-061.jpg
+  - /assets/multi-tiered-stone-walkway/19-053.jpg
+  - /assets/multi-tiered-stone-walkway/20-056.jpg
+  - /assets/multi-tiered-stone-walkway/21-057.jpg
+  - /assets/multi-tiered-stone-walkway/22-059.jpg
+  - /assets/multi-tiered-stone-walkway/23-063.jpg
+  - /assets/multi-tiered-stone-walkway/24-064.jpg
+  - /assets/multi-tiered-stone-walkway/25-067.jpg
+  - /assets/multi-tiered-stone-walkway/26-068.jpg
+  - /assets/multi-tiered-stone-walkway/27-070.jpg
+  - /assets/multi-tiered-stone-walkway/28-071.jpg
 nav_title: multi-tiered-stone-walkway
 template: gallery
 fieldset: gallery

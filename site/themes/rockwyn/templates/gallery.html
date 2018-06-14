@@ -34,7 +34,7 @@
 {{ /assets }}-->
 
 <div class="gallery-images">
-	{{ images }}<img src="{{ glide:value  width="350" }}" width="175" alt="{{ value | get:alt }}"/>{{ /images }}
+	{{ images }}<img src="{{ glide:value fit="contain"}}" alt="{{ value | get:alt }}"/>{{ /images }}
 </div>
 </section>
 
