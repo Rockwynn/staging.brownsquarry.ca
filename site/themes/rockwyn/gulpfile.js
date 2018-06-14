@@ -18,6 +18,7 @@ elixir(function(mix) {
     mix.sass(theme + '.scss', 'css/' + theme + '.css');
 
     mix.scripts([
+        'js/bootstrap.min.js',
         'vendor/collage-plus.js',
         'vendor/zoom.js',
         'jabbascripts.js'
