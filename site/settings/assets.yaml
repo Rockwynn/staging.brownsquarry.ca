@@ -1,9 +1,9 @@
-image_manipulation_route: /assets
+image_manipulation_route: /img
 image_manipulation_secure: true
 auto_crop: true
 image_manipulation_driver: imagick
 image_manipulation_cached: true
-image_manipulation_cached_path: cached-images
+image_manipulation_cached_path: img
 image_manipulation_presets:
   two:
     w: 200

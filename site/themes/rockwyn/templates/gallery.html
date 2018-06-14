@@ -29,8 +29,12 @@
 	</div>
 </section>-->
 
+<!--{{ assets container="acontainer" }}
+<img src="{{ glide:url height="300" width="300" pixelate="25"}}" height="150" width="150" alt="{{ alt }}" class="rounded-lg shadow-lg">
+{{ /assets }}-->
+
 <div class="gallery-images">
-	{{ images }}<img src="{{ value }}" alt="{{ value | get:alt }}"/>{{ /images }}
+	{{ images }}<img src="{{ glide:value  width="350" }}" width="175" alt="{{ value | get:alt }}"/>{{ /images }}
 </div>
 </section>
 

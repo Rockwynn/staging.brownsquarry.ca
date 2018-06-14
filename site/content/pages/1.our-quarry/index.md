@@ -1,13 +1,14 @@
 ---
 title: 'Our Quarry'
 images:
-  - assets/panos/01-pano-quarry.jpg
-  - assets/panos/02-pano-quarry-face.jpg
-  - assets/panos/03-pano-quarry-front.jpg
-  - assets/img/saw-00240.jpg
-  - assets/panos/04-pano-truck.jpg
-  - assets/panos/05-pano-conv-belt.jpg
-
+  - /acontainer/04-bench.jpg
+  - /acontainer/06-0546.jpg
+  - /acontainer/07-sedore.jpg
+  - /acontainer/10-dscf0721.jpg
+  - /acontainer/4-1454.jpg
+  - /acontainer/favicon.ico
+  - /acontainer/mbuntu-10.jpg
+  - /acontainer/mbuntu-2.png
 nav_title: 'our quarry'
 template: gallery
 fieldset: gallery

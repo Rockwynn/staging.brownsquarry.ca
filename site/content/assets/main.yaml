@@ -14,3 +14,8 @@ assets:
     title: 'redwood sign'
   img/desert.jpg:
     focus: 77-70
+  img/assets/amphitheater/26-rich.jpg: null
+  armour-stone/01-024.jpg:
+    alt: amphitheater
+  armour-stone/02-1360.jpg:
+    alt: 'Armour Stones'
