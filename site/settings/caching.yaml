@@ -1,7 +1,1 @@
-stache_always_update: true
-static_caching_enabled: true
-static_caching_type: file
-static_caching_file_path: static
-static_caching_ignore_query_strings: true
-static_caching_invalidation: '{  }'
-static_caching_lock_hold_length: 0
+
