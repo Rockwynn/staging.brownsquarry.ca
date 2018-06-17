@@ -1,21 +1,21 @@
 ---
 title: Aggregates
 images:
-  - /assets/aggregates/01-58-crusher-run-0576.jpg
-  - /assets/aggregates/02-58-crusher-run-1405.jpg
-  - /assets/aggregates/03-78-crusher-run-0573.jpg
-  - /assets/aggregates/04-78-crusher-run-1560.jpg
-  - /assets/aggregates/05-34-1-clear-0568.jpg
-  - /assets/aggregates/06-34-1-clear-0583.jpg
-  - /assets/aggregates/07-2-inch-minus-0571.jpg
-  - /assets/aggregates/08-2-inch-minus-1400.jpg
-  - /assets/aggregates/09-2-inch-clear-1414.jpg
-  - /assets/aggregates/10-2-inch-clear-1420.jpg
-  - /assets/aggregates/11-4-inch-minus-1413.jpg
-  - /assets/aggregates/12-4-inch-minus-1558.jpg
-  - /assets/aggregates/13-4-to-8-inch-gabion-0574.jpg
-  - /assets/aggregates/14-4-to-8-inch-gabion-1403.jpg
-  - /assets/aggregates/15-bridge-product-1404.jpg
+  - https://bq.imgix.net/bq/aggregates/01-58-crusher-run-0576.jpg
+  - https://bq.imgix.net/bq/aggregates/02-58-crusher-run-1405.jpg
+  - https://bq.imgix.net/bq/aggregates/03-78-crusher-run-0573.jpg
+  - https://bq.imgix.net/bq/aggregates/04-78-crusher-run-1560.jpg
+  - https://bq.imgix.net/bq/aggregates/05-34-1-clear-0568.jpg
+  - https://bq.imgix.net/bq/aggregates/06-34-1-clear-0583.jpg
+  - https://bq.imgix.net/bq/aggregates/07-2-inch-minus-0571.jpg
+  - https://bq.imgix.net/bq/aggregates/08-2-inch-minus-1400.jpg
+  - https://bq.imgix.net/bq/aggregates/09-2-inch-clear-1413.jpg
+  - https://bq.imgix.net/bq/aggregates/10-2-inch-clear-1420.jpg
+  - https://bq.imgix.net/bq/aggregates/11-4-inch-minus-0569.jpg
+  - https://bq.imgix.net/bq/aggregates/12-4-inch-minus-1558.jpg
+  - https://bq.imgix.net/bq/aggregates/13-4-8-gabion-0574.jpg
+  - https://bq.imgix.net/bq/aggregates/14-4-8-gabion-1403.jpg
+  - https://bq.imgix.net/bq/aggregates/15-bridge-product-1404.jpg
 nav_title: aggregates
 template: gallery
 fieldset: gallery

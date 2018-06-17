@@ -1,32 +1,18 @@
+---
 title: 'Armour Stone Amphitheater'
 images:
-  - /assets/amphitheater/26-rich.jpg
-  - /assets/amphitheater/01-0531.jpg
-  - /assets/amphitheater/03-0539.jpg
-  - /assets/amphitheater/02-0533.jpg
-  - /assets/amphitheater/04-0541.jpg
-  - /assets/amphitheater/05-0545.jpg
-  - /assets/amphitheater/06-0546.jpg
-  - /assets/amphitheater/07-0547.jpg
-  - /assets/amphitheater/08-0548.jpg
-  - /assets/amphitheater/09-0549.jpg
-  - /assets/amphitheater/10-0550.jpg
-  - /assets/amphitheater/11-0558.jpg
-  - /assets/amphitheater/12-0560.jpg
-  - /assets/amphitheater/13-0559.jpg
-  - /assets/amphitheater/15-0571.jpg
-  - /assets/amphitheater/14-0570.jpg
-  - /assets/amphitheater/16-0572.jpg
-  - /assets/amphitheater/17-0575.jpg
-  - /assets/amphitheater/18-0576.jpg
-  - /assets/amphitheater/19-0581.jpg
-  - /assets/amphitheater/20-0582.jpg
-  - /assets/amphitheater/21-0584.jpg
-  - /assets/amphitheater/23-0586.jpg
-  - /assets/amphitheater/22-0585.jpg
-  - /assets/amphitheater/24-0587.jpg
-  - /assets/amphitheater/25-0588.jpg
+  - https://bq.imgix.net/bq/amphitheater/01-024.jpg
+  - https://bq.imgix.net/bq/amphitheater/02-0531.jpg
+  - https://bq.imgix.net/bq/amphitheater/03-0550.jpg
+  - https://bq.imgix.net/bq/amphitheater/04-0546.jpg
+  - https://bq.imgix.net/bq/amphitheater/05-0560.jpg
+  - https://bq.imgix.net/bq/amphitheater/06-0559.jpg
+  - https://bq.imgix.net/bq/amphitheater/07-0570.jpg
+  - https://bq.imgix.net/bq/amphitheater/08-0575.jpg
+  - https://bq.imgix.net/bq/amphitheater/09-0587.jpg
+  - https://bq.imgix.net/bq/amphitheater/10-rich.jpg
 nav_title: armour-stone-amphitheater
 template: gallery
 fieldset: gallery
 id: 24ee748e-f878-4512-b22a-f85ecb9d5336
+---

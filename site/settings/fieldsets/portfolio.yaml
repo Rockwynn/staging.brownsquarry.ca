@@ -1,17 +1,16 @@
 title: Portfolio
-create_title: Create Portfolio
+create_title: 'Create Portfolio'
 sections:
   main:
     display: Main
-fields:
-  title:
-    type: text
-    display: Title
-    localizable: true
-  slug:
-    type: text
-    display: Slug
-  image_url:
-    type: text
-    display: Image URL
+    fields:
+      title:
+        type: text
+        display: Title
+      image_url:
+        type: text
+        display: 'Image URL'
+      slug:
+        type: text
+        display: Slug
 taxonomies: true

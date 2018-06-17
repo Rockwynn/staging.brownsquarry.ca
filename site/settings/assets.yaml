@@ -1,28 +1,7 @@
-image_manipulation_route: /img
-image_manipulation_secure: true
-auto_crop: true
+image_manipulation_route: /assets
+image_manipulation_secure: false
+auto_crop: false
 image_manipulation_driver: imagick
-image_manipulation_cached: true
-image_manipulation_cached_path: img
-image_manipulation_presets:
-  two:
-    w: 200
-    h: 200
-    fit: crop
-  four:
-    w: 400
-    fit: contain
-  six:
-    w: 600
-    fit: contain
-  eight:
-    w: 800
-    fit: contain
-  ten:
-    w: 1000
-    fit: max
-  twelve:
-    w: 1200
-    fit: max
+image_manipulation_cached: false
 thumbnail_max_width: 6000
 thumbnail_max_height: 6000

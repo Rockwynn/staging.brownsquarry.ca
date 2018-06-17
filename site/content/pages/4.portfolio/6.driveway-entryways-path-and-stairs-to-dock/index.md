@@ -1,34 +1,24 @@
+---
 title: 'Driveway, Entryways, Path and Stairs to Dock'
 images:
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-09.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-07.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/back-stairs-1.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/back-stairs-2.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/back-stairs-3.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/back-stairs-4.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/back-stairs-5.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/back-stairs-6.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/back-stairs-7.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/back-stairs-8.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/dock-2.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/dock-1.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/dock-3.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/dock-4.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/dock-5.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/dock-6.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/dock-7.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/dock-8.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/dock-9.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-01.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-10.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-02.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-03.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-04.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-05.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-06.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-12.jpg
-  - /assets/driveway-entryways-path-stairs-and-path-to-dock/front-11.jpg
+  - https://bq.imgix.net/bq/driveway/afirst-111.jpg
+  - https://bq.imgix.net/bq/driveway/back-stairs-01.jpg
+  - https://bq.imgix.net/bq/driveway/back-stairs-02.jpg
+  - https://bq.imgix.net/bq/driveway/back-stairs-03.jpg
+  - https://bq.imgix.net/bq/driveway/dock-01-066.jpg
+  - https://bq.imgix.net/bq/driveway/dock-02-085.jpg
+  - https://bq.imgix.net/bq/driveway/dock-03-100.jpg
+  - https://bq.imgix.net/bq/driveway/dock-04-098.jpg
+  - https://bq.imgix.net/bq/driveway/dock-05-067.jpg
+  - https://bq.imgix.net/bq/driveway/dock-06-079.jpg
+  - https://bq.imgix.net/bq/driveway/dock-07-102.jpg
+  - https://bq.imgix.net/bq/driveway/front-01-dscf0983.jpg
+  - https://bq.imgix.net/bq/driveway/front-02-090.jpg
+  - https://bq.imgix.net/bq/driveway/front-03-107.jpg
+  - https://bq.imgix.net/bq/driveway/front-04-110.jpg
+  - https://bq.imgix.net/bq/driveway/front-05-105.jpg
 nav_title: driveway-entryways-path-and-stairs-to-dock
 template: gallery
 fieldset: gallery
 id: e9f57c5b-e2c6-42bc-817c-3e34702fbefa
+---
