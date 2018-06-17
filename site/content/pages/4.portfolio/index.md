@@ -2,7 +2,7 @@
 title: Landscaping Gallery
 sub_title: View our Client Photos
 image_url: /assets/panoramas/pano-quarry-fhalf.jpg
-bq_avatar: /assets/logos/bq-logo-circle-green.png
+bq_avatar: https://bq.imgix.net/assets/logos/bq-logo-circle-green.png?w=48&h=48&fit=scale&DPR=null&q=75&s=08522b56320d8eefe5157544ad809274
 nav_title: Gallery
 template: portfolio
 mount: portfolio
