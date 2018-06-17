@@ -3,7 +3,7 @@ nav_title: Home
 title: Spring has Sprung!
 sub_title: It's time to re-shape your Landscape!
 hero_image: /assets/panoramas/home-pano900x3548.jpg
-bq_avatar: https://bq.imgix.net/assets/logos/bq-logo-circle-green.png?w=48&h=48&fit=scale&DPR=null&q=75&s=08522b56320d8eefe5157544ad809274
+bq_avatar: /assets/logos/bq-logo-circle-green.png
 template: blog/hero-post
 id: db0ae4e3-4f10-4802-bc40-0b880cbf02c7
 ---

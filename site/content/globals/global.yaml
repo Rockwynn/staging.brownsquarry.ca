@@ -3,4 +3,4 @@ site_name: Brown's Quarry
 author_name: Brown's Quarry Inc.
 owner_name: Budd Brown
 logo: <img src="/assets/logos/bqlogo-white-text.png"/>
-bq_avatar: <img src="https://bq.imgix.net/assets/logos/bq-logo-circle-green.png?w=48&h=48&fit=scale&DPR=null&q=75&s=08522b56320d8eefe5157544ad809274"/>
+bq_avatar: <img src="/assets/logos/bq-logo-circle-green.png"/>
