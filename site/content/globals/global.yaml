@@ -2,5 +2,5 @@ id: d9bfc09a-3a90-41d3-8acc-3f551f8432af
 site_name: Brown's Quarry
 author_name: Brown's Quarry Inc.
 owner_name: Budd Brown
-logo: <img src="https://bq.imgix.net/assets/logos/bqlogo-white-text.png?fit=crop&w=251&h=71&q=100&s=259175a57dc3ea2c02ae8855a3afe9a7"/>
+logo: <img src="/assets/logos/bqlogo-white-text.png"/>
 bq_avatar: <img src="https://bq.imgix.net/assets/logos/bq-logo-circle-green.png?w=48&h=48&fit=scale&DPR=null&q=75&s=08522b56320d8eefe5157544ad809274"/>
