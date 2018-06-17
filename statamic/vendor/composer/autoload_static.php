@@ -387,6 +387,13 @@ class ComposerStaticInit0f5d646920142083adb20507caaab1eb
                 0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
             ),
         ),
+        'I' => 
+        array (
+            'Imgix\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/imgix/imgix-php/src',
+            ),
+        ),
         'D' => 
         array (
             'Dotenv' => 
@@ -1466,6 +1473,9 @@ class ComposerStaticInit0f5d646920142083adb20507caaab1eb
         'Illuminate\\View\\View' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/View.php',
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Imgix\\ShardStrategy' => __DIR__ . '/..' . '/imgix/imgix-php/src/Imgix/ShardStrategy.php',
+        'Imgix\\UrlBuilder' => __DIR__ . '/..' . '/imgix/imgix-php/src/Imgix/UrlBuilder.php',
+        'Imgix\\UrlHelper' => __DIR__ . '/..' . '/imgix/imgix-php/src/Imgix/UrlHelper.php',
         'Intervention\\Image\\AbstractColor' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractColor.php',
         'Intervention\\Image\\AbstractDecoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDecoder.php',
         'Intervention\\Image\\AbstractDriver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDriver.php',
@@ -2543,6 +2553,7 @@ class ComposerStaticInit0f5d646920142083adb20507caaab1eb
         'Statamic\\Addons\\Glide\\GlideTags' => __DIR__ . '/../..' . '/bundles/Glide/GlideTags.php',
         'Statamic\\Addons\\Grid\\GridFieldtype' => __DIR__ . '/../..' . '/bundles/Grid/GridFieldtype.php',
         'Statamic\\Addons\\Hidden\\HiddenFieldtype' => __DIR__ . '/../..' . '/bundles/Hidden/HiddenFieldtype.php',
+        'Statamic\\Addons\\Imgix\\ImgixTags' => __DIR__ . '/../..' . '/../site/addons/Imgix/ImgixTags.php',
         'Statamic\\Addons\\In\\InAPI' => __DIR__ . '/../..' . '/bundles/In/InAPI.php',
         'Statamic\\Addons\\In\\InTags' => __DIR__ . '/../..' . '/bundles/In/InTags.php',
         'Statamic\\Addons\\Increment\\IncrementTags' => __DIR__ . '/../..' . '/bundles/Increment/IncrementTags.php',

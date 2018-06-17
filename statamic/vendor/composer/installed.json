@@ -3774,5 +3774,69 @@
             }
         ],
         "description": "A Laravel 5 package to output to the console from outside of command classes"
+    },
+    {
+        "name": "imgix/imgix-php",
+        "version": "1.2.1",
+        "version_normalized": "1.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/imgix/imgix-php.git",
+            "reference": "caa168910f99f9413a28147885ec37e91a16b786"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/imgix/imgix-php/zipball/caa168910f99f9413a28147885ec37e91a16b786",
+            "reference": "caa168910f99f9413a28147885ec37e91a16b786",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "*"
+        },
+        "time": "2018-02-02T17:34:06+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Imgix\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "description": "A PHP client library for generating URLs with imgix.",
+        "keywords": [
+            "imgix"
+        ]
+    },
+    {
+        "name": "imgix/imgix-statamic",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "dist": {
+            "type": "path",
+            "url": "../site/addons/Imgix",
+            "reference": "3de5c7a7d3ec794212b53564ec2d1948fc6ef8dd",
+            "shasum": null
+        },
+        "require": {
+            "imgix/imgix-php": "^1.1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8"
+        },
+        "type": "library",
+        "installation-source": "dist",
+        "authors": [
+            {
+                "name": "Paul Straw",
+                "email": "paulstraw@paulstraw.com"
+            }
+        ],
+        "description": "Easily generate imgix URLs inside Statamic",
+        "transport-options": {
+            "symlink": false
+        }
     }
 ]
