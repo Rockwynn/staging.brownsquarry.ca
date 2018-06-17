@@ -1,14 +1,14 @@
 ---
 title: 'Engraved Stones'
 images:
-  - /engraved-stones/01-prentice.jpg
-  - /engraved-stones/02-1122.jpg
-  - /engraved-stones/03-sedore.jpg
-  - /engraved-stones/04-john-best.jpg
-  - /engraved-stones/05-pegg.jpg
-  - /engraved-stones/06-sedore.jpg
-  - /engraved-stones/07-watsons.jpg
-  - /engraved-stones/08-monument-stone.jpg
+  - /assets/engraved-stones/01-watsons.jpg
+  - /assets/engraved-stones/02-1122.jpg
+  - /assets/engraved-stones/03-sedore.jpg
+  - /assets/engraved-stones/04-pegg.jpg
+  - /assets/engraved-stones/05-prentice.jpg
+  - /assets/engraved-stones/06-john-best.jpg
+  - /assets/engraved-stones/07-sedore.jpg
+  - /assets/engraved-stones/08-monument-stone.jpg
 nav_title: engravings
 template: gallery
 fieldset: gallery

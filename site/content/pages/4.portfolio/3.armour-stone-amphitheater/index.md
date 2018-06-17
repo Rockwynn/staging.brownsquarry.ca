@@ -1,16 +1,16 @@
 ---
 title: 'Armour Stone Amphitheater'
 images:
-  - /amphitheater/01-024.jpg
-  - /amphitheater/02-0531.jpg
-  - /amphitheater/03-0550.jpg
-  - /amphitheater/04-0546.jpg
-  - /amphitheater/05-0560.jpg
-  - /amphitheater/06-0559.jpg
-  - /amphitheater/07-0570.jpg
-  - /amphitheater/08-0575.jpg
-  - /amphitheater/09-0587.jpg
-  - /amphitheater/10-rich.jpg
+  - /assets/amphitheater/01-024.jpg
+  - /assets/amphitheater/02-0531.jpg
+  - /assets/amphitheater/03-0550.jpg
+  - /assets/amphitheater/04-0546.jpg
+  - /assets/amphitheater/05-0560.jpg
+  - /assets/amphitheater/06-0559.jpg
+  - /assets/amphitheater/07-0570.jpg
+  - /assets/amphitheater/08-0575.jpg
+  - /assets/amphitheater/09-0587.jpg
+  - /assets/amphitheater/10-rich.jpg
 nav_title: armour-stone-amphitheater
 template: gallery
 fieldset: gallery

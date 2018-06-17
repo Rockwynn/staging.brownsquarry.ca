@@ -8236,6 +8236,10 @@ body {
   margin: 0 auto;
 }
 
+li.bq-phone a.bq-phone {
+  color: #a9cf6a;
+}
+
 .regular {
   padding: 64px 16px;
   max-width: 732px;
@@ -8284,7 +8288,7 @@ body {
 }
 
 .hero header h1 {
-  margin-top: 200px;
+  margin-top: 150px;
   color: #A9CF6A;
 }
 
@@ -8416,6 +8420,84 @@ footer.page .bq-counter a {
 
 .read-more a {
   color: #445566;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #a9cf6a;
+  border-color: #cbe2a5;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+  color: #fff;
+  background-color: #87a554;
+  border-color: #76904a;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #87a554;
+  border-color: #76904a;
+}
+
+.btn-primary.active,
+.btn-primary:active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #87a554;
+  border-color: #76904a;
+}
+
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open > .dropdown-toggle.btn-primary.focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.open > .dropdown-toggle.btn-primary:hover {
+  color: #fff;
+  background-color: #76904a;
+  border-color: #76904a;
+}
+
+.btn-primary.active,
+.btn-primary:active,
+.open > .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+
+.btn-primary.disabled,
+.btn-primary.disabled.active,
+.btn-primary.disabled.focus,
+.btn-primary.disabled:active,
+.btn-primary.disabled:focus,
+.btn-primary.disabled:hover,
+.btn-primary[disabled],
+.btn-primary[disabled].active,
+.btn-primary[disabled].focus,
+.btn-primary[disabled]:active,
+.btn-primary[disabled]:focus,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary,
+fieldset[disabled] .btn-primary.active,
+fieldset[disabled]
+.btn-primary.focus,
+fieldset[disabled]
+.btn-primary:active,
+fieldset[disabled]
+.btn-primary:focus,
+fieldset[disabled]
+.btn-primary:hover {
+  background-color: #a9cf6a;
+  border-color: #bad887;
+}
+
+.btn-primary .badge {
+  color: #a9cf6a;
+  background-color: #fff;
 }
 
 input.giant {

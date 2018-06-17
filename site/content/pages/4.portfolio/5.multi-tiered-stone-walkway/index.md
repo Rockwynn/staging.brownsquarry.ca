@@ -1,18 +1,18 @@
 ---
 title: 'Multi-tiered Stone Walkway'
 images:
-  - /stone-walkway/01-011.jpg
-  - /stone-walkway/02-049.jpg
-  - /stone-walkway/03-061.jpg
-  - /stone-walkway/04-012.jpg
-  - /stone-walkway/05-070.jpg
-  - /stone-walkway/06-014.jpg
-  - /stone-walkway/07-057.jpg
-  - /stone-walkway/08-063.jpg
-  - /stone-walkway/09-067.jpg
-  - /stone-walkway/10-068.jpg
-  - /stone-walkway/11-064.jpg
-  - /stone-walkway/12-071.jpg
+  - /assets/stone-walkway/01-011.jpg
+  - /assets/stone-walkway/02-049.jpg
+  - /assets/stone-walkway/03-061.jpg
+  - /assets/stone-walkway/04-012.jpg
+  - /assets/stone-walkway/05-070.jpg
+  - /assets/stone-walkway/06-014.jpg
+  - /assets/stone-walkway/07-057.jpg
+  - /assets/stone-walkway/08-063.jpg
+  - /assets/stone-walkway/09-067.jpg
+  - /assets/stone-walkway/10-068.jpg
+  - /assets/stone-walkway/11-064.jpg
+  - /assets/stone-walkway/12-071.jpg
 nav_title: multi-tiered-stone-walkway
 template: gallery
 fieldset: gallery

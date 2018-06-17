@@ -1,8 +1,8 @@
 ---
 title: 'Decorative Bench'
 images:
-  - /decorative-bench/bench.jpg
-  - /decorative-bench/bench2.jpg
+  - /assets/decorative-bench/bench.jpg
+  - /assets/decorative-bench/bench2.jpg
 nav_title: decorative-bench
 template: gallery
 fieldset: gallery

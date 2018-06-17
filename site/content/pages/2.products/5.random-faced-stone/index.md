@@ -1,12 +1,12 @@
 ---
 title: 'Random Faced Stone'
 images:
-  - /random-faced-stone/01-1465.jpg
-  - /random-faced-stone/02-0558.jpg
-  - /random-faced-stone/03-1462.jpg
-  - /random-faced-stone/04-1460.jpg
-  - /random-faced-stone/05-1464.jpg
-  - /random-faced-stone/06-1383.jpg
+  - /assets/random-faced-stone/01-1465.jpg
+  - /assets/random-faced-stone/02-0558.jpg
+  - /assets/random-faced-stone/03-1462.jpg
+  - /assets/random-faced-stone/04-1460.jpg
+  - /assets/random-faced-stone/05-1464.jpg
+  - /assets/random-faced-stone/06-1383.jpg
 nav_title: random-faced-stone
 template: gallery
 fieldset: gallery
