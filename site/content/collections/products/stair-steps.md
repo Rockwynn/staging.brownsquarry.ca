@@ -1,4 +1,4 @@
 ---
 title: 'Stair Steps <br> Split & Sawn'
-image_url: 'https://bq.imgix.net/bq/assets/products/stair-steps-1353.jpg?w=300&DPR=null&q=100&s=f418f65f24f31ea34d1448193875a702'
+image_url: 'https://bq.imgix.net/assets/products/stair-steps-1353.jpg?w=300&h=300&fit=max&s=cdbd93c0deb4d1da0ea23316c725509b'
 id: 630a0429-b89e-4b29-8604-a09f4864d648
