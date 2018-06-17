@@ -1,4 +1,4 @@
 ---
 title: Flagstone
-image_url: 'https://bq.imgix.net/assets/products/flagstone-dscf0554.jpg?w=300&h=300&fit=max&s=2320f0d35c2f2340e54565fe9e2857f3'
+image_url: 'https://bq.imgix.net/assets/products/flagstone-dscf0554.jpg?fit=crop&w=300&h=300&q=100&s=9a5efa1e6baad2ddf78731901ba39545'
 id: 9f48bae2-9b1c-4257-bb17-775906e6b23b
