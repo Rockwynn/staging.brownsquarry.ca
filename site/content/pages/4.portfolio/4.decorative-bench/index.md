@@ -1,8 +1,8 @@
 ---
 title: 'Decorative Bench'
 images:
-  - https://bq.imgix.net/bq/decorative-bench/bench.jpg
-  - https://bq.imgix.net/bq/decorative-bench/bench2.jpg
+  - /decorative-bench/bench.jpg
+  - /decorative-bench/bench2.jpg
 nav_title: decorative-bench
 template: gallery
 fieldset: gallery

@@ -1,22 +1,22 @@
 ---
 title: 'Driveway, Entryways, Path and Stairs to Dock'
 images:
-  - https://bq.imgix.net/bq/driveway/afirst-111.jpg
-  - https://bq.imgix.net/bq/driveway/back-stairs-01.jpg
-  - https://bq.imgix.net/bq/driveway/back-stairs-02.jpg
-  - https://bq.imgix.net/bq/driveway/back-stairs-03.jpg
-  - https://bq.imgix.net/bq/driveway/dock-01-066.jpg
-  - https://bq.imgix.net/bq/driveway/dock-02-085.jpg
-  - https://bq.imgix.net/bq/driveway/dock-03-100.jpg
-  - https://bq.imgix.net/bq/driveway/dock-04-098.jpg
-  - https://bq.imgix.net/bq/driveway/dock-05-067.jpg
-  - https://bq.imgix.net/bq/driveway/dock-06-079.jpg
-  - https://bq.imgix.net/bq/driveway/dock-07-102.jpg
-  - https://bq.imgix.net/bq/driveway/front-01-dscf0983.jpg
-  - https://bq.imgix.net/bq/driveway/front-02-090.jpg
-  - https://bq.imgix.net/bq/driveway/front-03-107.jpg
-  - https://bq.imgix.net/bq/driveway/front-04-110.jpg
-  - https://bq.imgix.net/bq/driveway/front-05-105.jpg
+  - /driveway/afirst-111.jpg
+  - /driveway/back-stairs-01.jpg
+  - /driveway/back-stairs-02.jpg
+  - /driveway/back-stairs-03.jpg
+  - /driveway/dock-01-066.jpg
+  - /driveway/dock-02-085.jpg
+  - /driveway/dock-03-100.jpg
+  - /driveway/dock-04-098.jpg
+  - /driveway/dock-05-067.jpg
+  - /driveway/dock-06-079.jpg
+  - /driveway/dock-07-102.jpg
+  - /driveway/front-01-dscf0983.jpg
+  - /driveway/front-02-090.jpg
+  - /driveway/front-03-107.jpg
+  - /driveway/front-04-110.jpg
+  - /driveway/front-05-105.jpg
 nav_title: driveway-entryways-path-and-stairs-to-dock
 template: gallery
 fieldset: gallery

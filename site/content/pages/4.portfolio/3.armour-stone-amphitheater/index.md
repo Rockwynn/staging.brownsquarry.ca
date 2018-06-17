@@ -1,16 +1,16 @@
 ---
 title: 'Armour Stone Amphitheater'
 images:
-  - https://bq.imgix.net/bq/amphitheater/01-024.jpg
-  - https://bq.imgix.net/bq/amphitheater/02-0531.jpg
-  - https://bq.imgix.net/bq/amphitheater/03-0550.jpg
-  - https://bq.imgix.net/bq/amphitheater/04-0546.jpg
-  - https://bq.imgix.net/bq/amphitheater/05-0560.jpg
-  - https://bq.imgix.net/bq/amphitheater/06-0559.jpg
-  - https://bq.imgix.net/bq/amphitheater/07-0570.jpg
-  - https://bq.imgix.net/bq/amphitheater/08-0575.jpg
-  - https://bq.imgix.net/bq/amphitheater/09-0587.jpg
-  - https://bq.imgix.net/bq/amphitheater/10-rich.jpg
+  - /amphitheater/01-024.jpg
+  - /amphitheater/02-0531.jpg
+  - /amphitheater/03-0550.jpg
+  - /amphitheater/04-0546.jpg
+  - /amphitheater/05-0560.jpg
+  - /amphitheater/06-0559.jpg
+  - /amphitheater/07-0570.jpg
+  - /amphitheater/08-0575.jpg
+  - /amphitheater/09-0587.jpg
+  - /amphitheater/10-rich.jpg
 nav_title: armour-stone-amphitheater
 template: gallery
 fieldset: gallery
