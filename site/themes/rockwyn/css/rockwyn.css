@@ -8378,7 +8378,7 @@ footer.page p.tribute {
   letter-spacing: .5em;
 }
 
-footer.page .bq-counter {
+footer.page .bq-counter a {
   pointer-events: none;
   cursor: default;
 }
