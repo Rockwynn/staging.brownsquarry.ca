@@ -42,6 +42,7 @@
 		text-align: center;
 		h1 {
 			margin-top: 200px;
+			color: $color_avacado;
 		}
 		h2 {
 			font-family: $font_serif;
@@ -125,7 +126,7 @@ footer.page {
 		font-size: 14px;
 	}
 	p.tribute {
-		color: $color_light;
+		color: $color_avacado;
 		font-size: 13px;
 		text-transform: uppercase;
 		letter-spacing: .5em;
@@ -140,6 +141,9 @@ footer.page {
 		max-width: 700px;
 		margin: 0 auto;
 		z-index: 2;
+	}
+	section header h1 {
+		color: $color_avacado;
 	}
 }
 

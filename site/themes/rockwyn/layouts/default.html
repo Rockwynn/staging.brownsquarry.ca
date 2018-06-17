@@ -12,12 +12,12 @@
     <title>{{ title ensure_right=" / " }}{{ site_name }}</title>
     <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="{{ theme:css }}">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicons/bq-logo-circle-green.png"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,300,400italic,900|Lora:400,400italic,700,700italic" type="text/css" />
     <!--<script src="/site/themes/rockwyn/js/elixir.min.js"></script>-->
 </head>
 
-<body class="section-{{ segment_1 or "home" }}" style="background-image: url(assets/header-bg.png)" >
+<body class="section-{{ segment_1 or "home" }}" style="background-image: url(/assets/header-bg.png)" >
     {{ partial:nav }}
 
     {{ template_content }}

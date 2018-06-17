@@ -24,7 +24,7 @@
 			bottom: -3px;
 			width: 100%;
 			height: 2px;
-			background: $color_white;
+			background: $color_avacado;
 			content: '';
 			transition: all 100ms ease;
 			opacity: 0;
@@ -40,7 +40,7 @@
 	}
 
 	.nav .active a {
-		color: $color_teal;
+		color: $color_avacado;
 		font-weight: bold;
 		position: relative;
 		&:before {

@@ -1,6 +1,6 @@
 ---
 nav_title: Home
-title: Spring has Sprung
+title: Spring has Sprung!
 sub_title: It's time to reshape your Landscape!
 hero_image: /assets/panoramas/pano-home-1302-675.jpg
 template: blog/hero-post
