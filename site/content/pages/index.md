@@ -18,3 +18,7 @@ id: db0ae4e3-4f10-4802-bc40-0b880cbf02c7
 <p>
 <img src="/assets/portfolio/01-dscf0729.jpg" class="oversized captioned" alt="Another Happy Customer!" data-action="zoom">
 </p>
+<p><img src="http://swhitewebsite.com/brownsquarryca/assets/quarry-map.png"></p>
+<p><img src="http://www.swhitewebsite.com/brownsquarryca/assets/quarry-map.png"></p>
+<p><img src="www.swhitewebsite.com/brownsquarryca/assets/quarry-map.png"></p>
+<p><img src="swhitewebsite.com/brownsquarryca/assets/quarry-map.png"></p>
