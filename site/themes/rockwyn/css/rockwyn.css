@@ -8378,6 +8378,11 @@ footer.page p.tribute {
   letter-spacing: .5em;
 }
 
+footer.page .bq-counter {
+  pointer-events: none;
+  cursor: default;
+}
+
 .section-things,
 .section-portfolio {
   background: #f2f2f2;

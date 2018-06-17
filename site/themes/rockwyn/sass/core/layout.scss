@@ -131,6 +131,10 @@ footer.page {
 		text-transform: uppercase;
 		letter-spacing: .5em;
 	}
+	.bq-counter {
+		pointer-events: none;
+		cursor: default;
+	}
 }
 .section-things, .section-portfolio {
     background: #f2f2f2;
