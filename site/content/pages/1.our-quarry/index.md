@@ -2,6 +2,7 @@
 title: 'Our Quarry'
 images:
   - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b
+  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?w=100&dpr=2&ch=Width,DPR
   - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?w=100&dpr=2&ch=Width,DPR
   - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?w=200&dpr=2&ch=Width,DPR
   - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?ch=Width&DPR&w=300&dpr=2
