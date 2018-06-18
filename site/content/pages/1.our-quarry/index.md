@@ -10,8 +10,8 @@ id: 57649ac5-6899-403e-a2e9-83836580202f
 ---
 <h4> From this raw state it is sorted by mechanical means, that separates rock from the pit run material greater than four inches. The remaining material is then sent to a crusher and screen decks to produce the desired sizes and grades required for projects.</h4>
 <h4>The result is a 100% granite aggregate.</h4>
-<p>
-<!--<img src="https://bq.imgix.net/misc/saw-00240.jpg?fit=max&w=">
+<!--<p>
+<img src="https://bq.imgix.net/misc/saw-00240.jpg?fit=max&w=">
 <img src="https://bq.imgix.net/driveway/dock-07-102.jpg?ch=Width,DPR&w=400&dpr=2"/>
 <img src="https://bq.imgix.net/misc/saw-00240.jpg" srcset="https://bq.imgix.net/misc/saw-00240.jpg?fit=max&w=650, https://bq.imgix.net/misc/saw-00240.jpg?w=650, https://bq.imgix.net/misc/saw-00240.jpg?w=650&fit=max&q=40&dpr=2, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=20&dpr=3"/>
 </p>
