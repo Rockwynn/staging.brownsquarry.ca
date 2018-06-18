@@ -1,9 +1,9 @@
 ---
 title: 'Our Quarry'
 images:
-  - https://bq.imgix.net/bq/our-quarry/01-our-quarry-pano.jpg?w=400&dpr=2&ch=Width,DPR
-  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?w=400&dpr=2&ch=Width,DPR
-  - https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?ch=Width&DPR&w=400&dpr=2
+  - https://bq.imgix.net/bq/our-quarry/01-our-quarry-pano.jpg?w=100&dpr=2&ch=Width,DPR
+  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?w=200&dpr=2&ch=Width,DPR
+  - https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?ch=Width&DPR&w=300&dpr=2
   - https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=400&dpr=2&ch=Width,DPR
   - https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=650&s=dde5ca215e60b6b1af70d786ea1e2a40" srcset="https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=650&1x=null&s=2bc94d783eb20ac30fec5825f654ae84, https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=650&fit=max&q=40&dpr=2&2x=null&s=cd1c23120d3e08391e82cf76ac57b384, https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=650&fit=max&q=20&dpr=3&3x=null&s=d87bc1a2c150021f278a2fb69b6ff2df
   - https://bq.imgix.net/assets/our-quarry/02-0129.jpg?w=650&s=8c366b3f5697722b01f98948a278b4e2" srcset="https://bq.imgix.net/assets/our-quarry/02-0129.jpg?w=650&1x=null&s=6324ba3d000309d82469e0d1f41d50ac, https://bq.imgix.net/assets/our-quarry/02-0129.jpg?w=650&fit=max&q=40&dpr=2&2x=null&s=10867f7348d0b9aa6acf75ae2f0e49c0, https://bq.imgix.net/assets/our-quarry/02-0129.jpg?w=650&fit=max&q=20&dpr=3&3x=null&s=e661282c57a141f30024b7fbe74ffebd
