@@ -1,6 +1,7 @@
 ---
 title: 'Our Quarry'
 images:
+  - https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg
   - https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=100&dpr=2&ch=Width,DPR
   - https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=200&dpr=2&ch=Width,DPR
   - https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?ch=Width&DPR&w=300&dpr=2
