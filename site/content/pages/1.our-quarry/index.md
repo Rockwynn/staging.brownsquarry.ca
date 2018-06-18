@@ -1,13 +1,14 @@
 ---
 title: 'Our Quarry'
 images:
-  - /assets/our-quarry/01-our-quarry-pano.jpg
-  - /assets/our-quarry/02-0129.jpg
-  - /assets/our-quarry/03-0151.jpg
-  - /assets/our-quarry/04-0130.jpg
-  - /assets/our-quarry/05-0127.jpg
-  - /assets/our-quarry/06-0124.jpg
-  - /assets/our-quarry/07-0749.jpg
+  - https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=650" srcset="https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=650 1x,https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=650&fit=max&q=40&dpr=2 2x,https://bq.imgix.net/assets/our-quarry/01-our-quarry-pano.jpg?w=650&fit=max&q=20&dpr=3 3x
+  - https://bq.imgix.net/assets/our-quarry/02-0129.jpg?w=650" srcset="https://bq.imgix.net/assets/our-quarry/02-0129.jpg?w=650 1x,https://bq.imgix.net/assets/our-quarry/02-0129.jpg?w=650&fit=max&q=40&dpr=2 2x,https://bq.imgix.net/assets/our-quarry/02-0129.jpg?w=650&fit=max&q=20&dpr=3 3x
+  - https://bq.imgix.net/assets/our-quarry/03-0151.jpg?w=650" srcset="https://bq.imgix.net/assets/our-quarry/03-0151.jpg?w=650 1x,https://bq.imgix.net/assets/our-quarry/03-0151.jpg?w=650&fit=max&q=40&dpr=2 2x,https://bq.imgix.net/assets/our-quarry/03-0151.jpg?w=650&fit=max&q=20&dpr=3 3x
+  - https://bq.imgix.net/assets/our-quarry/04-0130.jpg?w=650" srcset="https://bq.imgix.net/assets/our-quarry/04-0130.jpg?w=650 1x,https://bq.imgix.net/assets/our-quarry/04-0130.jpg?w=650&fit=max&q=40&dpr=2 2x,https://bq.imgix.net/assets/our-quarry/04-0130.jpg?w=650&fit=max&q=20&dpr=3 3x
+  - https://bq.imgix.net/assets/our-quarry/05-0127.jpg?w=650" srcset="https://bq.imgix.net/assets/our-quarry/05-0127.jpg?w=650 1x,https://bq.imgix.net/assets/our-quarry/05-0127.jpg?w=650&fit=max&q=40&dpr=2 2x,https://bq.imgix.net/assets/our-quarry/05-0127.jpg?w=650&fit=max&q=20&dpr=3 3x
+  - https://bq.imgix.net/assets/our-quarry/06-0124.jpg?w=650" srcset="https://bq.imgix.net/assets/our-quarry/06-0124.jpg?w=650 1x,https://bq.imgix.net/assets/our-quarry/06-0124.jpg?w=650&fit=max&q=40&dpr=2 2x,https://bq.imgix.net/assets/our-quarry/06-0124.jpg?w=650&fit=max&q=20&dpr=3 3x
+  - https://bq.imgix.net/assets/our-quarry/07-0749.jpg?w=650" srcset="https://bq.imgix.net/assets/our-quarry/07-0749.jpg?w=650 1x,https://bq.imgix.net/assets/our-quarry/07-0749.jpg?w=650&fit=max&q=40&dpr=2 2x,https://bq.imgix.net/assets/our-quarry/07-0749.jpg?w=650&fit=max&q=20&dpr=3 3x
+
 nav_title: 'our quarry'
 template: gallery
 fieldset: gallery
