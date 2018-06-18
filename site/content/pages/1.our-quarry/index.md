@@ -1,13 +1,13 @@
 ---
 title: 'Our Quarry'
 images:
-  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b
-  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?w=100&dpr=2&ch=Width,DPR
-  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?w=100&dpr=2&ch=Width,DPR
-  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?w=200&dpr=2&ch=Width,DPR
-  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?ch=Width&DPR&w=300&dpr=2
-  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?w=400&dpr=2&ch=Width,DPR
-  - https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?w=650" srcset="https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?w=650&1x=null, https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?w=650&fit=max&q=40&dpr=2&2x=null, https://bq.imgix.net/our-quarry/01-our-quarry-pano.jpg?s=323269aa200ded112c412ae9a18ba77b?w=650&fit=max&q=20&dpr=3&3x=null
+  - https://bq.imgix.net/driveway/afirst-111.jpg
+  - https://bq.imgix.net/driveway/afirst-111.jpg?w=100&dpr=2&ch=Width,DPR
+  - https://bq.imgix.net/driveway/afirst-111.jpg?w=100&dpr=2&ch=Width,DPR
+  - https://bq.imgix.net/driveway/afirst-111.jpg?w=200&dpr=2&ch=Width,DPR
+  - https://bq.imgix.net/driveway/afirst-111.jpg?ch=Width&DPR&w=300&dpr=2
+  - https://bq.imgix.net/driveway/afirst-111.jpg?w=400&dpr=2&ch=Width,DPR
+  - https://bq.imgix.net/driveway/afirst-111.jpg?w=650" srcset="https://bq.imgix.net/driveway/afirst-111.jpg?w=650&1x=null, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=40&dpr=2&2x=null, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=20&dpr=3&3x=null
 
 
 nav_title: 'our quarry'
