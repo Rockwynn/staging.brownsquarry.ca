@@ -1,8 +1,9 @@
 ---
 title: 'Our Quarry'
 images:
+  - https://bq.imgix.net/1.jpg?ch=Width,DPR
   - https://bq.imgix.net/driveway/dock-07-102.jpg?ch=Width,DPR&w=400&dpr=2
-  - https://bq.imgix.net/driveway/afirst-111.jpg" srcset="https://bq.imgix.net/driveway/afirst-111.jpg?fit=max&w=650", srcset="https://bq.imgix.net/driveway/afirst-111.jpg?w=650 1x, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=40&dpr=2 2x, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=20&dpr=3 3x  
+  - https://bq.imgix.net/driveway/afirst-111.jpg?ch=Width,DPR" srcset="https://bq.imgix.net/driveway/afirst-111.jpg?ch=Width,DPR&fit=max&w=650", srcset="https://bq.imgix.net/driveway/afirst-111.jpg?ch=Width,DPR&fit=max&w=650&dpr=1, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=40&dpr=2 2x, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=20&dpr=3 3x  
 nav_title: 'our quarry'
 template: gallery
 fieldset: gallery
