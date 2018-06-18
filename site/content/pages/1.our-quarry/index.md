@@ -11,7 +11,7 @@ id: 57649ac5-6899-403e-a2e9-83836580202f
 <h4>The result is a 100% granite aggregate.</h4>
 <p>
 <!--<img src="https://bq.imgix.net/misc/saw-00240.jpg?fit=max&w=">-->
-<img src="https://bq.imgix.net/driveway/afirst-111.jpg" srcset="https://bq.imgix.net/driveway/afirst-111.jpg?fit=max&w=650", srcset="https://bq.imgix.net/driveway/afirst-111.jpg?w=650 1x, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=40&dpr=2 2x, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=20&dpr=3 3x"/>
+<img src="https://bq.imgix.net/misc/saw-00240.jpg" srcset="https://bq.imgix.net/misc/saw-00240.jpg?fit=max&w=650", srcset="https://bq.imgix.net/misc/saw-00240.jpg?w=650 1x, https://bq.imgix.net/misc/saw-00240.jpg?w=650&fit=max&q=40&dpr=2 2x, https://bq.imgix.net/driveway/afirst-111.jpg?w=650&fit=max&q=20&dpr=3 3x"/>
 </p>
 </br>
 <h4>Brown&#8217;s Quarry operates a diamond wire saw which utilizes the most advanced granite cutting technology. Stone is sawn on the beds to specific heights &amp; lengths. Alongside our cut granite products, we offer a complete line of natural stone in a variety of colors and thickness for a number of creative applications.</h4>
