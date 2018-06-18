@@ -3,7 +3,6 @@ title: 'Flagstone Courtyard Gallery'
 images:
   - /assets/flagstone-courtyard/01-0640.jpg
   - /assets/flagstone-courtyard/02-0685.jpg
-  - /assets/flagstone-courtyard/03-1055.jpg
   - /assets/flagstone-courtyard/04-0639.jpg
   - /assets/flagstone-courtyard/05-0684.jpg
   - /assets/flagstone-courtyard/06-1054.jpg
@@ -15,6 +14,7 @@ images:
   - /assets/flagstone-courtyard/12-0673.jpg
   - /assets/flagstone-courtyard/13-1068.jpg
   - /assets/flagstone-courtyard/14-1058.jpg
+  - /assets/flagstone-courtyard/03-1055.jpg
 nav_title: flagstone-courtyard
 template: gallery
 fieldset: gallery
