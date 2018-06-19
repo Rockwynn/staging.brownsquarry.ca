@@ -1,7 +1,7 @@
 ---
 title: Aggregates
 images:
-  - /assets/aggregates/01-58-crusher-run-0576.jpg
+  - https://bq.imgix.net/aggregates/01-58-crusher-run-0576.jpg?ch=Width,DPE&w=50&dpr=2
   - /assets/aggregates/02-58-crusher-run-1405.jpg
   - /assets/aggregates/03-78-crusher-run-0573.jpg
   - /assets/aggregates/04-78-crusher-run-1560.jpg
