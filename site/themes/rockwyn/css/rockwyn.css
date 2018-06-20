@@ -8214,7 +8214,7 @@ button.close {
 
 body {
   background-image: url("https://bq.imgix.net/misc/header-bg.png?auto=format");
-  background: #fff;
+  /*background: #fff;*/
   color: #3c3c3c;
   font-family: "Lora", serif;
   font-size: 18px;
