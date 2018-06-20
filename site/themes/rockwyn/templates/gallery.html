@@ -8,4 +8,8 @@
 <div class="gallery-images">
 	{{ images }}<img src="{{ value }}" alt="{{ value | get:alt }}"/>{{ /images }}
 </div>
+
+<div class="gallery-images">
+	{{ images }}{{ imgix:responsive_image_tag path="{{ value }}" w="400" }}{{ /images }}
+</div>
 </section>
