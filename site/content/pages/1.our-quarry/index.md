@@ -1,5 +1,5 @@
 ---
-title: 'Brown's Quarry'
+title: 'Brown\'s Quarry'
 images:
   - our-quarry/02-0129.jpg
   - our-quarry/03-0151.jpg
