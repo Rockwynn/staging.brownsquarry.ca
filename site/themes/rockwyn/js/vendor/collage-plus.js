@@ -395,7 +395,7 @@
         'direction'             : 'vertical',
         // Sometimes there is just one image on the last row and it gets blown up to a huge size to fit the
         // parent div width. To stop this behaviour, set this to true
-        'allowPartialLastRow'   : false
+        'allowPartialLastRow'   : true
     };
 
 })( jQuery );
