@@ -8,7 +8,7 @@ id: de627bca-7595-429e-9b41-ad58703916d7
 fieldset: default
 ---
 <h2>Map Coordinates</h2>
-<h3> 45.7801728 79.3878528</h3>
+<h3> 45.7801728,-79.3878528</h3>
 <h5>Brown's Quarry</h5>
 <h5>613 Paisley Rd</h5>
 <h5>P.O. Box 657</h5>
