@@ -18,7 +18,8 @@
     <!--<script src="/site/themes/rockwyn/js/elixir.min.js"></script>-->
 </head>
 
-<body class="section-{{ segment_1 or 'home' }}" style="background-image: url('https://bq.imgix.net/misc/header-bg.png?auto=format');" >
+<body class="section-{{ segment_1 or 'home' }}" style="background-image: url('{{ imgix:responsive_image_tag path="logos/bqlogo-white-text.png" auto="format" }}');" >
+
     {{ partial:nav }}
 
     {{ template_content }}
