@@ -8238,7 +8238,7 @@ body {
 }
 
 li.bq-phone a.bq-phone {
-  color: #a9cf6a;
+  color: #76AE0A;
 }
 
 .regular {
@@ -8426,7 +8426,7 @@ footer.page .bq-counter a {
 
 .btn-primary {
   color: #fff;
-  background-color: #a9cf6a;
+  background-color: #76AE0A;
   border-color: #cbe2a5;
 }
 
@@ -8493,12 +8493,12 @@ fieldset[disabled]
 .btn-primary:focus,
 fieldset[disabled]
 .btn-primary:hover {
-  background-color: #a9cf6a;
+  background-color: #76AE0A;
   border-color: #bad887;
 }
 
 .btn-primary .badge {
-  color: #a9cf6a;
+  color: #76AE0A;
   background-color: #fff;
 }
 
