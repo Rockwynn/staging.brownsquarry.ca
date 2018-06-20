@@ -7,8 +7,7 @@ template: contact
 id: de627bca-7595-429e-9b41-ad58703916d7
 fieldset: default
 ---
-<img src="https://bq.imgix.net/misc/bq-map.jpg?border=15,000000&border-radius-inner=10,10,20,20&border-radius=20,20,20,20&ch=Width,DPR&auto=compress,enhance,format&fit=crop&w=700"/>
-{{ imgix:responsive_image_tag path="misc/bq-map.jpg" border="8,000000" border-radius-inner="10,10,20,20" border-radius="20,20,20,20" ch="Width,DPR" auto="compress,enhance,format" fit="crop" w="700"  }}
+<img src="https://bq.imgix.net/misc/bq-map.jpg?border=15,000000&border-radius-inner=10,10,20,20&border-radius=10,10,10,10&ch=Width,DPR&auto=compress,enhance,format&fit=crop&w=700"/>
 <p>613 Paisley Rd</p>
 <p>P.O. Box 657</p>
 <p>Sundridge, ON P0A1Z0</p>
