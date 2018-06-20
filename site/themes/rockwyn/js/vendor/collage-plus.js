@@ -383,7 +383,7 @@
 
     $.fn.collagePlus.defaults = {
         // the ideal height you want your images to be
-        'targetHeight'          : 400,
+        'targetHeight'          : 300,
         // how quickly you want images to fade in once ready can be in ms, "slow" or "fast"
         'fadeSpeed'             : "fast",
         // how the resized block should be displayed. inline-block by default so that it doesn't break the row
