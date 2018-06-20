@@ -7,7 +7,6 @@ template: contact
 id: de627bca-7595-429e-9b41-ad58703916d7
 fieldset: default
 ---
-<h5>Brown's Quarry</h5>
 <h5>613 Paisley Rd</h5>
 <h5>P.O. Box 657</h5>
 <h5>Sundridge, ON P0A1Z0</h5>
