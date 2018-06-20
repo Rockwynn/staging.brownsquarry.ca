@@ -10,7 +10,6 @@ images:
   - https://bq.imgix.net/assets/engraved-stones/06-john-best.jpg?fit=crop&w=300&h=300&q=75&s=c59fd8519c2dca0f3dd3818ea82e5846
   - https://bq.imgix.net/assets/engraved-stones/07-sedore.jpg?fit=crop&w=300&h=300&q=75&s=5645d38d8885e89751fb98a9361c676f
   - https://bq.imgix.net/assets/engraved-stones/08-monument-stone.jpg?fit=crop&w=300&h=300&q=75&s=ecf750c074b35d79c536238280e3b4fb
-                                                                     ?ch=Width,DPR&w=500&dpr=2
 nav_title: engravings
 template: gallery
 fieldset: gallery
