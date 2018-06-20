@@ -1,7 +1,7 @@
 ---
 title: 'Engraved Stones'
 images:
-  - {{ imgix:responsive_image_tag path="misc/saw-00240.jpg" fit="crop" w="400" h="400" auto="enhance" }}
+  - imgix:responsive_image_tag path="misc/saw-00240.jpg" fit="crop" w="400" h="400" auto="enhance"
   - https://bq.imgix.net/engraved-stones/01-watsons.jpg?fit=crop&h=400&w=400&auto=enhance" srcset="https://bq.imgix.net/engraved-stones/01-watsons.jpg?fit=crop&h=400&w=400&auto=enhance&dpr=1 1x, https://bq.imgix.net/engraved-stones/01-watsons.jpg?fit=crop&h=400&w=400&auto=enhance&dpr=2 2x, https://bq.imgix.net/engraved-stones/01-watsons.jpg?fit=crop&h=400&w=400&auto=enhance&dpr=3 3x
   - https://bq.imgix.net/assets/engraved-stones/02-1122.jpg?fit=crop&w=300&h=300&q=75&s=3ecd844e783d0064177d87cc1f144327
   - https://bq.imgix.net/assets/engraved-stones/03-sedore.jpg?fit=crop&w=300&h=300&q=75&s=bbb716f47d657aa89cda511e4d215f46
