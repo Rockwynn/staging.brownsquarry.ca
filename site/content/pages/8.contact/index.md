@@ -9,7 +9,7 @@ fieldset: default
 ---
 
 <img src="https://bq.imgix.net/misc/bq-map.jpg?border=8,000000&border-radius-inner=10,10,20,20&border-radius=10,10,10,10&ch=Width,DPR&auto=compress,enhance,format&fit=crop&w=700">
-<h2>Map Coordinates</h2>
+<h2>GPS Coordinates</h2>
 <h3> 45.7801728,-79.3878528</h3>
 <h5>613 Paisley Rd</h5>
 <h5>P.O. Box 657</h5>
