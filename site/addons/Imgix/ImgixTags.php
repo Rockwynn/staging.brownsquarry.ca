@@ -49,7 +49,8 @@ class ImgixTags extends Tags
 
         $html = '';
 
-        while (list($key, $val) = each($img_attributes)) {
+//        while (list($key, $val) = each($img_attributes)) {
+        foreach($img_attributes as $key => $val) {
             $html .= " $key=\"$val\"";
         }
 
