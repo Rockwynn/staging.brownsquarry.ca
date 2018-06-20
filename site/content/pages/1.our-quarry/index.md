@@ -1,12 +1,12 @@
 ---
 title: "Brown's Quarry"
 images:
-  - our-quarry/02-0129.jpg
-  - our-quarry/03-0151.jpg
-  - our-quarry/04-0130.jpg
-  - our-quarry/05-0127.jpg
-  - our-quarry/08-0747.jpg
-  - our-quarry/07-0749.jpg
+  - our-quarry/02-0129.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - our-quarry/03-0151.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - our-quarry/04-0130.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - our-quarry/05-0127.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - our-quarry/08-0747.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - our-quarry/07-0749.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
 nav_title: 'our quarry'
 template: gallery
 fieldset: gallery

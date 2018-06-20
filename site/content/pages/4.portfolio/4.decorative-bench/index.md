@@ -1,8 +1,8 @@
 ---
 title: 'Decorative Bench'
 images:
-  - decorative-bench/bench.jpg
-  - decorative-bench/bench2.jpg
+  - decorative-bench/bench.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - decorative-bench/bench2.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
 nav_title: decorative-bench
 template: gallery
 fieldset: gallery
