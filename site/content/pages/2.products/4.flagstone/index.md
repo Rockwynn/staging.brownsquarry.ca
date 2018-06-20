@@ -12,7 +12,6 @@ images:
   - flagstone/09-rough-1486.jpg
   - flagstone/10-rough-1485.jpg
   - flagstone/11-rough-0554.jpg
-  - flagstone/12-rough-1482.jpg
 nav_title: flagstone
 template: gallery
 fieldset: gallery
