@@ -8,7 +8,7 @@ id: de627bca-7595-429e-9b41-ad58703916d7
 fieldset: default
 ---
 <img src="https://bq.imgix.net/misc/bq-map.jpg?border=8,000000&border-radius-inner=10,10,20,20&border-radius=10,10,10,10&ch=Width,DPR&auto=compress,enhance,format&fit=crop&w=700"/>
-<h4>Map Coordinated</h4>
+<h4>Map Coordinates</h4>
 <h5>45.7801728,-79.3878528</5>
 <h5>Brown's Quarry</h5>
 <h5>613 Paisley Rd</h5>
