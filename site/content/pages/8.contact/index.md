@@ -3,7 +3,6 @@ nav_title: Contact
 title: Call me anytime, Budd Brown
 sub_title: I'm here to help answer any question you may have
 image_url: /assets/panoramas/pano-quarry-fhalf.jpg?fit=contain
-bq_avatar: /assets/logos/bq-logo-circle-green.png
 template: contact
 id: de627bca-7595-429e-9b41-ad58703916d7
 fieldset: default
