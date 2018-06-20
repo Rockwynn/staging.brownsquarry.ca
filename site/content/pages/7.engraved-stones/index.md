@@ -1,6 +1,7 @@
 ---
 title: 'Engraved Stones'
 images:
+  - imgix:responsive_image_tag path="misc/saw-00240.jpg"
   - https://bq.imgix.net/engraved-stones/01-watsons.jpg?fit=crop&h=400&w=400&auto=enhance
   - https://bq.imgix.net/assets/engraved-stones/02-1122.jpg?fit=crop&w=300&h=300&q=75&s=3ecd844e783d0064177d87cc1f144327
   - https://bq.imgix.net/assets/engraved-stones/03-sedore.jpg?fit=crop&w=300&h=300&q=75&s=bbb716f47d657aa89cda511e4d215f46
