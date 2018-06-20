@@ -1,7 +1,6 @@
 ---
 title: Aggregates
 images:
-  - aggregates/01-58-crusher-run-0576.jpg
   - aggregates/02-58-crusher-run-1405.jpg
   - aggregates/03-78-crusher-run-0573.jpg
   - aggregates/04-78-crusher-run-1560.jpg
