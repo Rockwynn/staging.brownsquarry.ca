@@ -1,10 +1,10 @@
 ---
 title: Aggregates
 images:
-  - aggregates/01-58-crusher-run-0576.jpg
   - aggregates/02-58-crusher-run-1405.jpg
-  - aggregates/03-78-crusher-run-0573.jpg
+  - aggregates/01-58-crusher-run-0576.jpg
   - aggregates/04-78-crusher-run-1560.jpg
+  - aggregates/03-78-crusher-run-0573.jpg
   - aggregates/06-34-1-clear-0583.jpg
   - aggregates/07-2-inch-minus-0571.jpg
   - aggregates/08-2-inch-minus-1400.jpg
