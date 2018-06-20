@@ -1,7 +1,6 @@
 ---
 title: 'Engraved Stones'
 images:
-  - misc/saw-00240.jpg
   - engraved-stones/01-watsons.jpg
   - engraved-stones/02-1122.jpg
   - engraved-stones/03-sedore.jpg
