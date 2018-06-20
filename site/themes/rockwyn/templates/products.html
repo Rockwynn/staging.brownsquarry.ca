@@ -1,5 +1,4 @@
 <section class="hero">
-
 	<div class="hero-background" style="background-image: url('{{ image_url}}');">
 		<div class="overlay"></div>
 		<header>
@@ -21,17 +20,12 @@
 			</div>
 		</div>
 	</div>
-
-
 </section>
-
 <section class="container-fluid gallery">
-
 	<header>
 		<h1>{{ title }}</h1>
 		{{ content_raw wrap="h2" }}
 	</header>
-
     <div class="tiles">
         {{ collection:products }}
         <a href="products/{{ slug }}" class="item">
@@ -41,5 +35,4 @@
         </a>
         {{ /collection:products }}
     </div>
-
 </section>

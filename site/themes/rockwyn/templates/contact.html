@@ -1,5 +1,4 @@
 <section class="hero">
-
 	<div class="image" style="background-image: url('{{ image_url }}');">
 		<div class="overlay"></div>
 		<header>
@@ -9,7 +8,6 @@
 		<div class="meta">
 			<div class="avatar">
 				{{ imgix:responsive_image_tag path="logos/bq=logos-circle-green.png" auto="format" w="48" h="48"}}
-				<!--<img src="{{ bq_avatar }}" class="img-circle" width="48" height="48">-->
 			</div>
 			<div class="name">
 				<h5 class="name">{{ owner_name }}</h5>
@@ -21,20 +19,14 @@
 			</div>
 		</div>
 	</div>
-
 </section>
 <section class="regular">
-
     <!--<header>
         <h1>Contact</h1>
     </header>-->
-
     <article class="content">
-
         {{ content }}
-
         {{ form:create in="contact" }}
-
             {{ if errors }}
                 <div class="alert alert-danger">
                     {{ errors }}
@@ -42,37 +34,28 @@
                     {{ /errors }}
                 </div>
             {{ /if }}
-
             {{ if success }}
                 <div class="alert alert-success">
                     Form was submitted successfully.
                 </div>
             {{ /if }}
-
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" value="{{ old:name }}" class="form-control" />
             </div>
-
             <div class="form-group">
                 <label>Email</label>
                 <input type="text" name="email" value="{{ old:email }}" class="form-control" />
             </div>
-
             <div class="form-group">
                 <label>Favorite Number</label>
                 <input type="number" name="number" value="{{ old:number }}" class="form-control" />
             </div>
-
             <div class="form-group">
                 <label>Comment</label>
                 <textarea name="comment" class="form-control">{{ old:comment }}</textarea>
             </div>
-
             <button class="btn btn-primary">Submit</button>
-
         {{ /form:create }}
-
     </article>
-
 </section>

@@ -1,5 +1,4 @@
 <section class="hero">
-
 	<div class="hero-background" style="background-image: url('{{ image_url }}');">
 		<div class="overlay"></div>
 		<header>
@@ -8,7 +7,7 @@
 		</header>
 		<div class="meta">
 			<div class="avatar">
-				{{ imgix:responsive_image_tag path="logos/bq=logos-circle-green.png?auto=format&w=48&h=48"}}
+				{{ imgix:responsive_image_tag path="logos/bq=logos-circle-green.png?auto=compress,enhance,format&w=48&h=48"}}
 				<!--<img src="{{ bq_avatar }}" class="img-circle" width="48" height="48">-->
 			</div>
 			<div class="name">
@@ -21,14 +20,8 @@
 			</div>
 		</div>
 	</div>
-
-
 </section>
-
 <section class="container-fluid">
-
-
-
     <div class="tiles">
         {{ collection:portfolio }}
         <a href="portfolio/{{ slug }}" class="item">
@@ -38,5 +31,4 @@
         </a>
         {{ /collection:portfolio }}
     </div>
-
 </section>
