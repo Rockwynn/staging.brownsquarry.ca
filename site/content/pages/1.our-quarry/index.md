@@ -19,5 +19,5 @@ id: 57649ac5-6899-403e-a2e9-83836580202f
 <h4>Brown’s Quarry operates a diamond wire saw which utilizes the most advanced granite cutting technology.</h4>
 {{ imgix:responsive_image_tag path="misc/saw-00240.jpg" ch="Width,DPR" auto="compress,enhance,format" w="700"}}
 <h4>Stone is sawn on the beds to specific heights & lengths.</h4>
-{{ imgix:responsive_image_tag path="misc/sliced-00302.jpg" ch="Width,DPR" rot="90" auto="compress,enhance,format" w="700" fit="contain"}}
+{{ imgix:responsive_image_tag path="misc/sliced-00302.jpg" ch="Width,DPR" rot="90" auto="compress,enhance,format" w="700" fit="max"}}
 <h4> Alongside our cut granite products, we offer a complete line of natural stone in a variety of colors and thickness for a number of creative applications.</h4>
