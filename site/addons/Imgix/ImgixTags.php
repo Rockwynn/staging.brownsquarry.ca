@@ -21,7 +21,8 @@ class ImgixTags extends Tags
 
         unset($attrs['path']);
 
-        while (list($key, $val) = each($attrs)) {
+//        while (list($key, $val) = each($attrs)) {
+        foreach($attrs as $key => $val) {
             $is_html_attr = in_array($key, self::$html_attributes);
             $is_data_attr = strpos($key, 'data-') === 0;
             $is_aria_attr = strpos($key, 'aria-') === 0;
