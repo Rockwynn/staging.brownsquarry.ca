@@ -57,7 +57,7 @@ class ImgixTags extends Tags
 
     protected function buildSrcset($categorized_attrs) {
         $srcset_values = array();
-        $resolutions = $this->getConfig('responsive_resolutions', array(1, 2));
+        $resolutions = $this->getConfig('responsive_resolutions', array(1, 2, 3));
 
         foreach ($resolutions as $resolution) {
             if ($resolution != 1) {

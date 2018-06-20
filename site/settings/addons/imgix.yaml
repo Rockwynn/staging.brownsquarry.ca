@@ -1,4 +1,3 @@
 source: bq.imgix.net
 secure_url_token: PP2YUtk2HzFRfn7F
 use_https: true
-responsive_resolutions: true
