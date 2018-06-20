@@ -75,7 +75,7 @@ class ImgixTags extends Tags
     }
 
     function init() {
-        `$builder = new` UrlBuilder($this->getConfig('source'));
+        $builder = new UrlBuilder($this->getConfig('source'));
         $builder->setUseHttps($this->getConfig('use_https', true));
 
         if ($secureURLToken = $this->getConfig('secure_url_token')) {
