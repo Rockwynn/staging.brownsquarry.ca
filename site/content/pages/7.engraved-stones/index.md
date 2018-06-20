@@ -16,3 +16,4 @@ id: 381a0533-9a46-47f8-b9bb-889e7d99ed67
 ---
 We custom carve anything into stone you can imagine
 Mobile service available. Price is determined by design and size.
+{{ imgix:responsive_image_tag path="/misc/saw-00240.jpg" fit="crop" w="400" h="400" auto="enhance" }}
