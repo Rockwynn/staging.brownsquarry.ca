@@ -10,6 +10,7 @@
 </div>-->
 
 <div class="gallery-images">
-	{{ images }}{{ imgix:responsive_image_tag path="{{ value }}" ch="Width,DPR" auto="compress,enhance,format" w="475" }}{{ /images }}
+	<!--{{ images }}{{ imgix:responsive_image_tag path="{{ value }}" ch="Width,DPR" auto="compress,enhance,format" w="475" }}{{ /images }}-->
+	{{ images }}{{ imgix:responsive_image_tag path="{{ value }}" }}{{ /images }}
 </div>
 </section>

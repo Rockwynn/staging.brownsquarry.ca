@@ -1,13 +1,13 @@
 ---
 title: 'Armour Stone'
 images:
-  - armour-stone/01-024.jpg
-  - armour-stone/02-1360.jpg
-  - armour-stone/03-0730.jpg
-  - armour-stone/04-0560.jpg
-  - armour-stone/05-0559.jpg
-  - armour-stone/06-0562.jpg
-  - armour-stone/07-0729.jpg
+  - armour-stone/01-024.jpg?ch=Width,DPR&auto=compress,enhance,format&w=475
+  - armour-stone/02-1360.jpg?ch=Width,DPR&auto=compress,enhance,format&w=475
+  - armour-stone/03-0730.jpg?ch=Width,DPR&auto=compress,enhance,format&w=475
+  - armour-stone/04-0560.jpg?ch=Width,DPR&auto=compress,enhance,format&w=475
+  - armour-stone/05-0559.jpg?ch=Width,DPR&auto=compress,enhance,format&w=475
+  - armour-stone/06-0562.jpg?ch=Width,DPR&auto=compress,enhance,format&w=475
+  - armour-stone/07-0729.jpg?ch=Width,DPR&auto=compress,enhance,format&w=475
 nav_title: armour-stone
 template: gallery
 fieldset: gallery
