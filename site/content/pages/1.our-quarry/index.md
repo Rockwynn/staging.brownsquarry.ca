@@ -1,5 +1,5 @@
 ---
-title: 'Our Quarry'
+title: 'Brown's Quarry'
 images:
   - our-quarry/02-0129.jpg
   - our-quarry/03-0151.jpg
@@ -21,3 +21,5 @@ id: 57649ac5-6899-403e-a2e9-83836580202f
 <h4>Stone is sawn on the beds to specific heights & lengths.</h4>
 {{ imgix:responsive_image_tag path="misc/sliced-00302.jpg" ch="Width,DPR" rot="90" auto="compress,enhance,format" w="700" fit="fillmax"}}
 <h4> Alongside our cut granite products, we offer a complete line of natural stone in a variety of colors and thickness for a number of creative applications.</h4>
+<hr>
+<h2>Our Quarry</h2>
