@@ -1,11 +1,11 @@
 ---
 title: 'Engraved Stones'
 images:
-  - engraved-stones/01-watsons.jpg
   - engraved-stones/03-sedore.jpg
+  - engraved-stones/01-watsons.jpg
   - engraved-stones/04-pegg.jpg
-  - engraved-stones/05-prentice.jpg
   - engraved-stones/06-john-best.jpg
+  - engraved-stones/05-prentice.jpg
   - engraved-stones/07-sedore.jpg
 template: gallery
 fieldset: gallery
