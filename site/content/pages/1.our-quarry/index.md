@@ -12,6 +12,7 @@ template: gallery
 fieldset: gallery
 id: 57649ac5-6899-403e-a2e9-83836580202f
 ---
+<article class="content">
 <h4>We are a Large Granite Quarry located outside Sundridge, Ontario. Rock production is done by means of drilling and blasting from our large granite face.</h4>
 <h4> From this raw state it is sorted by mechanical means, that separates rock from the pit run material greater than four inches. The remaining material is then sent to a crusher and screen decks to produce the desired sizes and grades required for projects.</h4>
 <h4>The result is a 100% granite aggregate.</h4>
@@ -23,3 +24,4 @@ id: 57649ac5-6899-403e-a2e9-83836580202f
 <h4> Alongside our cut granite products, we offer a complete line of natural stone in a variety of colors and thickness for a number of creative applications.</h4>
 <hr>
 <h2>Our Quarry</h2>
+</article>
