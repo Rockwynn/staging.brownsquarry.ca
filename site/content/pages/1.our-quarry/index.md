@@ -1,7 +1,7 @@
 ---
 title: "Brown's Quarry"
 images:
-  - our-quarry/02-0129.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - our-quarry/02-20170915_133022.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/03-0151.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/04-0130.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/05-0127.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
