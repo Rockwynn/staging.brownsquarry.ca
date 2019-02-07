@@ -1,6 +1,6 @@
 ---
 nav_title: Home
-title: Let us reshape your Landscape!!
+title: Let us reshape your Landscape!
 sub_title: It's time to re-shape your Landscape!
 hero_image: https://bq.imgix.net/panoramas/home-pano900x3548.jpg?ch=Width,DPR&auto=compress,enhance,format&fit=crop&w=1400&h=700
 template: blog/hero-post
