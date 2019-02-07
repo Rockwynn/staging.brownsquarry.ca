@@ -4,8 +4,8 @@ images:
   - our-quarry/01-192107.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/02-20170915_133022.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/03-0151.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
-  - our-quarry/04-0130.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/02-134350.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - our-quarry/04-0130.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/08-0747.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/07-0749.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/09-094753.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
