@@ -3,11 +3,8 @@ title: 'Stair Steps'
 images:
   - stair-steps/01-1384.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - stair-steps/02-1385.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
-  - stair-steps/03-1393.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - stair-steps/04-1548.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - stair-steps/05-1550.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
-  - stair-steps/06-1394.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
-  - stair-steps/07-1522.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - stair-steps/08-1523.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - stair-steps/09-1552.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
 nav_title: stair-steps
