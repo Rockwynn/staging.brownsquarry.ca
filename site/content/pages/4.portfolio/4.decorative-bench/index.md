@@ -3,8 +3,8 @@ title: 'Decorative Bench'
 images:
   - decorative-bench/bench.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - decorative-bench/bench2.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
-  - decorative-bench/highrock-bench-front.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
-  - decorative-bench/highrock-bench-rear.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - decorative-bench/front-300.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - decorative-bench/rear-246.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
 nav_title: decorative-bench
 template: gallery
 fieldset: gallery
