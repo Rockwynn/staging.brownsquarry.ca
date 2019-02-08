@@ -8,7 +8,9 @@ images:
   - our-quarry/04-0130.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/08-0747.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/07-0749.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - our-quarry/08-0747.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - our-quarry/09-094753.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - our-quarry/10-209.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
 nav_title: 'our quarry'
 template: gallery
 fieldset: gallery
