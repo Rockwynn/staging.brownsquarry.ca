@@ -1,7 +1,7 @@
 ---
 title: Landscaping Gallery
 sub_title: View our Client Photos
-image_url: https://bq.imgix.net/panoramas/pano-quarry-fhalf.jpg?ch=Width,DPR&auto=compress,enhance,format&fit=crop&w=1400&h=700&crop=bottom,left
+image_url: https://bq.imgix.net/panoramas/08-519.jpg?ch=Width,DPR&auto=compress,enhance,format&fit=crop&w=1400&h=700&crop=bottom,left
 nav_title: Gallery
 template: portfolio
 mount: portfolio
