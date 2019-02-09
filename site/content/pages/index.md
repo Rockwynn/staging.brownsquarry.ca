@@ -1,7 +1,7 @@
 ---
 nav_title: Home
 title: Let us reshape your Landscape!
-sub_title: In a rock garden we foster a little patch of the wilderness that stands to us for freedom.
+sub_title: In a rock garden we foster a little patch of the wilderness that stands to us for freedom
 hero_image: https://bq.imgix.net/panoramas/home-pano900x3548.jpg?ch=Width,DPR&auto=compress,enhance,format&fit=crop&w=1400&h=700
 template: blog/hero-post
 id: db0ae4e3-4f10-4802-bc40-0b880cbf02c7
