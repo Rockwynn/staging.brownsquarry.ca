@@ -8378,7 +8378,7 @@ footer.page p.copyright {
   font-size: 14px;
 }
 
-footer.page p.tribute {
+footer.page p.tribute a {
   color: #76AE0A;
   font-size: 13px;
   text-transform: uppercase;
