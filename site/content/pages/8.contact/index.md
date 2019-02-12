@@ -1,6 +1,6 @@
 ---
 nav_title: Contact
-title: Call me anytime<br><h2 class="bq-phone"><a class="bq-phone" href="tel:+1-705-499-6277">705-499-6277</a></h2><br>
+title: Call me anytime<a class="bq-phone" href="tel:+1-705-499-6277">705-499-6277</a>
 sub_title: I'm here to answer any question you may have
 image_url: https://bq.imgix.net/panoramas/pano-quarry-fhalf.jpg?ch=DPR&auto=compress,enhance,format&fit=crop&w=1350&h=650
 template: contact
