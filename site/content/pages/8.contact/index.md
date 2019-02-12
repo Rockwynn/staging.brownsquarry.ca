@@ -14,4 +14,4 @@ fieldset: default
 <h5>613 Paisley Rd</h5>
 <h5>P.O. Box 657</h5>
 <h5>Sundridge, ON P0A1Z0</h5>
-<h5 class="bq-phone"><a class="bq-phone" href="tel:+1-705-499-6277">705-499-6277</a></h5>
+<h5><a class="bq-phone" href="tel:+1-705-499-6277">705-499-6277</a></h5>
