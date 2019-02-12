@@ -505,6 +505,7 @@ th {
   content: "\e037";
 }
 
+  border: 1px solid silver;
 .glyphicon-volume-up:before {
   content: "\e038";
 }
@@ -8237,7 +8238,7 @@ body {
   margin: 0 auto;
 }
 
-li.bq-phone a.bq-phone {
+li.bq-phone a.bq-phone, h2.bq-phone a.bq-phone, h5.bq-phone a.bq-phone {
   color: #76AE0A;
 }
 
