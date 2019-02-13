@@ -1,3 +1,4 @@
+---
 title: 'Driveway, Paths & Stone Gardens'
 images:
   - '06stone-gardens-driveways-paths-belanger-2-7/20180615_083617.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
@@ -11,3 +12,4 @@ nav_title: driveway-paths-and-stone-Gardens
 template: gallery
 fieldset: gallery
 id: 1923eff4-67af-4945-89bb-3ebdbfa050dd
+---
