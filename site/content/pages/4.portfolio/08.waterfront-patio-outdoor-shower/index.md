@@ -1,3 +1,4 @@
+---
 title: 'Waterfront Patio & Outdoor Shower'
 images:
   - '08waterfront-patio-outdoor-shower/01-647.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
@@ -15,3 +16,4 @@ nav_title: waterfront-patio-outdoor-shower
 template: gallery
 fieldset: gallery
 id: 8c929445-1a41-4c01-8d85-a0277ed6e584
+---
