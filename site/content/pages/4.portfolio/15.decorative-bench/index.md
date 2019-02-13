@@ -5,7 +5,7 @@ images:
   - decorative-bench/bench2.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
   - decorative-bench/front-300-2.jpg?ch=DPR&auto=compress,enhance,format&sharp=50&w=475&h=300
   - decorative-bench/front-300-2.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
-  - decorative-bench/rear-246-2.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300
+  - decorative-bench/rear-246-2.jpg?ch=DPR&auto=compress,enhance,format&sharp=50&w=475&h=300
 nav_title: decorative-bench
 template: gallery
 fieldset: gallery
