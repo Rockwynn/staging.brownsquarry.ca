@@ -1,3 +1,4 @@
+---
 title: 'Lakefront Property Improvements'
 images:
   - '03lakefront-property-improvements/01-557.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
@@ -13,3 +14,4 @@ nav_title: lakefront-property-improvements
 template: gallery
 fieldset: gallery
 id: 854f0304-1c3c-4573-bb3e-6f88443bfb01
+---
