@@ -2,7 +2,6 @@
 
     <div :class="[ 'field-set', `field-set--${parentKey}` ]">
         <div :class="[ 'set-drag-handle', `set-drag-handle--${parentKey}` ]"></div>
-
         <span class="set-display-sizer" v-el:set-display-sizer v-text="set.display || set.name"></span>
         <span class="set-name-sizer" v-el:set-name-sizer v-text="set.name"></span>
         <input type="text" class="set-display mr-8" v-el:display v-model="set.display" :placeholder="set.display || set.name" :style="{width: displayFieldWidth}"  />
@@ -18,8 +17,10 @@
             classes="field-fields set-fields"
             @selector-closed="fieldSelectorClosed"
         ></fieldset-fields>
-
-        <a href="" class="btn btn-default btn-small mt-16" @click.prevent="isAddingField = true">Add field</a>
+        <div class="flex items-center mt-2">
+            <a class="btn btn-default btn-small" @click="isAddingField = true">{{ translate('cp.add_field') }}</a>
+            <a class="opacity-50 text-xxs hover:opacity-100 ml-1" @click="$emit('deleted', setIndex)">{{ translate('cp.delete_set') }}</a>
+        </div>
     </div>
 
 </template>

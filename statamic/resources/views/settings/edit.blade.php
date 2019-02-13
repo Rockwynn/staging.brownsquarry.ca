@@ -5,7 +5,8 @@
 
     <script>
         Statamic.Publish = {
-            contentData: {!! json_encode($content_data) !!}
+            contentData: {!! json_encode($content_data) !!},
+            fieldset: {!! json_encode($fieldset) !!},
         };
     </script>
 
@@ -14,7 +15,7 @@
              :is-new="false"
              slug="{{ $slug }}"
              content-type="{{ $content_type }}"
-             fieldset-name="{{ $fieldset }}"
+             :update-title-on-save="false"
     ></publish>
 
 @stop

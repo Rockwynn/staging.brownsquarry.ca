@@ -242,8 +242,9 @@ class FormsController extends CpController
         $this->access('super');
 
         $form = Form::get($form);
+        $title = t('editing_formset');
 
-        return view('forms.edit', compact('form'));
+        return view('forms.edit', compact('form', 'title'));
     }
 
     public function update($form)

@@ -13,6 +13,7 @@ use Statamic\API\Helper;
 use Statamic\API\Path;
 use Statamic\API\Stache;
 use Statamic\API\Str;
+use Statamic\API\User;
 use Illuminate\Http\Request;
 use Statamic\Assets\AssetCollection;
 use Statamic\CP\Publish\ProcessesFields;
@@ -30,9 +31,17 @@ class AssetsController extends CpController
      */
     public function index()
     {
-        $this->access('assets:*:view');
+        $containers = collect();
 
-        $containers = AssetContainer::all();
+        foreach (AssetContainer::all() as $container) {
+            if (User::getCurrent()->can("assets:{$container->uuid()}:view")) {
+                $containers->push($container);
+            }
+        }
+
+        if ($containers->count() === 0) {
+            return redirect()->route('collections');
+        }
 
         return redirect()->route('assets.browse', $containers->first()->uuid());
     }

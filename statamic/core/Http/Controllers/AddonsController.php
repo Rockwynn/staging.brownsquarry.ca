@@ -12,7 +12,9 @@ use Statamic\API\Fieldset;
 use Statamic\API\Str;
 use Statamic\API\Cache;
 use Statamic\API\Stache;
+use Statamic\Events\Data\AddonSettingsSaved;
 use Statamic\Extend\Addon;
+use Statamic\Config\Addons;
 use Illuminate\Http\Request;
 use Statamic\CP\Publish\ProcessesFields;
 use Statamic\CP\Publish\ValidationBuilder;
@@ -95,11 +97,12 @@ class AddonsController extends CpController
             'title' => $addon->name() . ' ' . trans_choice('cp.settings', 2),
             'slug'  => $addon->slug(),
             'extra' => [
-                'addon' => $addon->id()
+                'addon' => $addon->id(),
+                'env' => array_get(app(Addons::class)->env(), $addon->handle()),
             ],
             'content_data' => $this->getAddonData($addon),
             'content_type' => 'addon',
-            'fieldset' => 'addon.'.$addon->slug().'.settings'
+            'fieldset' => $addon->settingsFieldset()->toPublishArray()
         ]);
     }
 
@@ -121,17 +124,26 @@ class AddonsController extends CpController
 
         $data = $this->processFields($fieldset, $request->fields);
 
+        $file = settings_path('addons/' . $addon->handle() . '.yaml');
+
+        // Remove environment managed vars from what was submitted, and replace them with their current values.
+        // They aren't editable in the CP but will be submitted (possibly incorrectly) anyway.
+        $environmentVars = array_keys(request()->input('extra.env') ?: []);
+        $data = array_except($data, $environmentVars);
+        $environmentValues = array_only(YAML::parse(File::get($file)), $environmentVars);
+        $data = array_merge($data, $environmentValues);
+
         $contents = YAML::dump($data);
 
-        $file = settings_path('addons/' . $addon->handle() . '.yaml');
         File::put($file, $contents);
 
         Cache::clear();
         Stache::clear();
 
-        $this->success('Settings updated');
+        // Whoever wants to know about it can do so now.
+        event(new AddonSettingsSaved($file, $data));
 
-        return ['success' => true, 'redirect' => route('addon.settings', $addon->slug())];
+        return ['success' => true, 'message' => t('settings_updated')];
     }
 
     private function validateSubmission(Request $request, $fieldset)

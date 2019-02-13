@@ -18,7 +18,9 @@ Vue.component('formset-builder', require('../components/formset-builder/formset-
 Vue.component('fieldset-builder', require('../components/fieldset-builder/Builder.vue'));
 Vue.component('page-tree', require('../components/page-tree/PageTree.vue'));
 Vue.component('publish', require('../components/publish/Publish.vue'));
+Vue.component('publish-fields', require('../components/publish/Fields.vue'));
 Vue.component('typeahead', require('../components/typeahead/Typeahead.vue'));
+Vue.component('search-typeahead', require('../components/typeahead/SearchTypeahead.vue'));
 Vue.component('installer', require('../components/installer/installer'));
 Vue.component('updater', require('../components/updater'));
 Vue.component('importer', require('../components/importer/importer'));
@@ -26,12 +28,14 @@ Vue.component('term-listing', require('../components/listings/terms'));
 Vue.component('taxonomies-listing', require('../components/listings/taxonomies'));
 Vue.component('globals-listing', require('../components/listings/globals'));
 Vue.component('user-listing', require('../components/listings/users'));
+Vue.component('user-options', require('../components/publish/user-options'));
 Vue.component('user-group-listing', require('../components/listings/user-groups'));
 Vue.component('user-role-listing', require('../components/listings/user-roles'));
 Vue.component('fieldset-listing', require('../components/listings/fieldsets'));
 Vue.component('form-submission-listing', require('../components/listings/form-submissions'));
 Vue.component('roles', require('../components/roles/roles'));
 Vue.component('login', require('../components/login/login'));
+Vue.component('login-modal', require('../components/login/LoginModal.vue'));
 
 // Reusable
 Vue.component('svg-icon', require('../components/SvgIcon.vue'));

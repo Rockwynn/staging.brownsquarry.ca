@@ -19,7 +19,9 @@ class PagesTags extends CollectionTags
     {
         $depth = $this->getInt('depth', 1);
 
-        $this->collection = $this->getPage()->children($depth);
+        $this->collection = $this->getPage()
+            ->children($depth)
+            ->localize($this->get('locale', site_locale()));
 
         // Convert taxonomy fields to actual taxonomy terms.
         // This will allow taxonomy term data to be available in the template without additional tags.
@@ -42,7 +44,7 @@ class PagesTags extends CollectionTags
      *
      * @return \Statamic\Contracts\Data\Pages\Page
      */
-    private function getPage()
+    protected function getPage()
     {
         if ($id = $this->get(['id', 'from_id'])) {
             return Page::find($id);
@@ -104,13 +106,15 @@ class PagesTags extends CollectionTags
     /**
      * Set the collection for a sequence
      */
-    private function collectSequence()
+    protected function collectSequence()
     {
         $from = $this->get(['from', 'folder', 'url'], URL::parent(URL::getCurrent()));
 
         $from = Str::ensureLeft($from, '/');
 
-        $this->collection = Page::whereUri($from)->children(1);
+        $this->collection = Page::whereUri($from)
+            ->children(1)
+            ->localize($this->get('locale', site_locale()));
     }
 
     /**

@@ -6,10 +6,11 @@ use Statamic\API\Str;
 use Statamic\API\URL;
 use Statamic\API\Asset;
 use Statamic\API\Image;
-use Statamic\API\Config;
 use League\Glide\Server;
+use Statamic\API\Config;
 use Statamic\Extend\Tags;
 use Statamic\Imaging\ImageGenerator;
+use Statamic\Contracts\Assets\Asset as AssetContract;
 
 class GlideTags extends Tags
 {
@@ -107,10 +108,17 @@ class GlideTags extends Tags
     private function generateImage($item)
     {
         $params = $this->getGlideParams($item);
+        $item = $this->normalizeItem($item);
 
-        return (Str::isUrl($item))
-            ? $this->getGenerator()->generateByPath($item, $params)
-            : $this->getGenerator()->generateByAsset(Asset::find($item), $params);
+        if ($item instanceof AssetContract) {
+            return $this->getGenerator()->generateByAsset($item, $params);
+        } elseif (Str::startsWith($item, ['http://', 'https://'])) {
+            return $this->getGenerator()->generateByUrl($item, $params);
+        } elseif (Str::contains($item, '::')) {
+            return $this->getGenerator()->generateByAsset(Asset::find($item), $params);
+        }
+
+        return $this->getGenerator()->generateByPath($item, $params);
     }
 
     /**

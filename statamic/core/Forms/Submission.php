@@ -5,6 +5,8 @@ namespace Statamic\Forms;
 use Carbon\Carbon;
 use Statamic\API\Helper;
 use Statamic\API\Storage;
+use Statamic\Events\Data\SubmissionDeleted;
+use Statamic\Events\Data\SubmissionSaved;
 use Statamic\Exceptions\PublishException;
 use Statamic\Exceptions\SilentFormFailureException;
 use Statamic\Contracts\Forms\Submission as SubmissionContract;
@@ -40,10 +42,10 @@ class Submission implements SubmissionContract
     public function id($id = null)
     {
         if (is_null($id)) {
-            return $this->id ?: time();
+            $id = $this->id ?: microtime(true);
         }
 
-        $this->id = $id;
+        return $this->id = $id;
     }
 
     /**
@@ -214,9 +216,7 @@ class Submission implements SubmissionContract
             }
 
             // Define the attribute (friendly name) so it doesn't appear as field.fieldname
-            $attributes[$field_name] = translate('cp.attribute_field_name', [
-                'attribute' => array_get($field_config, 'display', $field_name),
-            ]);
+            $attributes[$field_name] = array_get($field_config, 'display', $field_name);
         }
 
         $validator = app('validator')->make($data, $rules, [], $attributes);
@@ -266,9 +266,11 @@ class Submission implements SubmissionContract
      */
     public function save()
     {
-        $filename = 'forms/' . $this->formset()->name() . '/' . $this->id();
+        // Save yaml file.
+        Storage::putYAML($this->getPath(), $this->data());
 
-        Storage::putYAML($filename, $this->data());
+        // Whoever wants to know about it can do so now.
+        event(new SubmissionSaved($this));
     }
 
     /**
@@ -276,7 +278,11 @@ class Submission implements SubmissionContract
      */
     public function delete()
     {
+        // Delete yaml file.
         Storage::delete($this->getPath());
+
+        // Whoever wants to know about it can do so now.
+        event(new SubmissionDeleted($this));
     }
 
     /**

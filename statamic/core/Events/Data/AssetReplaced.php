@@ -2,7 +2,7 @@
 
 namespace Statamic\Events\Data;
 
-use Statamic\Contracts\Assets\Asset;
+use Statamic\Assets\Asset;
 
 class AssetReplaced
 {

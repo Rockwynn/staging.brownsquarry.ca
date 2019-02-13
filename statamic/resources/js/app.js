@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Notifications from './mixins/Notifications.js';
+
 require('./components/NotificationBus');
 
 var vm = new Vue({
@@ -17,7 +18,8 @@ var vm = new Vue({
         sneakPeekViewport: null,
         sneakPeekFields: null,
         windowWidth: null,
-        modalOpen: false
+        modalOpen: false,
+        showLoginModal: false
     },
 
     computed: {

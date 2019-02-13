@@ -6,6 +6,8 @@ use Statamic\API\Path;
 use Statamic\API\Folder;
 use Statamic\API\Helper;
 use Statamic\API\Page as PageAPI;
+use Statamic\Events\Data\PageMoved;
+use Statamic\Events\Data\PagesMoved;
 use Statamic\Contracts\Data\Pages\PageTreeReorderer as ReordererContract;
 
 class PageTreeReorderer implements ReordererContract
@@ -21,14 +23,27 @@ class PageTreeReorderer implements ReordererContract
             return Helper::compareValues(substr_count($b, '/'), substr_count($a, '/'));
         });
 
+        $movements = [];
+
         foreach ($items as $uuid => $new_path) {
-            $old_path = PageAPI::find($uuid)->path();
+            $page = PageAPI::find($uuid);
+            $old_path = $page->path();
 
             if ($old_path !== $new_path) {
                 // We move the directories so that folder.yamls and localized pages go along for the ride.
                 Folder::disk('content')->rename(Path::directory($old_path), Path::directory($new_path));
+
+                $movements[] = [
+                    'page' => $page,
+                    'from' => $old_path,
+                    'to' => $new_path,
+                ];
+
+                event(new PageMoved($page, $old_path, $new_path));
             }
         }
+
+        event(new PagesMoved($movements));
 
         Folder::disk('content')->deleteEmptySubfolders('pages');
     }

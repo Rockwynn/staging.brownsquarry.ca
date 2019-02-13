@@ -1,10 +1,11 @@
 <template>
 
-    <div class="asset-grid-listing">
+    <div class="asset-grid-listing"
+        v-if="hasParent && !restrictNavigation || (!isSearching || (isSearching && hasResults))">
 
         <div class="asset-tile is-folder"
-             @click.prevent="selectFolder(folder.parent_path)"
-             v-if="hasParent && !restrictNavigation">
+             v-if="hasParent && !restrictNavigation"
+             @click.prevent="selectFolder(folder.parent_path)">
             <div class="asset-thumb-container">
                 <file-icon extension="folder"></file-icon>
             </div>

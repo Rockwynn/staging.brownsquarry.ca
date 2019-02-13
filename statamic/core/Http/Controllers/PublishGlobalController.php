@@ -4,6 +4,7 @@ namespace Statamic\Http\Controllers;
 
 use Statamic\API\GlobalSet;
 use Illuminate\Http\Request;
+use Statamic\Events\Data\PublishFieldsetFound;
 
 class PublishGlobalController extends PublishController
 {
@@ -33,14 +34,17 @@ class PublishGlobalController extends PublishController
             'env' => datastore()->getEnvInScope('globals.'.$slug)
         ];
 
-        $data = $this->addBlankFields($global->fieldset(), $global->processedData());
+        $fieldset = $global->fieldset();
+        event(new PublishFieldsetFound($fieldset, 'globals', $global));
+
+        $data = $this->addBlankFields($fieldset, $global->processedData());
 
         return view('publish', [
             'extra'             => $extra,
             'is_new'            => false,
             'content_data'      => $data,
             'content_type'      => 'global',
-            'fieldset'          => $global->fieldset()->name(),
+            'fieldset'          => $fieldset->toPublishArray(),
             'title'             => array_get($data, 'title', $global->title()),
             'uuid'              => $id,
             'uri'               => null,
@@ -50,7 +54,7 @@ class PublishGlobalController extends PublishController
             'locale'            => $locale,
             'is_default_locale' => $global->isDefaultLocale(),
             'locales'           => $this->getLocales($id),
-            'suggestions'       => $this->getSuggestions($global->fieldset()),
+            'suggestions'       => $this->getSuggestions($fieldset),
         ]);
     }
 

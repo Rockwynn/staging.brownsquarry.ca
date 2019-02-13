@@ -5,6 +5,7 @@ use Statamic\API\Str;
 use Statamic\API\URL;
 use Statamic\API\File;
 use Statamic\API\Path;
+use Statamic\API\User;
 use Statamic\API\Config;
 use Michelf\SmartyPants;
 use Statamic\Extend\API;
@@ -82,6 +83,22 @@ function bool_str($bool)
 }
 
 /**
+ * Casts strings "true" and "false" as proper bools
+ *
+ * @param string $string
+ * @return mixed
+ */
+function str_bool($string) {
+    if (strtolower($string) === 'true') {
+        return true;
+    } elseif (strtolower($string) === 'false') {
+        return false;
+    }
+
+    return $string;
+}
+
+/**
  * Gets or sets the site locale
  *
  * @param string|null $locale
@@ -106,6 +123,9 @@ function default_locale()
     return Config::getDefaultLocale();
 }
 
+/**
+ * @return string
+ */
 function cp_route($route, $params = [])
 {
     if (! CP_ROUTE) {
@@ -115,21 +135,36 @@ function cp_route($route, $params = [])
     return route($route, $params);
 }
 
+/**
+ * @return string
+ */
 function cp_resource_url($url)
 {
     return resource_url('cp/' . $url);
 }
 
+/**
+ * @return string
+ */
 function resource_url($url)
 {
     return URL::assemble(SITE_ROOT, pathinfo(request()->getScriptName())['basename'], RESOURCES_ROUTE, $url);
 }
 
+/**
+ * @return string
+ */
 function path($from, $extra = null)
 {
     return Path::tidy($from . '/' . $extra);
 }
 
+/**
+ * Path to the statamic application directory
+ *
+ * @param string|null $path
+ * @return string
+ */
 function statamic_path($path = null)
 {
     return path(APP, $path);
@@ -158,51 +193,91 @@ function webroot_path($path = null)
     return path(realpath(STATAMIC_ROOT), $path);
 }
 
+/**
+ * @param string|null $path
+ * @return string
+ */
 function site_path($path = null)
 {
     return path(statamic_path('../site'), $path);
 }
 
+/**
+ * @param string|null $path
+ * @return string
+ */
 function local_path($path = null)
 {
     return path(statamic_path('../local'), $path);
 }
 
+/**
+ * @param string|null $path
+ * @return string
+ */
 function bundles_path($path = null)
 {
     return path(statamic_path('bundles'), $path);
 }
 
+/**
+ * @param string|null $path
+ * @return string
+ */
 function addons_path($path = null)
 {
     return path(site_path('addons'), $path);
 }
 
+/**
+ * @param string|null $path
+ * @return string
+ */
 function settings_path($path = null)
 {
     return path(site_path('settings'), $path);
 }
 
+/**
+ * @param string|null $path
+ * @return string
+ */
 function site_storage_path($path = null)
 {
     return path(site_path('storage'), $path);
 }
 
+/**
+ * @param string|null $path
+ * @return string
+ */
 function cache_path($path = null)
 {
     return path(local_path('cache'), $path);
 }
 
+/**
+ * @param string|null $path
+ * @return string
+ */
 function logs_path($path = null)
 {
     return path(local_path('logs'), $path);
 }
 
+/**
+ * @param string|null $path
+ * @return string
+ */
 function temp_path($path = null)
 {
     return path(local_path('temp'), $path);
 }
 
+/**
+ * @param string $value
+ * @return \Carbon\Carbon
+ */
 function carbon($value)
 {
     if (! $value instanceof Carbon) {
@@ -293,6 +368,14 @@ function collect_users($value = [])
 }
 
 /**
+ * @return \Statamic\Data\Users\User
+ */
+function me()
+{
+    return User::getCurrent();
+}
+
+/**
  * Gets an addon's API class if it exists, or creates a temporary generic addon class.
  *
  * @param string $addon
@@ -355,6 +438,19 @@ function inline_svg($src)
 }
 
 /**
+ * Check if a string is a UUID4, which are used as content IDs
+ *
+ * @param string $src string
+ * @return bool
+ */
+function is_id($str)
+{
+    $regex = "/([a-f0-9]{8}\-[a-f0-9]{4}\-4[a-f0-9]{3}\-[8|9|a|b][a-f0-9]{3}\-[a-f0-9]{12})/";
+
+    return preg_match($regex, $str) === 1;
+}
+
+/**
  * Output an "active" class if a url matches
  *
  * @param string $url
@@ -375,7 +471,7 @@ function active_for($url)
  */
 function nav_is($url)
 {
-    $current = URL::makeAbsolute(URL::getCurrent());
+    $current = URL::makeAbsolute(URL::getCurrentWithQueryString());
 
     return $url === $current || Str::startsWith($current, $url . '/');
 }
@@ -484,6 +580,10 @@ function int($value)
     return intval($value);
 }
 
+/**
+ * Dump and don't die
+ * @return void
+ */
 function d()
 {
     array_map(function ($x) {
@@ -510,6 +610,12 @@ function gravatar($email, $size = null)
     return $url;
 }
 
+/**
+ * Format select options
+ *
+ * @param  array  $options
+ * @return array
+ */
 function format_input_options($options)
 {
     $formatted_options = [];
@@ -524,6 +630,13 @@ function format_input_options($options)
 
     return $formatted_options;
 }
+
+/**
+ * Format a changelog release, parsing the [new], [fix], and [break] tags
+ *
+ * @param  string  $string
+ * @return string
+ */
 
 function format_update($string)
 {
@@ -563,7 +676,7 @@ function refreshing_addons()
  */
 function cp_middleware()
 {
-    return ['cp-enabled', 'enforce-default-cp-locale', 'set-cp-locale', 'outpost'];
+    return ['cp-enabled', 'add-cp-headers', 'enforce-default-cp-locale', 'set-cp-locale', 'outpost'];
 }
 
 /**
@@ -699,4 +812,54 @@ if (! function_exists('mb_str_word_count')) {
                 break;
         }
     };
+}
+
+/**
+ * Convert a PHP date format into one suitable for moment.js
+ * Adapted from https://stackoverflow.com/a/30192680/1569621
+ *
+ * @param string $format
+ * @return string
+ **/
+function to_moment_js_date_format($format)
+{
+    return strtr($format, [
+        'd' => 'DD',
+        'D' => 'ddd',
+        'j' => 'D',
+        'l' => 'dddd',
+        'N' => 'E',
+        'S' => 'o',
+        'w' => 'e',
+        'z' => 'DDD',
+        'W' => 'W',
+        'F' => 'MMMM',
+        'm' => 'MM',
+        'M' => 'MMM',
+        'n' => 'M',
+        't' => '', // no equivalent
+        'L' => '', // no equivalent
+        'o' => 'YYYY',
+        'Y' => 'YYYY',
+        'y' => 'YY',
+        'a' => 'a',
+        'A' => 'A',
+        'B' => '', // no equivalent
+        'g' => 'h',
+        'G' => 'H',
+        'h' => 'hh',
+        'H' => 'HH',
+        'i' => 'mm',
+        's' => 'ss',
+        'u' => 'SSS',
+        'e' => 'zz', // deprecated since version 1.6.0 of moment.js
+        'I' => '', // no equivalent
+        'O' => '', // no equivalent
+        'P' => '', // no equivalent
+        'T' => '', // no equivalent
+        'Z' => '', // no equivalent
+        'c' => '', // no equivalent
+        'r' => '', // no equivalent
+        'U' => 'X',
+    ]);
 }

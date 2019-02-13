@@ -79,10 +79,18 @@ class AuthController extends CpController
         $credentials = $this->request->only('username', 'password');
 
         if ($this->auth->attempt($credentials, $this->request->has('remember'))) {
-            return redirect()->intended($this->redirectPath());
+            return ($this->request->ajax())
+                ? response()->json(['success' => true])
+                : redirect()->intended($this->redirectPath());
         }
 
         $this->incrementLoginAttempts($this->request);
+
+        $errors = ['username' => t('invalid_creds')];
+
+        if ($this->request->ajax()) {
+            return response()->json(['username' => [t('invalid_creds')]], 422);
+        }
 
         return redirect($this->loginPath())
             ->withInput($this->request->only('username', 'remember'))
@@ -124,6 +132,7 @@ class AuthController extends CpController
         if ($user) {
             $resetter = new PasswordReset;
             $resetter->user($user);
+            $resetter->redirect(route('login'));
             $resetter->send();
         }
 

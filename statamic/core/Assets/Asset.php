@@ -13,6 +13,8 @@ use Statamic\API\Image;
 use Statamic\Data\Data;
 use Statamic\API\Config;
 use Statamic\API\Fieldset;
+use Statamic\Events\Data\AssetDeleted;
+use Statamic\Events\Data\AssetMoved;
 use Statamic\Events\Data\AssetReplaced;
 use Statamic\Events\Data\AssetUploaded;
 use Statamic\API\AssetContainer as AssetContainerAPI;
@@ -96,7 +98,7 @@ class Asset extends Data implements AssetContract
     public function path($path = null)
     {
         if (is_null($path)) {
-            return $this->attributes['path'];
+            return ltrim($this->attributes['path'], '/');
         }
 
         $this->attributes['path'] = $path;
@@ -163,13 +165,7 @@ class Asset extends Data implements AssetContract
      */
     public function absoluteUrl()
     {
-        $url = $this->url();
-
-        if ($this->driver() === 'local') {
-            $url = URL::prependSiteRoot($url);
-        }
-
-        return URL::makeAbsolute($url);
+        return URL::makeAbsolute($this->url());
     }
 
     /**
@@ -283,6 +279,9 @@ class Asset extends Data implements AssetContract
 
         // Also, delete the actual file
         $this->disk()->delete($this->path());
+
+        // Whoever wants to know about it can do so now.
+        event(new AssetDeleted($this));
     }
 
     /**
@@ -346,6 +345,7 @@ class Asset extends Data implements AssetContract
         $this->container()->removeAsset($this);
 
         $oldPath = $this->path();
+        $oldResolvedPath = $this->resolvedPath();
 
         $pi = pathinfo($oldPath);
 
@@ -360,6 +360,9 @@ class Asset extends Data implements AssetContract
         // Re-add the asset definition to the container.
         $this->container()->addAsset($this);
         $this->container()->save();
+
+        // Whoever wants to know about it can do so now.
+        event(new AssetMoved($this, $oldResolvedPath));
     }
 
     /**

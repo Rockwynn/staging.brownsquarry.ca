@@ -3,31 +3,25 @@
    ========================================================================== */
 
 .section-fieldtype {
-    background: rgba(0,0,0,.02);
-    flex-basis: 110% !important;
-    border-bottom: 1px solid $border;
-    border-top: 1px solid $border;
+    @apply .border-t .border-b .bg-bg-lighter;
 
   &.form-group {
     position: relative;
-    margin: 24px -8px !important;
-    padding: 24px 24px 16px !important;
-
     &:first-child {
-      margin-top: -8px !important;
-      border-top: 0;
+        @apply .rounded-t .border-t-0;
     }
   }
 
-  label {
-    text-transform: uppercase;
-    font-family: $font;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
+    label {
+        @apply .uppercase .text-sm .font-bold;
+        margin-bottom: 0 !important;
+    }
 
-  .read-only-overlay {
-    display: none;
-  }
+    .help-block { @apply .mb-0 mt-sm; }
+
+    p { @apply .m-0; }
+
+    .read-only-overlay {
+        display: none;
+    }
 }

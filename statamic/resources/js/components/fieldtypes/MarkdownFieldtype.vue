@@ -419,11 +419,27 @@ export default {
         },
 
         getReplicatorPreviewText() {
-            return marked(this.data || '', { renderer: new PlainTextRenderer });
+            return marked(this.data || '', { renderer: new PlainTextRenderer })
+                .replace(/<\/?[^>]+(>|$)/g, "");
         },
 
         focus() {
             this.codemirror.focus();
+        },
+
+        trackHeightUpdates() {
+            const update = () => { window.dispatchEvent(new Event('resize')) };
+            const throttled = _.throttle(update, 100);
+
+            this.$root.$on('livepreview.opened', throttled);
+            this.$root.$on('livepreview.closed', throttled);
+            this.$root.$on('livepreview.resizing', throttled);
+
+            this.$once('hook:beforeDestroy', () => {
+                this.$root.$off('livepreview.opened', throttled);
+                this.$root.$off('livepreview.closed', throttled);
+                this.$root.$off('livepreview.resizing', throttled);
+            });
         }
 
     },
@@ -482,6 +498,8 @@ export default {
                 self.codemirror.doc.setValue(val);
             }
         });
+
+        this.trackHeightUpdates();
     }
 
 };

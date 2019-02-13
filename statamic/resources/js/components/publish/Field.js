@@ -4,7 +4,7 @@ const isEditingDefaultLocale = currentLocale === defaultLocale;
 
 export default {
 
-    props: ['field', 'data', 'config', 'autofocus'],
+    props: ['field', 'data', 'config', 'autofocus', 'env'],
 
     computed: {
 
@@ -22,15 +22,26 @@ export default {
 
         classes() {
             return [
-                'form-group p-2 m-0',
+                'form-group',
                 this.fieldtypeClass,
                 tailwind_width_class(this.field.width),
+                this.config.classes || '',
                 { 'has-error': this.hasError }
             ];
         },
 
         fieldtypeClass() {
             return this.field.type + '-fieldtype';
+        }
+
+    },
+
+    watch: {
+
+        isVisible(visible) {
+            // When showing fields, dispatch a resize event. Fields like Grid may be
+            // listening for it to know whether they should be in stacked/table layout.
+            if (visible) window.dispatchEvent(new Event('resize'));
         }
 
     }

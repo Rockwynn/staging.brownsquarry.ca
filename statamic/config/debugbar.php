@@ -79,7 +79,7 @@ return [
         'log'             => true,  // Logs from Monolog (merged in messages if enabled)
         'db'              => false,  // Show database (PDO) queries and bindings
         'views'           => false,  // Views with their data
-        'route'           => false,  // Current route information
+        'route'           => true,  // Current route information
         'laravel'         => true, // Laravel version and environment
         'events'          => false, // All events fired
         'default_request' => false, // Regular or special Symfony request logger

@@ -13,6 +13,7 @@ use Statamic\Data\Pages\PageStructure;
 use Statamic\Events\Data\EntryDeleted;
 use Statamic\Contracts\Data\Pages\Page;
 use Statamic\Contracts\Data\Users\User;
+use Statamic\Events\Data\CollectionSaved;
 use Statamic\Events\Data\UserGroupDeleted;
 use Statamic\Contracts\Data\Entries\Entry;
 use Statamic\Contracts\Data\Taxonomies\Term;
@@ -20,7 +21,9 @@ use Statamic\Contracts\Assets\AssetContainer;
 use Statamic\Events\Data\AssetContainerSaved;
 use Statamic\Contracts\Permissions\UserGroup;
 use Statamic\Contracts\Data\Globals\GlobalSet;
+use Statamic\Contracts\Data\Entries\Collection;
 use Statamic\Events\Data\AssetContainerDeleted;
+use Statamic\Data\Taxonomies\TermTracker;
 
 class UpdateItem
 {
@@ -58,9 +61,11 @@ class UpdateItem
             self::class.'@updateSavedItem'
         );
 
+        $events->listen(CollectionSaved::class, self::class.'@updateCollection');
         $events->listen(AssetContainerSaved::class, self::class.'@updateAssetContainer');
 
         $events->listen(EntryDeleted::class, self::class.'@removeDeletedEntry');
+        $events->listen(TermDeleted::class, self::class.'@removeDeletedTerm');
         $events->listen(PageDeleted::class, self::class.'@removeDeletedPages');
         $events->listen(UserDeleted::class, self::class.'@removeDeletedUser');
         $events->listen(UserGroupDeleted::class, self::class.'@removeDeletedUserGroup');
@@ -89,7 +94,7 @@ class UpdateItem
     public function updateSavedItem($data, $original = null)
     {
         if ($data instanceof Term) {
-            return;
+            return $this->updateSavedTerm($data);
         }
 
         $this->data = $data;
@@ -118,6 +123,12 @@ class UpdateItem
             $this->updateSavedItem($data->structure());
             $this->updateChildPages($data, $original);
         }
+    }
+
+    private function updateSavedTerm($term)
+    {
+        $this->stache->taxonomies->addUris($term->taxonomyName(), $term->slug());
+        $this->stache->updated('taxonomies::'.$term->taxonomyName());
     }
 
     /**
@@ -184,6 +195,11 @@ class UpdateItem
         $this->updateSavedItem($event->container);
     }
 
+    public function updateCollection(CollectionSaved $event)
+    {
+        $this->updateSavedItem($event->collection);
+    }
+
     /**
      * Remove a deleted entry
      *
@@ -199,6 +215,13 @@ class UpdateItem
         $this->stache->repo($key)->removeItem($event->id);
 
         $this->stache->updated($key);
+    }
+
+    public function removeDeletedTerm(TermDeleted $event)
+    {
+        list($taxonomy, $slug) = explode('/', $event->id);
+        $this->stache->taxonomies->removeUri($taxonomy, $slug);
+        $this->stache->updated('taxonomies::'.$taxonomy);
     }
 
     /**
@@ -279,6 +302,8 @@ class UpdateItem
             return 'usergroups';
         } elseif ($this->data instanceof AssetContainer) {
             return 'assetcontainers';
+        } elseif ($this->data instanceof Collection) {
+            return 'collections';
         }
     }
 

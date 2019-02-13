@@ -6,7 +6,8 @@ module.exports = {
         return {
             ajax: {
                 get: cp_url('users/get'),
-                delete: cp_url('users/delete')
+                search: cp_url('users/search'),
+                delete: cp_url('users/delete'),
             },
             tableOptions: {
                 sort: 'name',
@@ -24,7 +25,8 @@ module.exports = {
                                 {{{ formatValue(item[column.value]) }}}
                             </template>
                         </span>`
-                }
+                },
+                checkboxes: Vue.can('users:delete')
             }
         }
     },
@@ -37,8 +39,12 @@ module.exports = {
         addActionPartial: function () {
             var str = '';
 
-            if (this.can('users:manage')) {
+            if (this.can('users:edit')) {
                 str += `<li><a :href="item.edit_url">{{ translate('cp.edit') }}</a></li>`;
+            }
+
+            if (this.can('users:edit-passwords')) {
+                str += `<li><a :href="item.edit_password_url">{{ translate('cp.change_password') }}</a></li>`;
             }
 
             if (this.can('users:delete')) {

@@ -1333,9 +1333,13 @@ class Parser
             return Modify::value($data)->context($context)->$modifier($parameters)->fetch();
 
         } catch (ModifierException $e) {
-            \Log::notice(
-                sprintf('Error in [%s] modifier: %s', $e->getModifier(), $e->getMessage())
-            );
+            $dontLog = ['noparse'];
+
+            if (! in_array($e->getModifier(), $dontLog)) {
+                \Log::notice(
+                    sprintf('Error in [%s] modifier: %s', $e->getModifier(), $e->getMessage())
+                );
+            }
 
             return $data;
         }

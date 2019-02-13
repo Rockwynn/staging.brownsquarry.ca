@@ -1,6 +1,6 @@
 <template>
 
-    <div class="publish-fields p-1">
+    <div class="publish-fields">
 
         <component
             v-for="(i, field) in fields"
@@ -9,6 +9,7 @@
             :data.sync="data[field.name]"
             :config="fields[$index]"
             :autofocus="autofocus && i == 0"
+            :env="definedInEnvironment(field.name)"
         ></component>
 
     </div>
@@ -35,6 +36,10 @@ export default {
         regularTitleField: {
             type: Boolean,
             default: false
+        },
+        env: {
+            type: Object,
+            default: {}
         }
     },
 
@@ -65,6 +70,10 @@ export default {
             }
 
             return field.isMeta || ['title', 'slug', 'date'].includes(field.name);
+        },
+
+        definedInEnvironment: function(name) {
+            return _.has(this.env, name);
         }
     },
 

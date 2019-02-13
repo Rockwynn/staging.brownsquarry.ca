@@ -18,21 +18,27 @@ return [
    'static_caching_length_instruct' => 'How long should each page be cached, in minutes. This only applies when using the "cache" type.',
 
    'static_caching_type' => 'Caching Type',
-   'static_caching_type_instruct' => 'Saving to file will generate html files at `static`, and you will need to set up your htaccess.
+   'static_caching_type_instruct' => 'Saving to file will generate html files at `static`, and you will need to set up rewrite rules on your server.
+                                      <a href="https://docs.statamic.com/caching#static-page" target="_blank">Read more</a>.  
                                       Otherwise, the standard cache will be used.',
 
     'static_caching_file_path' => 'Static Files Path',
     'static_caching_file_path_instruct' => 'The location where files will be written when using file-based caching.',
 
     'static_caching_ignore_query_strings' => 'Ignore query strings',
-    'static_caching_ignore_query_strings_instruct' => 'When enabled, a page will be treated as the same URL regardless of any query string parameters.  
-                                                       Cannot be disabled when using file-based static caching.',
+    'static_caching_ignore_query_strings_instruct' => 'When enabled, a page will be treated as the same URL regardless of any query string parameters.',
 
     'static_caching_exclude' => 'Excluded URLs',
     'static_caching_exclude_instruct' => 'A list of URLs that should be excluded from caching.',
 
     'static_caching_invalidation' => 'Invalidation Rules',
     'static_caching_invalidation_instruct' => 'An array of invalidation rules.',
+
+    'cache_tags' => 'Cache Tags',
+    'cache_tags_instruct' => 'The {{ cache }} template tags allow you to cache sections of your templates.',
+
+    'cache_tags_enabled' => 'Enabled',
+    'cache_tags_enabled_instruct' => 'Whether the tags actually function. Disabling this setting applies to all tag instances.',
 
 
 ];

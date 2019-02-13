@@ -19,6 +19,7 @@ export default {
                 sort: this.sort,
                 sortOrder: this.sortOrder,
                 reorderable: this.reorderable,
+                checkboxes: this.canDelete,
                 partials: {}
             }
         }

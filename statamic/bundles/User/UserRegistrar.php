@@ -122,7 +122,7 @@ class UserRegistrar
             'validate' => 'required|confirmed'
         ]);
 
-        $this->fieldset->fields($fields);
+        $this->fieldset = Fieldset::create('user', ['fields' => $fields]);
     }
 
     /**

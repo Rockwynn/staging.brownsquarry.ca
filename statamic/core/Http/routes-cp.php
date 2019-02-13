@@ -9,6 +9,9 @@ Route::group(['prefix' => CP_ROUTE . '/auth'], function () {
     get('logout', 'Auth\AuthController@getLogout')->name('logout');
     get('login/reset', 'Auth\AuthController@getPasswordReset')->name('login.reset');
     post('login/reset', 'Auth\AuthController@postPasswordReset');
+    get('token', function () {
+        return csrf_token();
+    });
 });
 
 /**
@@ -136,8 +139,10 @@ Route::group(['prefix' => CP_ROUTE, 'middleware' => ['auth']], function () {
     // Users
     Route::group(['prefix' => 'users'], function () {
         get('account', 'UsersController@account')->name('account');
+        get('account/password', 'UsersController@accountPassword')->name('account.password');
         get('/', 'UsersController@index')->name('users');
         get('get', 'UsersController@get')->name('users.get');
+        get('search', 'UsersController@search')->name('users.search');
         get('create', 'UsersController@create')->name('user.create');
         delete('delete', 'UsersController@delete')->name('users.delete');
         post('publish', 'PublishUserController@save')->name('user.save');
@@ -166,9 +171,11 @@ Route::group(['prefix' => CP_ROUTE, 'middleware' => ['auth']], function () {
             post('{group}', 'UserGroupsController@update')->name('user.group');
         });
 
-        get('{username}', ['uses' => 'UsersController@edit', 'as' => 'user.edit']);
+        get('{username}', 'UsersController@edit')->name('user.edit');
         get('{username}/reset-url', 'UsersController@getResetUrl');
         get('{username}/send-reset-email', 'UsersController@sendResetEmail');
+        get('{username}/password/edit', 'UsersController@editPassword')->name('user.password.edit');
+        post('{username}/password', 'UsersController@updatePassword')->name('user.password.update');
     });
 
     Route::group(['prefix' => 'forms'], function () {

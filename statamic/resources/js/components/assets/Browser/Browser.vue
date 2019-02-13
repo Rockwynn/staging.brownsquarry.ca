@@ -121,16 +121,9 @@
                     @sorted="sortBy">
                 </component>
 
-                <div class="no-results" v-if="isEmpty">
-                    <template v-if="isSearching">
-                        <span class="icon icon-magnifying-glass"></span>
-                        <h2>{{ translate('cp.no_search_results') }}</h2>
-                    </template>
-                    <template v-else>
-                        <span class="icon icon-folder"></span>
-                        <h2>{{ translate('cp.asset_folder_empty_heading') }}</h2>
-                        <h3>{{ translate('cp.asset_folder_empty') }}</h3>
-                    </template>
+                <div class="no-results" v-if="isSearching && isEmpty">
+                    <svg-icon name="folder-search-empty" class="h-16 w-16 mx-auto"></svg-icon>
+                    <h2>{{ translate('cp.no_search_results') }}</h2>
                 </div>
 
                 <pagination
@@ -468,6 +461,7 @@ export default {
         folderSelected(path) {
             // Trigger re-loading of assets in the selected folder.
             this.path = path;
+            this.selectedPage = 1;
 
             // Trigger an event so the parent can do something.
             // eg. The asset manager would want to change the browser URL.

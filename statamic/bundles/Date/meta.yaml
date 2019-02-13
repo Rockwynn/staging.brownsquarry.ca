@@ -14,3 +14,7 @@ fieldtype_fields:
     default: January 1, 1900
   format:
     type: text
+    width: 50
+  input_format:
+    type: text
+    width: 50

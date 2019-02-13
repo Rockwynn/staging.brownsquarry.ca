@@ -30,15 +30,18 @@ class Loader
     {
         // Here we will load the Stache with metadata only. We intentionally don't want
         // to load the data objects into memory. We'll lazy load them. Performance++
+        // We'll also load keys, that holds an array of all the saved cache keys.
         $meta = $this->fetch('meta');
+        $keys = $this->fetch('keys');
 
         // If there's no cached meta data, that means we have a fresh Stache.
-        if (! $meta) {
+        if (! $meta || ! $keys) {
             throw new EmptyStacheException;
         }
 
         // Save the meta data array to the stache. The persister will want this.
         $this->stache->meta($meta);
+        $this->stache->keys($keys);
 
         // Insert meta data into their respective Stache repos.
         // The $meta array contains meta arrays for each driver.

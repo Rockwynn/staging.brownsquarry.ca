@@ -12,7 +12,8 @@
             :suggestions="suggestions"
             :max-items="maxItems"
             :create="canCreate"
-            :name="name">
+            :name="name"
+            :disabled="disabled">
         </relate-tags>
 
         <relate-panes
@@ -41,7 +42,10 @@ export default {
         'relate-tags': RelateTags
     },
 
-    props: ['suggestionsProp'],
+    props: [
+        'suggestionsProp',
+        'disabled'
+    ],
 
     data: function() {
         return {

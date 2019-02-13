@@ -9,6 +9,7 @@
 
 .publish-form {
     position: relative;
+    padding-bottom: 120px;
 
     .loading-blocker {
         padding-top: 50px;
@@ -92,7 +93,7 @@ code.parent-url {
   ========================================================================== */
 
   .sticky {
-      background: linear-gradient($bg 95%, transparent);
+      background: linear-gradient($bg 95%, rgba($bg, 0));
       position: sticky;
       top: 0;
       padding: 12px 24px 16px;

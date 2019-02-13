@@ -3,9 +3,9 @@
     <div class="-mx-1">
 
         <div class="filter mx-1 mb-2">
-            <a href="" :class="{ 'active': activeTab === 'basics' }" @click.prevent="activeTab = 'basics'">Basics</a>
-            <a href="" :class="{ 'active': activeTab === 'visibility' }" @click.prevent="activeTab = 'visibility'">Visibility</a>
-            <a href="" :class="{ 'active': activeTab === 'extras' }" @click.prevent="activeTab = 'extras'" v-if="hasExtras">Extras</a>
+            <a href="" :class="{ 'active': activeTab === 'basics' }" @click.prevent="activeTab = 'basics'">{{ translate('cp.basics') }}</a>
+            <a href="" :class="{ 'active': activeTab === 'visibility' }" @click.prevent="activeTab = 'visibility'">{{ translate('cp.visibility') }}</a>
+            <a href="" :class="{ 'active': activeTab === 'extras' }" @click.prevent="activeTab = 'extras'" v-if="hasExtras">{{ translate('cp.extras') }}</a>
         </div>
 
         <div class="tab publish-fields" v-show="activeTab === 'basics'">

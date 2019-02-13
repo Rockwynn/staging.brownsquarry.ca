@@ -28,15 +28,4 @@ class RelateFieldtype extends SuggestFieldtype
 
         return $data;
     }
-
-    public function process($data)
-    {
-        $max_items = (int) $this->getFieldConfig('max_items');
-
-        if ($max_items === 1 && is_array($data)) {
-            return $data[0];
-        }
-
-        return $data;
-    }
 }

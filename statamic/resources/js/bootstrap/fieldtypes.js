@@ -5,6 +5,7 @@ import AssetsFieldtype from '../components/fieldtypes/assets/AssetsFieldtype.vue
 import AssetsFolderFieldtype from '../components/fieldtypes/AssetsFolderFieldtype.vue'
 import AssetContainerFieldtype from '../components/fieldtypes/AssetContainerFieldtype.vue'
 import BardFieldtype from '../components/fieldtypes/bard/BardFieldtype.vue'
+import BardButtonsSettingFieldtype from '../components/fieldtypes/bard/BardButtonsSettingFieldtype.vue'
 import CheckboxesFieldtype from '../components/fieldtypes/CheckboxesFieldtype.vue'
 import CollectionFieldtype from '../components/fieldtypes/CollectionFieldtype.vue'
 import CollectionsFieldtype from '../components/fieldtypes/CollectionsFieldtype.vue'
@@ -24,6 +25,7 @@ import RedactorSettingsFieldtype from '../components/fieldtypes/redactor/Redacto
 import RelateFieldtype from '../components/fieldtypes/relate/RelateFieldtype.vue'
 import ReplicatorFieldtype from '../components/fieldtypes/replicator/ReplicatorFieldtype.vue'
 import RevealerFieldtype from '../components/fieldtypes/RevealerFieldtype.vue'
+import RoutesFieldtype from '../components/fieldtypes/RoutesFieldtype.vue'
 import SectionFieldtype from '../components/fieldtypes/SectionFieldtype.vue'
 import SelectFieldtype from '../components/fieldtypes/SelectFieldtype.vue'
 import StatusFieldtype from '../components/fieldtypes/StatusFieldtype.vue'
@@ -48,6 +50,7 @@ Vue.component('assets-fieldtype', AssetsFieldtype);
 Vue.component('asset_container-fieldtype', AssetContainerFieldtype);
 Vue.component('asset_folder-fieldtype', AssetsFolderFieldtype);
 Vue.component('bard-fieldtype', BardFieldtype);
+Vue.component('bard_buttons_setting-fieldtype', BardButtonsSettingFieldtype);
 Vue.component('checkboxes-fieldtype', CheckboxesFieldtype);
 Vue.component('collection-fieldtype', CollectionFieldtype);
 Vue.component('collections-fieldtype', CollectionsFieldtype);
@@ -67,6 +70,7 @@ Vue.component('redactor_settings-fieldtype', RedactorSettingsFieldtype);
 Vue.component('relate-fieldtype', RelateFieldtype);
 Vue.component('replicator-fieldtype', ReplicatorFieldtype);
 Vue.component('revealer-fieldtype', RevealerFieldtype);
+Vue.component('routes-fieldtype', RoutesFieldtype);
 Vue.component('section-fieldtype', SectionFieldtype);
 Vue.component('select-fieldtype', SelectFieldtype);
 Vue.component('status-fieldtype', StatusFieldtype);

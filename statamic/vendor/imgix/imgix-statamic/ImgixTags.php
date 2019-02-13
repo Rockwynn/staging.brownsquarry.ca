@@ -21,7 +21,8 @@ class ImgixTags extends Tags
 
         unset($attrs['path']);
 
-        while (list($key, $val) = each($attrs)) {
+//        while (list($key, $val) = each($attrs)) {
+        foreach($attrs as $key => $val) {
             $is_html_attr = in_array($key, self::$html_attributes);
             $is_data_attr = strpos($key, 'data-') === 0;
             $is_aria_attr = strpos($key, 'aria-') === 0;
@@ -48,7 +49,8 @@ class ImgixTags extends Tags
 
         $html = '';
 
-        while (list($key, $val) = each($img_attributes)) {
+//        while (list($key, $val) = each($img_attributes)) {
+        foreach($img_attributes as $key => $val) {
             $html .= " $key=\"$val\"";
         }
 
@@ -57,7 +59,7 @@ class ImgixTags extends Tags
 
     protected function buildSrcset($categorized_attrs) {
         $srcset_values = array();
-        $resolutions = $this->getConfig('responsive_resolutions', array(1, 2));
+        $resolutions = $this->getConfig('responsive_resolutions', array(1, 2, 3));
 
         foreach ($resolutions as $resolution) {
             if ($resolution != 1) {

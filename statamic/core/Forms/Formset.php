@@ -163,8 +163,6 @@ class Formset implements FormsetContract
      */
     public function save()
     {
-        $path = settings_path("formsets/{$this->name()}.yaml");
-
         $data = [
             'title' => $this->title(),
             'store' => $this->get('store'),
@@ -181,7 +179,12 @@ class Formset implements FormsetContract
                 : !in_array($item, [null, ''], true);
         });
 
-        File::put($path, YAML::dump($data));
+        File::put($this->path(), YAML::dump($data));
+    }
+
+    public function path()
+    {
+        return settings_path("formsets/{$this->name()}.yaml");
     }
 
     /**

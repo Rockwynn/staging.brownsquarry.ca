@@ -1,8 +1,9 @@
 @extends('outside')
+@section('box-attributes', 'v-cloak')
 
 @section('content')
 
-    <login inline-template :show-email-login="!{{ bool_str($oauth) }}" v-cloak>
+    <login inline-template :show-email-login="!{{ bool_str($oauth) }}" :has-error="{{ bool_str(count($errors) > 0) }}">
 
         @if ($oauth)
             <div class="login-oauth-providers">
@@ -29,7 +30,7 @@
 
             <input type="hidden" name="referer" value="{{ $referer }}" />
 
-            <div class="form-group">
+            <div class="mb-4">
                 <label>
                 @if (\Statamic\API\Config::get('users.login_type') === 'email')
                     {{ trans_choice('cp.emails', 1) }}
@@ -40,12 +41,12 @@
                 <input type="text" class="form-control" name="username" value="{{ old('username') }}" autofocus>
             </div>
 
-            <div class="form-group">
+            <div class="mb-4">
                 <label>{{ t('password') }}</label>
                 <input type="password" class="form-control" name="password" id="password">
             </div>
 
-            <div class="form-group">
+            <div class="mb-4">
                 <input type="checkbox" class="form-control" name="remember" id="checkbox-0">
                 <label for="checkbox-0" class="normal">{{ trans('cp.remember_me') }}</label>
             </div>

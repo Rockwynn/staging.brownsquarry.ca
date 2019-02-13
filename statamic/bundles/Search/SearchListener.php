@@ -55,10 +55,15 @@ class SearchListener extends Listener
         }
 
         foreach (Config::getLocales() as $locale) {
-            Search::in(null, $locale)->insert(
-                $event->id,
-                $content->in($locale)->toSearchableArray(Config::get('search.searchable'))
-            );
+            try {
+                Search::in(null, $locale)->insert(
+                    $event->id,
+                    $content->in($locale)->toSearchableArray(Config::get('search.searchable'))
+                );
+            } catch (\Exception $e) {
+                \Log::error("There was an error while updating the search index.");
+                \Log::error($e);
+            }
         }
     }
 

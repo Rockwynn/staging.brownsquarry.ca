@@ -2,8 +2,33 @@ class Fieldset {
 
     constructor(fieldset) {
         this.fieldset = fieldset;
-        this.sections = fieldset.sections;
-        this.metaFields = ['slug'];
+        this.name = fieldset.name;
+        this.sections = this.parseSections(fieldset.sections);
+        this.metaFields = [];
+    }
+
+    parseSections(sections) {
+        return _.chain(sections).mapObject((section, handle) => {
+            section.handle = handle;
+            section.fields = this.parseFields(section.fields);
+            return section;
+        }).values().value();
+    }
+
+    parseFields(fields) {
+        return _.chain(fields).mapObject((config, handle) => {
+            config.name = handle;
+            return config;
+        }).values().value();
+    }
+
+    /**
+     * By default, the slug field won't be shown.
+     * This lets you specify whether or not it should be shown.
+     */
+    showSlug(show) {
+        if (show) this.metaFields.push('slug');
+        return this;
     }
 
     /**
@@ -12,15 +37,6 @@ class Fieldset {
      */
     showDate(show) {
         if (show) this.metaFields.push('date');
-        return this;
-    }
-
-    /**
-     * By default, taxonomies fields won't be shown.
-     * This lets you specify whether or not they should be shown.
-     */
-    showTaxonomies(show) {
-        if (show) this.metaFields.push('taxonomies');
         return this;
     }
 
@@ -42,43 +58,22 @@ class Fieldset {
     }
 
     /**
-     * Append any required meta fields to the end of the sidebar.
+     * Prepend any required meta fields to the start of the sidebar.
      */
-    appendMeta() {
+    prependMeta() {
         this.ensureSidebar();
 
         let fields = this.fieldsInSections();
 
         _.each(this.metaFields, field => {
-            if (field === 'taxonomies') {
-                this.appendTaxonomies();
-            } else {
-                if (!fields.includes(field)) {
-                    this.pushSidebarField({ name: field, type: field });
-                }
+            if (!fields.includes(field)) {
+                this.pushSidebarField({ name: field, type: field });
             }
         });
 
         this.removeEmptySidebar();
 
         return this;
-    }
-
-    /**
-     * Append any leftover taxonomy fields to the end of the sidebar.
-     */
-    appendTaxonomies() {
-        const fields = this.fieldsInSections();
-
-        this.fieldset.taxonomies.forEach(taxonomy => {
-            if (fields.includes(taxonomy.handle)) return;
-
-            this.pushSidebarField({
-                type: 'taxonomy',
-                name: taxonomy.handle,
-                display: taxonomy.title,
-            });
-        });
     }
 
     /**
@@ -93,7 +88,7 @@ class Fieldset {
             localizable: true
         }, config || {});
 
-        sidebar.push(field);
+        sidebar.unshift(field);
     }
 
     /**

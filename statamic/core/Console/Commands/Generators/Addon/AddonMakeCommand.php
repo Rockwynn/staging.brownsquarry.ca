@@ -41,6 +41,7 @@ class AddonMakeCommand extends AbstractCommand
         'Widget' => 'widget',
         'Controller' => 'controller',
         'Tasks' => 'tasks',
+        'SuggestMode' => 'suggest',
     ];
 
     /**

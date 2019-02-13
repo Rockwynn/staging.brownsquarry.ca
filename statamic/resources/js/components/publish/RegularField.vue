@@ -12,7 +12,11 @@
 
             <small class="help-block" v-if="field.instructions" v-html="field.instructions | markdown"></small>
 
-            <component
+            <div v-if="env" class="environment-field">
+                <i class="icon icon-lock"></i> {{ translate('cp.defined_in_environment') }}
+            </div>
+
+            <component v-else
                         :is="componentName"
                         :name="field.name"
                         :data.sync="data"

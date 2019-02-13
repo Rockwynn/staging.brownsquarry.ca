@@ -40,6 +40,8 @@ class Permissions
             'importer',                        // can import data
             'users:view',                      // can view users
             'users:edit',                      // can edit users
+            'users:edit-passwords',            // can edit passwords on users
+            'users:edit-roles',                // can edit roles on users
             'users:create',                    // can create users
             'users:delete',                    // can delete users
             'resolve_duplicates',              // can resolve duplicate ids
@@ -175,7 +177,7 @@ class Permissions
             'importer' => ['importer'],
             'users' => [
                 'users:view' => [
-                    'users:edit' => ['users:create', 'users:delete']
+                    'users:edit' => ['users:create', 'users:delete', 'users:edit-passwords', 'users:edit-roles']
                 ]
             ]
         ]);

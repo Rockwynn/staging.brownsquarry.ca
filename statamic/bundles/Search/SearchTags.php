@@ -16,14 +16,14 @@ class SearchTags extends CollectionTags
      *
      * @var string
      */
-    private $query;
+    protected $query;
 
     /**
      * The locale to search within.
      *
      * @var string
      */
-    private $locale;
+    protected $locale;
 
     /**
      * The {{ search }} tag. An alias of search:results
@@ -42,7 +42,7 @@ class SearchTags extends CollectionTags
      */
     public function results()
     {
-        if (! $this->query = request()->query($this->get('param', 'q'))) {
+        if (! $this->query = $this->getQuery()) {
             return $this->parseNoResults();
         }
 
@@ -87,12 +87,19 @@ class SearchTags extends CollectionTags
         return $this->get('sort', 'search_score:desc');
     }
 
+    protected function getQuery()
+    {
+         $query = request()->query($this->get('param', 'q'));
+
+         return trim($query);
+    }
+
     /**
      * Perform a search and generate a collection
      *
      * @return \Illuminate\Support\Collection
      */
-    private function buildSearchCollection()
+    protected function buildSearchCollection()
     {
         $index = ($collection = $this->get('collection'))
             ? 'collections/' . $collection
@@ -108,7 +115,7 @@ class SearchTags extends CollectionTags
         return Search::in($index)->search($this->query, $this->getList('fields'));
     }
 
-    private function convertSearchResultsToContent()
+    protected function convertSearchResultsToContent()
     {
         $collection = $this->collection->map(function ($result) {
             if (! $content = Content::find($result['id'])) {

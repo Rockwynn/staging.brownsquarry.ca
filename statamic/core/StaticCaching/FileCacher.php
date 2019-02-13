@@ -41,7 +41,7 @@ class FileCacher extends AbstractCacher
 
         $content = $this->normalizeContent($content);
 
-        $path = $this->getFilePath($request->getUri());
+        $path = $this->getFilePath($url);
 
         if (! $this->writer->write($path, $content, $this->config('lock_hold_length'))) {
             return;
@@ -82,14 +82,11 @@ class FileCacher extends AbstractCacher
      */
     public function invalidateUrl($url)
     {
-        if (! $key = $this->getUrls()->flip()->get($url)) {
-            // URL doesn't exist, nothing to invalidate.
-            return;
-        }
-
         $this->writer->delete($this->getFilePath($url));
 
-        $this->forgetUrl($key);
+        if ($key = $this->getUrls()->flip()->get($url)) {
+            $this->forgetUrl($key);
+        }
     }
 
     public function getCachePaths()

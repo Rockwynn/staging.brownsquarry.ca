@@ -27,13 +27,13 @@
                 <div class="form-group">
                     <label class="block">{{ trans_choice('cp.templates', 1) }}</label>
                     <small class="help-block">{{ t('collection_template_instructions') }}</small>
-                    <template-fieldtype name="template" data="{{ $collection->get('template') }}"></template-fieldtype>
+                    <template-fieldtype name="fields[template]" data="{{ $collection->get('template') }}"></template-fieldtype>
                 </div>
 
                 <div class="form-group">
                     <label class="block">{{ t('route') }}</label>
                     <small class="help-block">{{ t('collection_route_instructions') }}</small>
-                    <input type="text" name="fields[route]" class="form-control" value="{{ $collection->route() }}" />
+                    <routes-fieldtype :data="{{ json_encode($routes) }}" name="routes"></routes-fieldtype>
                 </div>
 
             </div>

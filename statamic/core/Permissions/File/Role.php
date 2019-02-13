@@ -7,6 +7,8 @@ use Statamic\API\File;
 use Statamic\API\YAML;
 use Illuminate\Support\Collection;
 use Statamic\Contracts\Permissions\Role as RoleContract;
+use Statamic\Events\Data\RoleDeleted;
+use Statamic\Events\Data\RoleSaved;
 
 class Role implements RoleContract
 {
@@ -143,13 +145,16 @@ class Role implements RoleContract
 
     public function save()
     {
-        $path = settings_path('users/roles.yaml');
+        $path = $this->yamlPath();
 
         $roles = YAML::parse(File::get($path));
 
         $roles[$this->uuid()] = $this->toArray();
 
         File::put($path, YAML::dump($roles));
+
+        // Whoever wants to know about it can do so now.
+        event(new RoleSaved($this));
     }
 
     /**
@@ -157,13 +162,16 @@ class Role implements RoleContract
      */
     public function delete()
     {
-        $path = settings_path('users/roles.yaml');
+        $path = $this->yamlPath();
 
         $roles = YAML::parse(File::get($path));
 
         unset($roles[$this->uuid()]);
 
         File::put($path, YAML::dump($roles));
+
+        // Whoever wants to know about it can do so now.
+        event(new RoleDeleted($this));
     }
 
     /**
@@ -199,5 +207,15 @@ class Role implements RoleContract
     public function editUrl()
     {
         return cp_route('user.role', $this->uuid());
+    }
+
+    /**
+     * Get the yaml path.
+     *
+     * @return string
+     */
+    public function yamlPath()
+    {
+        return settings_path('users/roles.yaml');
     }
 }

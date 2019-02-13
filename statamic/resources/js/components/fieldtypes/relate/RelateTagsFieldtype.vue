@@ -14,9 +14,9 @@ export default {
         'suggestions',
         'maxItems',
         'create',
-        'name'
+        'name',
+        'disabled'
     ],
-
 
     ready() {
 
@@ -37,6 +37,10 @@ export default {
             },
             create: this.create
         });
+
+        if (this.disabled) {
+            this.$els.tags.selectize.disable();
+        }
 
     },
 

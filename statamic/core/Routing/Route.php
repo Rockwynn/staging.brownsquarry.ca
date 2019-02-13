@@ -63,11 +63,11 @@ class Route
         }
 
         if ($content = Content::find($load)) {
-            return $content->toArray();
+            return $content->in(site_locale())->toArray();
         }
 
         if ($content = Content::whereUri($load)) {
-            return $content->toArray();
+            return $content->in(site_locale())->toArray();
         }
 
         return [];

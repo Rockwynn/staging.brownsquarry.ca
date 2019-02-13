@@ -8,7 +8,7 @@ use Statamic\API\Taxonomy;
 use Statamic\API\User;
 use Statamic\API\Folder;
 use Statamic\API\GlobalSet;
-use Statamic\Outpost as StatamicOutpost;
+use Statamic\Outpost\Outpost as StatamicOutpost;
 
 class NavFactory
 {
@@ -62,7 +62,9 @@ class NavFactory
         }
 
         if ($this->access('globals:*:view')) {
-            $nav->add($this->buildGlobalsNav());
+             if (! GlobalSet::all()->isEmpty()) {
+                 $nav->add($this->buildGlobalsNav());
+             }
         }
 
         return $nav;

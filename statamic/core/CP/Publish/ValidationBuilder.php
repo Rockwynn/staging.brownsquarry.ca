@@ -44,7 +44,7 @@ class ValidationBuilder
     {
         $fieldtype_rules = $this->getFieldtypeValidationRules($this->fieldset->fieldtypes());
 
-        $field_validation_data = $this->getFieldValidationData($this->fieldset->fields());
+        $field_validation_data = $this->getFieldValidationData($this->fieldset->inlinedFields());
 
         $this->rules = array_merge($fieldtype_rules, $field_validation_data['rules']);
 
@@ -112,7 +112,7 @@ class ValidationBuilder
 
             // Set the attribute (ie. the display name of the field) so that validation
             // messages are words instead of dot-notated strings.
-            $field_attribute = array_get($field_config, 'display', $field_name) . ' field';
+            $field_attribute = array_get($field_config, 'display', $field_name);
             $attributes["{$name}.{$field_name}"] = $field_attribute;
 
             // Grid recursion

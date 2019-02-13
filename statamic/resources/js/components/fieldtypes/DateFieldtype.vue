@@ -8,13 +8,15 @@
     	<div v-if="hasDate" class="date-time-container">
 
     		<div class="col-date">
-    			<div class="daterange daterange--single" :data-datetime="date" v-el:date>
-    				<span class="icon icon-calendar"></span>
-    				<span class="icon icon-remove" @click="removeDate" v-if="blankAllowed">&times;</span>
+    			<div class="daterange daterange--single flex" :data-datetime="date" v-el:date>
+                    <div class="flex items-center h-8" v-if="blankAllowed">
+        				<span class="icon icon-remove" @click="removeDate" >&times;</span>
+                    </div>
     			</div>
     		</div>
-    		<div class="col-time">
-    			<div class="time-fieldtype" v-if="timeAllowed">
+
+    		<div class="col-time" v-if="timeAllowed">
+    			<div class="time-fieldtype">
     				<time-fieldtype v-ref:time v-show="hasTime" :data.sync="time" :required="timeRequired"></time-fieldtype>
     				<button type="button" class="btn btn-default btn-icon add-time" v-show="!hasTime" @click="addTime" tabindex="0">
     					<span class="icon icon-clock"></span>
@@ -159,6 +161,11 @@ export default {
                 element: $(self.$el).find('.daterange'),
                 current_date: moment(date),
                 earliest_date: this.config.earliest_date || "January 1, 1900",
+                format: {
+                    input: this.config.input_format || Statamic.dateFormat,
+                    jump_month: 'MMMM',
+                    jump_year: 'YYYY'
+                },
                 callback: function() {
                     var newDate = moment(this.current_date).format('YYYY-MM-DD');
                     self.updateDateString(newDate);

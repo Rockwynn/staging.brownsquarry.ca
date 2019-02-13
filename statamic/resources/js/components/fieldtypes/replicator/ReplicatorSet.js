@@ -99,6 +99,10 @@ export default {
             ];
         },
 
+        componentName(type) {
+            return type.replace('.', '-') + '-fieldtype';
+        }
+
     }
 
 }

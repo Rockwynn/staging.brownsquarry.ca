@@ -59,6 +59,11 @@ abstract class Publisher
     protected $id;
 
     /**
+     * @var mixed
+     */
+    protected $fieldset;
+
+    /**
      * Create a new Publisher
      *
      * @param \Illuminate\Http\Request $request
@@ -85,11 +90,15 @@ abstract class Publisher
         // the case may be. We'll also update the essentials like status and order.
         $this->prepare();
 
+        // The fieldset may be overriden from within a child publisher class.
+        // For instance, the Entry publisher appends taxonomy fields.
+        $fieldset = $this->fieldset ?: $this->content->fieldset();
+
         // Fieldtypes may modify the values submitted by the user.
         // We will remove the null values for everything except Eloquent-managed users. They need the nulls to override
         // what's going on the DB. @todo: Do this better. Don't judge me.
         $removeNulls = $this->content instanceof User && Config::get('users.driver') === 'eloquent' ? false : true;
-        $this->fields = $this->processFields($this->content->fieldset(), $this->fields, $removeNulls);
+        $this->fields = $this->processFields($fieldset, $this->fields, $removeNulls);
 
         // Update the submission with the modified data
         $submission = array_merge($this->request->all(), ['fields' => $this->fields]);
@@ -238,7 +247,7 @@ abstract class Publisher
      */
     protected function validateSubmission($submission)
     {
-        $validation = new ValidationBuilder($this->fields, $this->content->fieldset());
+        $validation = new ValidationBuilder($this->fields, $this->fieldset ?: $this->content->fieldset());
         $validation->build();
 
         $this->validate($validation->rules(), [], $validation->attributes());

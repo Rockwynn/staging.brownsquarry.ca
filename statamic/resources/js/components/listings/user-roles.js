@@ -32,7 +32,7 @@ module.exports = {
         addActionPartial: function () {
             var str = '';
 
-            if (this.can('users:manage')) {
+            if (this.can('users:edit')) {
                 str += `<li><a :href="item.edit_url">{{ translate('cp.edit') }}</a></li>`;
             }
 

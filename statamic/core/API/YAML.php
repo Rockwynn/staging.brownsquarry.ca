@@ -73,7 +73,7 @@ class YAML
 
     private static function dumpSymfony($data)
     {
-        return SymfonyYaml::dump($data, 8, 2, SymfonyYaml::DUMP_MULTI_LINE_LITERAL_BLOCK);
+        return SymfonyYaml::dump($data, 100, 2, SymfonyYaml::DUMP_MULTI_LINE_LITERAL_BLOCK);
     }
 
     private static function dumpSpyc($data)

@@ -3,11 +3,13 @@
 namespace Statamic\Stache\Drivers;
 
 use Statamic\API\Term;
+use Statamic\API\Str;
 
 class TermsDriver extends AbstractDriver implements AggregateDriver
 {
-    protected $localizable = true;
-    protected $routable = true;
+    // The driver is not concerned with handling either localization or routability.
+    protected $localizable = false;
+    protected $routable = false;
 
     public function getFilesystemRoot()
     {
@@ -21,7 +23,12 @@ class TermsDriver extends AbstractDriver implements AggregateDriver
             $files
         );
 
-        return $creator->create();
+        return $creator->create()->each(function ($taxonomy) {
+            $taxonomy->each(function ($item) {
+                $term = $item['item'];
+                $this->stache->taxonomies->addUris($term->taxonomyName(), $term->slug());
+            });
+        });
     }
 
     public function createItem($path, $contents)
@@ -38,16 +45,17 @@ class TermsDriver extends AbstractDriver implements AggregateDriver
      */
     public function deleteItems($repo, $deleted, $modified)
     {
-        $deleted->each(function ($path) use ($repo) {
-            $key = $this->getKeyFromPath($path);
-            $id = $repo->getIdByPath("$key::$path");
-            $repo->removeItem("$key::$id");
+        $deleted->each(function ($path) {
+            $path = Str::removeRight($path, '.yaml');
+            $id = explode('/', $path, 2)[1];
+            list($taxonomy, $slug) = explode('/', $id);
+            $this->stache->taxonomies->removeUri($taxonomy, $slug);
         });
     }
 
     public function isMatchingFile($file)
     {
-        return $file['type'] === 'file' && $file['basename'] !== 'folder.yaml';
+        return $file['type'] === 'file' && str_contains($file['dirname'], '/');
     }
 
     /**
@@ -58,13 +66,7 @@ class TermsDriver extends AbstractDriver implements AggregateDriver
      */
     public function getLocaleFromPath($path)
     {
-        $parts = explode('/', $path);
-
-        if (count($parts) === 3) {
-            return default_locale();
-        }
-
-        return $parts[2];
+        return default_locale();
     }
 
     /**
@@ -92,45 +94,17 @@ class TermsDriver extends AbstractDriver implements AggregateDriver
 
     private function getPersistentPaths($repo)
     {
-        $all_paths = [];
-
-        foreach ($repo->getPathsForAllLocales()->toArray() as $taxonomy => $locales) {
-            foreach ($locales as $locale => $paths) {
-                foreach ($paths as $id => $path) {
-                    array_set($all_paths, $locale . '.' . $taxonomy . '::' . $id, $path);
-                }
-            }
-        }
-
-        return $all_paths;
+        return [];
     }
 
     private function getPersistentUris($repo)
     {
-        $all_uris = [];
-
-        foreach ($repo->getUrisForAllLocales()->toArray() as $taxonomy => $locales) {
-            foreach ($locales as $locale => $uris) {
-                foreach ($uris as $id => $path) {
-                    array_set($all_uris, $locale . '.' . $taxonomy . '::' . $id, $path);
-                }
-            }
-        }
-
-        return $all_uris;
+        return [];
     }
 
     private function getPersistentItems($repo)
     {
-        $items = [];
-
-        foreach ($repo->getItems() as $key => $collection) {
-            $items[$key.'/data'] = $collection->map(function ($term) {
-                return $term->shrinkWrap();
-            })->all();
-        }
-
-        return $items;
+        return [];
     }
 
     /**
@@ -143,7 +117,7 @@ class TermsDriver extends AbstractDriver implements AggregateDriver
      */
     public function getLocalizedUri($locale, $data, $path)
     {
-        return Term::find($data['id'])->in($locale)->uri();
+        //
     }
 
     /**
@@ -151,32 +125,6 @@ class TermsDriver extends AbstractDriver implements AggregateDriver
      */
     public function load($collection)
     {
-        return $collection->map(function ($item, $id) {
-            $attr = $item['attributes'];
-
-            // Get the data for the default locale. Remove the ID since
-            // we already have it and will be setting it separately.
-            $data = $item['data'][default_locale()];
-            unset($data['id']);
-
-            $term = Term::create($attr['slug'])
-                ->id($id)
-                ->with($data)
-                ->taxonomy($attr['taxonomy'])
-                ->order(array_get($attr, 'order'))
-                ->published(array_get($attr, 'published'))
-                ->get();
-
-            // If the term has additional locale data, add them.
-            if (count($item['data']) > 1) {
-                foreach ($item['data'] as $locale => $data) {
-                    $term->dataForLocale($locale, $data);
-                }
-
-                $term->syncOriginal();
-            }
-
-            return $term;
-        });
+        //
     }
 }

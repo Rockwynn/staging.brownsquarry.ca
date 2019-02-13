@@ -10,7 +10,7 @@
         </div>
 
         @if(count($forms) == 0)
-        <div class="card"
+        <div class="card">
             <div class="no-results">
                 <span class="icon icon-download"></span>
                 <h2>{{ trans_choice('cp.forms', 2) }}</h2>

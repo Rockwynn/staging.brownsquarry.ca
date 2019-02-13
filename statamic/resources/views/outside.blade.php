@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="logo">{!! inline_svg('statamic-mark') !!}</div>
-                <div class="box card col-centered">
+                <div class="box card col-centered" @yield('box-attributes')>
                     <div id="wrapper">
 
                         @yield('title')

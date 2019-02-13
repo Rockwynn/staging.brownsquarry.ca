@@ -90,8 +90,8 @@ export default {
 
             const container = this.$el;
             const sortableFields = new Sortable(container, {
-                draggable: `.section-field--${this.parentKey}`,
-                handle: `.field-drag-handle--${this.parentKey}`,
+                draggable: `.section-field--${this.parentKey || ''}`,
+                handle: `.field-drag-handle--${this.parentKey || ''}`,
                 appendTo: container,
                 mirror: { constrainDimensions: true },
             }).on('sortable:stop', e => {
@@ -132,6 +132,10 @@ export default {
         },
 
         remove(i) {
+            if (! confirm(translate('cp.are_you_sure'))) {
+                return;
+            }
+
             this.fields.splice(i, 1);
         }
 

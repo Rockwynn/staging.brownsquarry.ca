@@ -25,7 +25,9 @@ class SuggestFieldtype extends Fieldtype
 
     public function process($data)
     {
-        if ($this->getFieldConfig('max_items') === 1) {
+        $maxItems = (int) $this->getFieldConfig('max_items');
+
+        if ($maxItems === 1 && is_array($data)) {
             $data = reset($data);
         }
 

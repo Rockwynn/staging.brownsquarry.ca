@@ -10,6 +10,8 @@ use Statamic\API\YAML;
 use Statamic\Data\Data;
 use Statamic\API\Config;
 use Statamic\API\Fieldset;
+use Statamic\Events\Data\UserSaved;
+use Statamic\Events\Data\UserDeleted;
 use Statamic\Permissions\Permissible;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -128,12 +130,11 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
      */
     public function localizedPath($locale)
     {
-        // @todo
-        dd('todo user@localizedpath');
+        return $this->path();
     }
 
     /**
-     * Save a user to file
+     * Save a user to file.
      *
      * @return $this
      */
@@ -141,6 +142,9 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
     {
         $this->ensureSecured();
         $this->ensureId();
+
+        $data = [];
+        $oldPath = null;
 
         if ($this->shouldWriteFile()) {
             $data = $this->toSavableArray();
@@ -151,13 +155,16 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
 
             // Has this been renamed?
             if ($this->path() !== $this->originalPath()) {
-                File::disk('users')->delete($this->originalPath());
+                $oldPath = $this->originalPath();
+                File::disk('users')->delete($oldPath);
             }
         }
 
         $this->syncOriginal();
 
-        event('user.saved', $this);
+        // Whoever wants to know about it can do so now.
+        event('user.saved', $this); // Deprecated! Please listen on UserSaved event instead!
+        event(new UserSaved($this, $data, $oldPath));
 
         return $this;
     }
@@ -279,6 +286,7 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
         $this->setSupplement('email', $this->email());
         $this->setSupplement('status', $this->status());
         $this->setSupplement('edit_url', $this->editUrl());
+        $this->setSupplement('edit_password_url', $this->editPasswordUrl());
 
         if ($first_name = $this->get('first_name')) {
             $name = $first_name;
@@ -489,27 +497,34 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
     }
 
     /**
-     * Delete the data
-     *
-     * @return mixed
+     * Delete the user.
      */
     public function delete()
     {
         File::disk('users')->delete($this->path());
 
         // Whoever wants to know about it can do so now.
-        $event_class = 'Statamic\Events\Data\UserDeleted';
-        event(new $event_class($this->id(), [$this->path()]));
+        event(new UserDeleted($this->id(), [$this->path()]));
     }
 
     /**
-     * The URL to edit it in the CP
+     * The URL to edit the user in the CP
      *
      * @return mixed
      */
     public function editUrl()
     {
         return cp_route('user.edit', $this->username());
+    }
+
+    /**
+     * The URL to edit the user's password in the CP
+     *
+     * @return mixed
+     */
+    public function editPasswordUrl()
+    {
+        return cp_route('user.password.edit', $this->username());
     }
 
     /**
@@ -521,7 +536,9 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
     public function fieldset($fieldset = null)
     {
         if (is_null($fieldset)) {
-            return $this->get('fieldset', Fieldset::get('user'));
+            $fieldset = Fieldset::get('user');
+            event(new \Statamic\Events\Data\FindingFieldset($fieldset, 'user', $this));
+            return $fieldset;
         }
 
         $this->set('fieldset', $fieldset);

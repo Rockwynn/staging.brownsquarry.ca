@@ -58,7 +58,7 @@ class Parse
         $data = [];
         $content = $string;
 
-        if (Str::startsWith($string, "---".PHP_EOL)) {
+        if (preg_match('/^---(?>\r\n|\n|\r)/', $string)) {
             $data = self::YAML($string);
             $content = $data['content'];
             unset($data['content']);
@@ -79,14 +79,16 @@ class Parse
             return $val;
         }
 
-        // Value has an environment variable in it. Replace it.
-        preg_match('/{env:(.*)\s?}/', $val, $matches);
-
-        if (! isset($matches[0])) {
-            // False alarm. They might just have `{env:` somewhere. Javascript?
-            return $val;
+        // If the value is *only* the environment variable, then just use that instead
+        // of interpolating it within a string. This lets people use boolean values.
+        preg_match($pattern = '/{env:([^\s]*)}/', $val, $matches);
+        if ($val === $matches[0]) {
+            return env($matches[1]);
         }
 
-        return str_replace($matches[0], env($matches[1]), $val);
+        // Otherwise, loop over them and replace each instance.
+        return preg_replace_callback($pattern, function ($matches) {
+            return env($matches[1]);
+        }, $val);
     }
 }

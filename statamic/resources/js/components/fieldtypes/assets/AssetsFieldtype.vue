@@ -318,6 +318,12 @@ export default {
                 this.loading = false;
 
                 this.$nextTick(() => {
+                    // Juggle the data to make parent components notice something changed.
+                    // This makes nested replicators generate new preview text.
+                    const data = this.data;
+                    this.data = [];
+                    this.data = data;
+
                     this.sortable();
                     this.bindChangeWatcher();
                 });
@@ -362,6 +368,7 @@ export default {
          */
         uploadComplete(asset) {
             this.assets.push(asset);
+            this.sortable();
         },
 
         /**

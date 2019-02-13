@@ -53,7 +53,7 @@
                     @selector-closed="fieldSelectorClosed"
                 ></fieldset-fields>
 
-                <a class="btn btn-default btn-small mt-16" @click="addField">Add field</a>
+                <a class="btn btn-default btn-small mt-16" @click="addField">{{ translate('cp.add_field') }}</a>
             </div>
 
             <replicator-sets
@@ -71,7 +71,8 @@
             <template slot="header">
                 <div class="flex items-center">
                     <svg-icon class="h-6 w-6 mr-2 inline-block opacity-50" :name="icon"></svg-icon>
-                    {{ field.display || field.name }}
+                    <span>{{ field.display || field.name }}</span>
+                    <span class="text-xs ml-2 font-bold uppercase opacity-25 pt-sm">{{ fieldtypeLabel }}</span>
                 </div>
             </template>
             <template slot="body">
@@ -79,7 +80,7 @@
                                 :field.sync="field"
                                 :fieldtype-config="fieldtypeConfig"
                                 :fieldtypes="fieldtypes"
-                                :root="true">
+                                :root="isRootLevel">
                 </field-settings>
             </template>
         </modal>
@@ -119,7 +120,7 @@ export default {
             handleModified: false,
             isEditing: false,
             isShowingGridFields: false,
-            isShowingSets: false,
+            isShowingSets: true,
             isAddingGridField: false,
             displayFieldWidth: '100%',
             nameFieldWidth: '100%',

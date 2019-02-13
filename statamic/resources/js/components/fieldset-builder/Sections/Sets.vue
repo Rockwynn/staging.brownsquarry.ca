@@ -8,6 +8,7 @@
             :section="section"
             :fieldtypes="fieldtypes"
             :parent-key="parentKey"
+            @deleted="remove"
         ></replicator-set>
     </div>
 </template>
@@ -28,6 +29,7 @@ export default {
         this.sets = this.sets || [];
 
         this.makeSetsSortable();
+        this.updateFieldWidths();
     },
 
     methods: {
@@ -52,6 +54,14 @@ export default {
             this.$notify.success(translate('cp.set_added'));
 
             this.$nextTick(() => this.$refs.sets[count-1].focus());
+        },
+
+        remove(index) {
+            if (! confirm(translate('cp.are_you_sure'))) {
+                return;
+            }
+
+            this.sets.splice(index, 1);
         },
 
         makeSetsSortable() {

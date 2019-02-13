@@ -40,6 +40,7 @@ class Kernel extends ConsoleKernel
        'Statamic\Console\Commands\Generators\Addon\ComposerMakeCommand',
        'Statamic\Console\Commands\Generators\Addon\WidgetMakeCommand',
        'Statamic\Console\Commands\Generators\Addon\ControllerMakeCommand',
+       'Statamic\Console\Commands\Generators\Addon\SuggestMakeCommand',
        'Statamic\Console\Commands\Generators\UserMakeCommand',
        'Statamic\Console\Commands\Generators\FieldsetMakeCommand',
        'Statamic\Console\Commands\Generators\AssetContainerMakeCommand',
@@ -104,7 +105,7 @@ class Kernel extends ConsoleKernel
     private function getCommands()
     {
         foreach ($this->repo()->commands()->classes() as $class) {
-            $this->addon_commands[] = new $class;
+            $this->addon_commands[] = $this->app->make($class);
         }
 
         return $this->addon_commands;

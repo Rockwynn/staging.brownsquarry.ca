@@ -16,13 +16,16 @@ trait Permissible
     protected $roles = [];
 
     /**
-     * Get the roles for the user
+     * Get or set the roles for the user
      *
+     * @param null|array $roles
      * @return \Illuminate\Support\Collection
      */
-    public function roles()
+    public function roles($roles = null)
     {
-        if ($this->roles) {
+        if ($roles) {
+            $this->set('roles', $roles);
+        } elseif ($this->roles) {
             return $this->roles;
         }
 

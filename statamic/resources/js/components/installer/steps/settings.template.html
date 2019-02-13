@@ -8,7 +8,7 @@
 
     <template v-if="!success">
 
-        <div class="form-group">
+        <div class="form-group px-0">
             <label>{{ translate('cp.locales_and_urls') }}</label>
             <small class="help-block">
                 {{ translate('cp.settings_locales_instructions') }}
@@ -16,7 +16,7 @@
             <locale_settings-fieldtype :data="locales" :index-php-warning="true"></locale_settings-fieldtype>
         </div>
 
-        <div class="form-group">
+        <div class="form-group px-0">
             <label>{{ translate('cp.debug_mode') }}</label>
             <small class="help-block">
                 {{ translate('cp.settings_debug_mode_instructions') }}
@@ -24,7 +24,7 @@
             <toggle-fieldtype :data.sync="debug"></toggle-fieldtype>
         </div>
 
-        <div class="form-group">
+        <div class="form-group px-0">
             <label>{{ translate('cp.timezone') }}</label>
             <suggest-fieldtype :data.sync="timezone" :suggestions-prop="timezones" :config='{ "max_items": 1 }'></suggest-fieldtype>
         </div>

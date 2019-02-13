@@ -35,8 +35,13 @@ class FieldtypesController extends CpController
                     $c[$field->getName()] = $field->preProcess($c[$field->getName()]);
                 }
 
-                $c['display'] = trans("fieldtypes/{$fieldtype->getHandle()}.{$c['name']}");
-                $c['instructions'] = markdown(trans("fieldtypes/{$fieldtype->getHandle()}.{$c['name']}_instruct"));
+                if ($fieldtype->isFirstParty()) {
+                    $c['display'] = trans("fieldtypes/{$fieldtype->getHandle()}.{$c['name']}");
+                    $c['instructions'] = markdown(trans("fieldtypes/{$fieldtype->getHandle()}.{$c['name']}_instruct"));
+                } else {
+                    $c['display'] = trans('addons.'.$fieldtype->getFieldtypeName().'::fieldtypes.'.$c['name']);
+                    $c['instructions'] = markdown(trans('addons.'.$fieldtype->getFieldtypeName().'::fieldtypes.'.$c['name'].'_instruct'));
+                }
 
                 $config[] = $c;
             }
@@ -71,6 +76,8 @@ class FieldtypesController extends CpController
     {
         return $this->addonRepo->fieldtypes()->classes()->map(function ($class) {
             return app($class);
+        })->filter(function ($fieldtype) {
+            return $fieldtype->selectable;
         })->sortBy(function ($fieldtype) {
             return $fieldtype->getAddonName();
         })->values();

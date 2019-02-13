@@ -137,8 +137,13 @@ class EntriesController extends CpController
             $sort = 'date';
         }
 
-        // Perform the sort!
-        $entries = $entries->multisort("$sort:$sortOrder");
+        if ($sort === 'date') {
+            $entries = $entries->sortBy(function ($entry) {
+                return $entry->date();
+            }, SORT_REGULAR, $sortOrder === 'desc');
+        } else {
+            $entries = $entries->multisort("$sort:$sortOrder");
+        }
 
         // Set up the paginator, since we don't want to display all the entries.
         $totalEntryCount = $entries->count();

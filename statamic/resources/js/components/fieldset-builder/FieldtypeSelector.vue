@@ -1,11 +1,13 @@
 <template>
     <div>
         <modal :show="show" @closed="close" class="modal-wide">
-            <template slot="header">Select Fieldtype</template>
+            <template slot="header">{{ translate('cp.select_fieldtype')}}</template>
             <template slot="body">
                 <div class="filter">
-                    <a @click="filterBy = 'all'" :class="{'active': filterBy == 'all'}">All</a>
-                    <a @click="filterBy = filter" v-for="filter in filteredFilters" :class="{'active': filterBy == filter}">{{ filter }}</a>
+                    <a @click="filterBy = 'all'" :class="{'active': filterBy == 'all'}">{{ translate('cp.all') }}</a>
+                    <a @click="filterBy = filter" v-for="filter in filteredFilters" :class="{'active': filterBy == filter}">
+                        {{ translate(`cp.fieldtype_category_${filter.toLowerCase()}`) }}
+                    </a>
                     <a @click.prevent="openSearch" :class="['no-dot', {'active': search}]"><span class="icon icon-magnifying-glass"></span></a>
                 </div>
                 <div class="fieldtype-selector">
@@ -15,7 +17,7 @@
                     <div class="flex flex-wrap -mx-1 fieldtype-list">
                         <div class="w-1/2 sm:w-1/3 md:w-1/4 p-1" v-for="option in fieldtypeOptions">
                             <a class="border flex items-center group w-full rounded shadow-sm py-1 px-2"
-                                @click="select(option.value)">
+                                @click="select(option)">
                                 <svg-icon class="h-4 w-4 opacity-50 group-hover:opacity-100" :name="option.icon"></svg-icon>
                                 <span class="pl-2 text-grey-dark group-hover:text-grey-darkest">{{ option.text }}</span>
                             </a>
@@ -120,28 +122,29 @@ export default {
 
     methods: {
 
-        select(fieldtype) {
-            if (['title', 'slug', 'date'].includes(fieldtype)) {
-                return this.selectMeta(fieldtype);
+        select(selection) {
+            if (selection.isMeta) {
+                return this.selectMeta(selection);
             }
 
-            const field = this.createField(fieldtype);
+            const field = this.createField(selection.value);
 
             this.$emit('selected', field);
             this.close();
         },
 
-        selectMeta(type) {
-            let fieldtype = type;
-            if (['title', 'slug'].includes(type)) {
+        selectMeta(selection) {
+            let fieldtype = selection.value;
+
+            if (['title', 'slug'].includes(fieldtype)) {
                 fieldtype = 'text';
             }
 
             let field = this.createField(fieldtype);
 
             field = Object.assign({
-                display: translate(`cp.${type}`),
-                name: type,
+                display: translate(`cp.${selection.value}`),
+                name: selection.value,
                 type: fieldtype,
                 isMeta: true
             }, field);

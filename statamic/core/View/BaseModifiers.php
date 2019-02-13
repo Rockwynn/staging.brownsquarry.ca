@@ -95,6 +95,17 @@ class BaseModifiers extends Modifier
     }
 
     /**
+     * Returns the avg of all items in the array, optionally by specific key
+     * @param $value
+     * @param $params
+     * @return mixed
+     */
+    public function avg($value, $params)
+    {
+        return collect($value)->avg(array_get($params, 0, null));
+    }
+
+    /**
      * Returns a focal point as a background-position CSS value.
      *
      * @param $value
@@ -214,7 +225,7 @@ class BaseModifiers extends Modifier
         $needle = array_get($context, $params[0], $params[0]);
 
         if (is_array($haystack)) {
-            return in_array($needle, $haystack);
+            return in_array($needle, $haystack, bool(array_get($params, 1, false)));
         }
 
         return Stringy::contains($haystack, $needle, array_get($params, 1, false));
@@ -585,10 +596,13 @@ class BaseModifiers extends Modifier
         }
 
         // If the requested value (it should be an ID) doesn't exist, we'll just
-        // spit the value back as-is. This seems like a sensible solution here.
+        // send the value back as-is.
         if (! $item = Data::find($value)) {
             return $value;
         }
+
+        // Localize the data
+        $item = $item->in(site_locale());
 
         // Get the requested variable, which is the first parameter.
         $var = array_get($params, 0);
@@ -605,8 +619,9 @@ class BaseModifiers extends Modifier
             return $item->$method();
         }
 
-        // If after all is said and done, there's still nothing, just show the original value.
-        return $value;
+        // If after all is said and done and you haven't found
+        // related data, it should not fall back to the original value.
+        return null;
     }
 
     /**
@@ -797,6 +812,11 @@ class BaseModifiers extends Modifier
         $date1 = carbon(array_get($context, $params[0], $params[0]));
         $date2 = carbon(array_get($context, $params[1], $params[1]));
 
+        // If dealing with whole days, set to the end of the day.
+        if ($date2->isStartOfDay()) {
+            $date2->endOfDay();
+        }
+
         return carbon($value)->between($date1, $date2);
     }
 
@@ -809,6 +829,17 @@ class BaseModifiers extends Modifier
     public function isBlank($value)
     {
         return Stringy::isBlank($value);
+    }
+
+    /**
+     * Return true if the string is an email address.
+     *
+     * @param $value
+     * @return bool
+     */
+    public function isEmail($value)
+    {
+        return filter_var($value, FILTER_VALIDATE_EMAIL) !== false;
     }
 
     /**
@@ -908,6 +939,17 @@ class BaseModifiers extends Modifier
     public function isUppercase($value)
     {
         return Stringy::isUpperCase($value);
+    }
+
+    /**
+     * Returns true if the string is a URL
+     *
+     * @param $value
+     * @return bool
+     */
+    public function isUrl($value)
+    {
+        return filter_var($value, FILTER_VALIDATE_URL) !== false;
     }
 
     /**
@@ -1075,6 +1117,17 @@ class BaseModifiers extends Modifier
     }
 
     /**
+     * Returns the max of all items in the array, optionally by specific key
+     * @param $value
+     * @param $params
+     * @return mixed
+     */
+    public function max($value, $params)
+    {
+        return collect($value)->max(array_get($params, 0, null));
+    }
+
+    /**
      * Merge an array variable with another array variable
      *
      * @param $value
@@ -1087,6 +1140,17 @@ class BaseModifiers extends Modifier
         $to_merge = (array) array_get($context, $params[0], $context);
 
         return array_merge($value, $to_merge);
+    }
+
+    /**
+     * Returns the min of all items in the array, optionally by specific key
+     * @param $value
+     * @param $params
+     * @return mixed
+     */
+    public function min($value, $params)
+    {
+        return collect($value)->min(array_get($params, 0, null));
     }
 
     /**
@@ -1264,6 +1328,20 @@ class BaseModifiers extends Modifier
         if ($asset) {
             return $asset->disk()->get($asset->path());
         }
+    }
+
+    /**
+     * Pad array to the specified length with a value
+     * @param  $value
+     * @param  $params
+     * @return string
+     */
+    public function pad($value, $params)
+    {
+        $amount = array_get($params, 0, 0);
+        $with = array_get($params, 1, null);
+
+        return array_pad($value, $amount, $with);
     }
 
     /**
@@ -1748,10 +1826,14 @@ class BaseModifiers extends Modifier
     public function table($value, $params)
     {
         $rows = $value;
+
         $parse_markdown = bool(array_get($params, 0));
 
-        $html = '<table>';
+        // Support adding attributes to the table element after the first arg
+        unset($params[0]);
+        $attrs = app('html')->attributes($this->buildAttributesFromParameters($params));
 
+        $html = '<table'.$attrs.'>';
         foreach ($rows as $row) {
             $html .= '<tr>';
             foreach ($row['cells'] as $cell) {
@@ -1974,13 +2056,11 @@ class BaseModifiers extends Modifier
             $value = array_get($value, 0);
         }
 
-        if (! $item = Asset::find($value)) {
-            if (! $item = Content::find($value)) {
-                return $value;
-            }
+        if (! $item = Content::find($value)) {
+            return $value;
         }
 
-        return $item->url();
+        return $item->in(site_locale())->url();
     }
 
     /**
@@ -2007,7 +2087,7 @@ class BaseModifiers extends Modifier
     public function where($value, $params)
     {
         $key = array_get($params, 0);
-        $val = array_get($params, 1);
+        $val = str_bool(array_get($params, 1));
 
         $collection = collect($value)->whereLoose($key, $val);
 
@@ -2070,6 +2150,19 @@ class BaseModifiers extends Modifier
     public function yearsAgo($value, $params)
     {
         return carbon($value)->diffInYears(array_get($params, 0));
+    }
+
+    /**
+     * Maps values for True and False to the strings “yes” and “no”, or a
+     * custom mapping, and returns one of those strings according to the value.
+     *
+     * @param $value
+     * @param $params
+     * @return string
+     */
+    public function yesNo($value, $params)
+    {
+        return $value ? array_get($params, 0, 'yes') : array_get($params, 1, 'no');
     }
 
     /**

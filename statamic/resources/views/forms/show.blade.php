@@ -16,8 +16,8 @@
 
                 <div class="btn-group">
                     <a href="{{ route('form.export', ['type' => 'csv', 'form' => $form->name()]) }}?download=true"
-                       type="button" class="btn btn-default">{{ t('export') }}</a>
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       class="btn">{{ t('export') }}</a>
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span>
                         <span class="sr-only">{{ translate('cp.toggle_dropdown') }}</span>
                     </button>
@@ -29,17 +29,15 @@
             </div>
 
             @if (! empty($form->metrics()))
-            <div class="card">
-                    <div class="metrics">
-                        @foreach($form->metrics() as $metric)
-                            <div class="metric simple">
-                                <div class="count">
-                                    <small>{{ $metric->label() }}</small>
-                                    <h2>{{ $metric->result() }}</h2>
-                                </div>
-                            </div>
-                        @endforeach
+            <div class="metrics mb-3">
+                @foreach($form->metrics() as $metric)
+                    <div class="card metric m-0 simple">
+                        <div class="count">
+                            <small>{{ $metric->label() }}</small>
+                            <h2>{{ $metric->result() }}</h2>
+                        </div>
                     </div>
+                @endforeach
             </div>
             @endif
 

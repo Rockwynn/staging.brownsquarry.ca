@@ -4,7 +4,7 @@ namespace Statamic\Http\Middleware;
 
 use Closure;
 use Statamic\API\Str;
-use Statamic\Outpost as StatamicOutpost;
+use Statamic\Outpost\Outpost as StatamicOutpost;
 
 class Outpost
 {
@@ -65,30 +65,8 @@ class Outpost
      */
     private function setLicensing()
     {
-        view()->composer(['layout', 'partials.alerts'], function ($view) {
-            $view->with('is_trial', $this->outpost->isTrialMode());
-            $view->with('is_unlicensed', !$this->outpost->isLicenseValid());
+        view()->composer('layout', function ($view) {
+            $view->with('outpost', $this->outpost);
         });
-
-        view()->composer('partials.alerts', function ($view) {
-            $view->with('license_issue', $this->hasLicenseIssue());
-        });
-    }
-
-    private function hasLicenseIssue()
-    {
-        // They are on the licensing page, where they will be shown any issues.
-        // We don't need to double up on the messages.
-        if ($this->request->route()->getName() === 'licensing') {
-            return false;
-        }
-
-        if ($this->outpost->isTrialMode()) {
-            return false;
-        }
-
-        return !$this->outpost->isLicenseValid()
-            || !$this->outpost->isOnCorrectDomain()
-            || !$this->outpost->areAddonLicensesValid();
     }
 }

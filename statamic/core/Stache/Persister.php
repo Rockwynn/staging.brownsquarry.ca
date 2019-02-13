@@ -44,8 +44,22 @@ class Persister
      */
     public function persist($updates)
     {
+        // Compile all the cacheable data in preparation for writing it into the cache.
+        $this->compile($updates);
+
+        // Write all the data to the cache. We will make sure to acquire a lock while doing
+        // this to prevent other requests from loading an incompletely written cache.
+        if ($this->stache->lock()->acquire(true)) {
+            $this->cache();
+            $this->stache->lock()->release();
+        }
+    }
+
+    protected function compile($updates)
+    {
         // Get the meta from the stache
         $this->meta = collect($this->stache->meta());
+        $this->keys = collect($this->stache->keys());
 
         // Loop through all the updated repos and format their data according to
         // how their driver has specified it. Put the data into arrays
@@ -61,14 +75,10 @@ class Persister
                 $this->items->put($key, $arr['items']);
             }
         });
+    }
 
-        // Store meta data separately. This will be simple data that can
-        // be loaded all the time with minimal overhead.
-        $this->store('meta', $this->meta->all());
-
-        // Keep track of the keys that will be persisting.
-        $this->keys = collect(Cache::get('stache::keys', []));
-
+    protected function cache()
+    {
         // Persist the taxonomies
         $this->store('taxonomies/data', $this->stache->taxonomies->toPersistableArray());
         $this->keys[] = 'taxonomies/data';
@@ -84,8 +94,12 @@ class Persister
             });
         });
 
-        // Persist the keys
-        Cache::put('stache::keys', $this->keys->unique()->all());
+        // Store meta data separately. This will be simple data that can
+        // be loaded all the time with minimal overhead.
+        $this->stache->meta($meta = $this->meta->all());
+        $this->store('meta', $meta);
+        $this->stache->keys($keys = $this->keys->unique()->all());
+        $this->store('keys', $keys);
     }
 
     /**

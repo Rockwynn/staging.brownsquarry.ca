@@ -72,6 +72,8 @@ class EntryPublisher extends Publisher
         // As part of the prep, we'll apply the date and slug. We'll remove them
         // from the fields array since we don't want it to be in the YAML.
         unset($this->fields['date'], $this->fields['slug']);
+
+        $this->fieldset = $this->content->fieldset()->withTaxonomies();
     }
 
     /**
@@ -161,7 +163,13 @@ class EntryPublisher extends Publisher
         }
 
         if ($order_type === 'number') {
-            return Entry::whereCollection($this->collection)->count() + 1;
+            $entries = Entry::whereCollection($this->collection);
+
+            if ($entries->isEmpty()) {
+                return 1;
+            }
+
+            return $entries->multisort('order')->last()->order() + 1;
         }
     }
 }

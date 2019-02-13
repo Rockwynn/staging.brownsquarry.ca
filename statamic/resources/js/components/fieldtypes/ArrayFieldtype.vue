@@ -92,6 +92,7 @@ export default {
     methods: {
         addRow: function() {
             this.data.push({ value: '', text: '' });
+            this.initSortable();
         },
 
         deleteRow: function(index) {

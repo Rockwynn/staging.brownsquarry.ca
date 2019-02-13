@@ -6,15 +6,22 @@ use Exception;
 use Statamic\API\Str;
 use Statamic\API\File;
 use Statamic\API\Config;
+use Statamic\API\Folder;
 use Illuminate\Http\Request;
 use Statamic\Stache\Loader;
 use Statamic\Stache\Stache;
 use Statamic\Stache\Manager;
 use Illuminate\Support\ServiceProvider;
 use Statamic\Stache\Persister;
+use Statamic\Stache\NullLockStore;
 use Statamic\Stache\UpdateManager;
+use Symfony\Component\Lock\Factory;
+use Statamic\Stache\TimeoutException;
 use Statamic\Stache\EmptyStacheException;
+use Symfony\Component\Lock\Store\FlockStore;
+use Symfony\Component\Lock\Store\RedisStore;
 use Statamic\Testing\Doubles\StacheTestManager;
+use Symfony\Component\Lock\Store\RetryTillSaveStore;
 
 class StacheServiceProvider extends ServiceProvider
 {
@@ -59,13 +66,42 @@ class StacheServiceProvider extends ServiceProvider
      */
     private function registerStache()
     {
-        $this->stache = $this->app->make(Stache::class);
+        $this->stache = $this->app->make(Stache::class)->lock($this->lock());
 
         $this->app->singleton(Stache::class, function () {
             return $this->stache;
         });
 
         $this->app->alias(Stache::class, 'stache');
+    }
+
+    private function lock()
+    {
+        if (Config::get('caching.stache_lock_enabled', true)) {
+            $store = (config('cache.default') === 'redis')
+                ? $this->createRedisLockStore()
+                : $this->createFileLockStore();
+        } else {
+            $store = new NullLockStore;
+        }
+
+        $name = config('cache.prefix') . ':stache-lock';
+
+        return (new Factory($store))->createLock($name);
+    }
+
+    private function createRedisLockStore()
+    {
+        $redis = $this->app->make('redis')->connection();
+
+        return new RetryTillSaveStore(new RedisStore($redis));
+    }
+
+    private function createFileLockStore()
+    {
+        Folder::make($dir = temp_path('locks'));
+
+        return new FlockStore($dir);
     }
 
     /**
@@ -94,13 +130,9 @@ class StacheServiceProvider extends ServiceProvider
      */
     public function boot(Request $request)
     {
-        $this->cleanUpForConsole();
-
         $this->request = $request;
 
         $this->app->make(Stache::class)->locales(Config::getLocales());
-
-        $this->handleColdCache();
 
         $this->manager = $this->app->make(Manager::class);
 
@@ -128,37 +160,20 @@ class StacheServiceProvider extends ServiceProvider
             // should not run on the initial warm up to prevent overloading.
             $update = true;
             $this->stache->cool();
+        } catch (TimeoutException $e) {
+            // On large sites, the Stache may take some time to update, especially from an
+            // empty state. If another request hits Statamic while it's in the middle of
+            // being built, it may use a half-created cache resulting in missing data.
+            $this->outputRefreshResponse();
         }
 
         // If we've opted to update the Stache, we'll do so, and
         // then persist any updates so we can load it next time.
         if ($update) {
-            $this->updateStache();
+            $this->manager->update();
         }
 
         $this->stache->heat();
-    }
-
-    /**
-     * Update the Stache.
-     *
-     * If an error is encountered, the temporary file that keeps track of the
-     * initial warm up should be deleted. Otherwise, users will run into an
-     * infinitely refreshing/redirecting site. That's not very fun at all.
-     *
-     * @throws Exception
-     */
-    private function updateStache()
-    {
-        try {
-            $this->manager->update();
-        } catch (Exception $e) {
-            if (File::exists($this->stache->building_path)) {
-                File::delete($this->stache->building_path);
-            }
-
-            throw $e;
-        }
     }
 
     /**
@@ -206,33 +221,6 @@ class StacheServiceProvider extends ServiceProvider
     }
 
     /**
-     * Handle the cold cache
-     *
-     * On large sites, the Stache may take some time to build initially. If another request
-     * hits Statamic while it's in the middle of being built, it may use a half-created
-     * cache resulting in missing data. Here, we'll exit early with a simple refresh
-     * meta tag. Once the Stache is built, the page will resume loading as usual.
-     *
-     * @return void
-     */
-    private function handleColdCache()
-    {
-        if (app()->runningInConsole()) {
-            return;
-        }
-
-        $start = time();
-
-        while ($this->stache->isPerformingInitialWarmUp()) {
-            if (time() - $start >= 10) {
-                $this->outputRefreshResponse();
-            }
-
-            sleep(1);
-        }
-    }
-
-    /**
      * When the Stache is being built, we'll output a refresh/redirect until it's ready.
      *
      * @return void
@@ -252,18 +240,5 @@ class StacheServiceProvider extends ServiceProvider
     private function isAjaxRequest()
     {
         return request()->ajax() || request()->wantsJson();
-    }
-
-    private function cleanUpForConsole()
-    {
-        if (! app()->runningInConsole()) {
-            return;
-        }
-
-        if (File::exists($lock = $this->stache->building_path)) {
-            File::delete($lock);
-        }
-
-        Config::set('system.ensure_unique_ids', false);
     }
 }

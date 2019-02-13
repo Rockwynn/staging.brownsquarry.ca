@@ -7,6 +7,7 @@ use Statamic\API\YAML;
 use Statamic\Data\DataFolder;
 use Illuminate\Contracts\Support\Arrayable;
 use Statamic\Events\Data\AssetFolderDeleted;
+use Statamic\Events\Data\AssetFolderSaved;
 use Statamic\API\AssetContainer as AssetContainerAPI;
 use Statamic\Contracts\Assets\AssetFolder as AssetFolderContract;
 
@@ -39,11 +40,31 @@ class AssetFolder extends DataFolder implements AssetFolderContract, Arrayable
     }
 
     /**
+     * Get the yaml path.
+     *
+     * @return string
+     */
+    public function yamlPath()
+    {
+        return $this->path() . '/folder.yaml';
+    }
+
+    /**
      * @inheritdoc
      */
     public function resolvedPath()
     {
         return Path::tidy($this->container()->resolvedPath() . '/' . $this->path());
+    }
+
+    /**
+     * Get the resolved yaml path.
+     *
+     * @return string
+     */
+    public function resolvedYamlPath()
+    {
+        return Path::tidy($this->container()->resolvedPath() . '/' . $this->yamlPath());
     }
 
     /**
@@ -110,7 +131,7 @@ class AssetFolder extends DataFolder implements AssetFolderContract, Arrayable
         // Make sure there's a folder
         $this->disk('folder')->make($this->path());
 
-        $path = $this->path() . '/folder.yaml';
+        $path = $this->yamlPath();
 
         // If there's no data to be saved, and there's already an existing folder.yaml,
         // we'll delete the file now. There's no reason for it to be hanging around.
@@ -123,7 +144,9 @@ class AssetFolder extends DataFolder implements AssetFolderContract, Arrayable
             $this->disk('file')->put($path, YAML::dump($data));
         }
 
-        event('assetfolder.saved', $this);
+        // Whoever wants to know about it can do so now.
+        event('assetfolder.saved', $this); // Deprecated! Please listen on AssetFolderSaved event instead!
+        event(new AssetFolderSaved($this));
     }
 
     /**
@@ -145,7 +168,8 @@ class AssetFolder extends DataFolder implements AssetFolderContract, Arrayable
         // Delete the actual folder that'll be leftover. It'll include any empty subfolders.
         $this->disk('folder')->delete($this->path());
 
-        event(new AssetFolderDeleted($this->container(), $this->path(), $paths));
+        // Whoever wants to know about it can do so now.
+        event(new AssetFolderDeleted($this, $paths));
     }
 
     /**

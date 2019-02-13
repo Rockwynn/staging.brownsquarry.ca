@@ -7,6 +7,7 @@ use Statamic\API\YAML;
 use Statamic\API\File;
 use Statamic\API\Config;
 use Statamic\API\Folder;
+use Statamic\Events\Data\FormSaved;
 use Statamic\Exceptions\FatalException;
 use Statamic\Contracts\Forms\Form as FormContract;
 
@@ -159,6 +160,8 @@ class Form implements FormContract
         $this->formset()->name($this->name());
 
         $this->formset()->save();
+
+        event(new FormSaved($this));
     }
 
     /**

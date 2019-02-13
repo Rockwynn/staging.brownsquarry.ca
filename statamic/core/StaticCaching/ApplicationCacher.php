@@ -67,8 +67,10 @@ class ApplicationCacher extends AbstractCacher
      */
     public function flush()
     {
-        $this->getUrls()->keys()->each(function ($key) {
-            $this->cache->forget($this->normalizeKey('responses:'.$key));
+        $this->getDomains()->each(function ($domain) {
+            $this->getUrls($domain)->keys()->each(function ($key) {
+                $this->cache->forget($this->normalizeKey('responses:'.$key));
+            });
         });
 
         $this->flushUrls();

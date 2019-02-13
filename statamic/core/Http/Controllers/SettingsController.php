@@ -13,6 +13,7 @@ use Statamic\API\Stache;
 use Statamic\API\Search;
 use Statamic\Config\Settings;
 use Statamic\CP\Publish\ProcessesFields;
+use Statamic\Events\Data\SettingsSaved;
 
 class SettingsController extends CpController
 {
@@ -27,8 +28,10 @@ class SettingsController extends CpController
 
     public function edit($name)
     {
+        $fieldset = Fieldset::get($name, 'settings');
+
         $data = $this->preProcessWithBlankFields(
-            Fieldset::get($name, 'settings'),
+            $fieldset,
             Config::get($name)
         );
 
@@ -40,7 +43,7 @@ class SettingsController extends CpController
             'slug' => $name,
             'content_data' => $data,
             'content_type' => 'settings',
-            'fieldset' => 'settings.'.$name,
+            'fieldset' => $fieldset->toPublishArray(),
         ]);
     }
 
@@ -50,17 +53,17 @@ class SettingsController extends CpController
 
         $data = $this->processFields(Fieldset::get($this->name, 'settings'), $this->request->input('fields'));
 
-        // Replace environment-managed values with their raw equivalents
+        $file = settings_path($name . '.yaml');
 
-        if ($environment_variables = $this->request->input('extra.env')) {
-            foreach ($environment_variables as $key => $env) {
-                $data[$key] = $env['raw'];
-            }
-        }
+        // Remove environment managed vars from what was submitted, and replace them with their current values.
+        // They aren't editable in the CP but will be submitted (possibly incorrectly) anyway.
+        $environmentVars = array_keys(request()->input('extra.env') ?: []);
+        $data = array_except($data, $environmentVars);
+        $environmentValues = array_only(YAML::parse(File::get($file)), $environmentVars);
+        $data = array_merge($data, $environmentValues);
 
         $contents = YAML::dump($data);
 
-        $file = settings_path($name . '.yaml');
         File::put($file, $contents);
 
         Cache::clear();
@@ -69,13 +72,15 @@ class SettingsController extends CpController
         // If the search settings change, let's reindex.
         if ($name == 'search') {
             Search::update();
-            $this->success(t('settings_updated_and_indexed'));
+            $message = t('settings_updated_and_indexed');
         } else {
-            $this->success(t('settings_updated'));
+            $message = t('settings_updated');
         }
 
+        // Whoever wants to know about it can do so now.
+        event(new SettingsSaved($file, $data));
 
-        return ['success' => true, 'redirect' => route('settings.edit', $name)];
+        return ['success' => true, 'message' => $message];
     }
 
     public function licenseKey()

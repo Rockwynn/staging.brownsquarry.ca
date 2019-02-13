@@ -35,6 +35,7 @@ class ClearSiteCommand extends Command
         $this->clearStorage();
         $this->clearSettings();
         $this->clearThemes();
+        $this->clearAssets();
         $this->clearUsers();
 
         $this->info('Site cleared!');
@@ -157,6 +158,30 @@ class ClearSiteCommand extends Command
 
     /**
      * Clear users
+     *
+     * @return void
+     */
+    private function clearAssets()
+    {
+        if (! $this->confirmSection('assets')) {
+            return;
+        }
+
+        foreach (Folder::getFiles('assets') as $file) {
+            File::delete($file);
+        }
+
+        foreach (Folder::getFiles('assets/img') as $file) {
+            File::delete($file);
+        }
+
+        Folder::delete('assets/img');
+
+        $this->line('Assets cleared.');
+    }
+
+    /**
+     * Clear assets
      *
      * @return void
      */

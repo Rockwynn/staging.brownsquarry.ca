@@ -81,7 +81,7 @@ export default {
                 this.loading = false;
                 this.pagination = data.pagination;
             }).error(function() {
-                alert('There was a problem retrieving data. Check your logs for more details.');
+                this.$notify.error(translate('cp.error_fetching_data'));
             });
         },
 
@@ -90,7 +90,7 @@ export default {
                 this.items = data;
                 this.loading = false;
             }).error(function() {
-                alert('There was a problem retrieving data. Check your logs for more details.');
+                this.$notify.error(translate('cp.error_fetching_data'));
             });
         },
 

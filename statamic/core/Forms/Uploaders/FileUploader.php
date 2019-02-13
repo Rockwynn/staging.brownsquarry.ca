@@ -4,6 +4,7 @@ namespace Statamic\Forms\Uploaders;
 
 use Statamic\API\File;
 use Statamic\API\Path;
+use Statamic\Events\Data\FileUploaded;
 
 class FileUploader extends Uploader
 {
@@ -38,6 +39,11 @@ class FileUploader extends Uploader
         File::put($destination, $stream);
 
         fclose($stream);
+
+        $fullPath = File::filesystem()->getAdapter()->getPathPrefix() . $destination;
+
+        // Whoever wants to know about it can do so now.
+        event(new FileUploaded($fullPath));
     }
 
     /**

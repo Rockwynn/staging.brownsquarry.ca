@@ -133,6 +133,10 @@ export default {
             if (all) return;
 
             if (this.accordionMode) this.collapseAllExcept(set.index);
+
+            // Fields that depend on their container size are
+            // watching for the `resize` event. Let's give it to them.
+            this.$nextTick(() => { window.dispatchEvent(new Event('resize')); });
         },
 
         getReplicatorPreviewText() {

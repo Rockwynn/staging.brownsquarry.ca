@@ -1,16 +1,12 @@
-import slug from 'slug';
+var getSlug = require('speakingurl');
 
 export default {
-
     install(Vue, options) {
-
         Vue.prototype.$slugify = function(text, glue) {
-            return slug(text, {
-                replacement: glue || '-',
-                lower: true
+            return getSlug(text, {
+                separator: glue || '-',
+                custom: {'\'': ''}
             });
         };
-
     }
-
 };

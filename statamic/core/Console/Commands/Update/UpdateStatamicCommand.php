@@ -150,6 +150,9 @@ class UpdateStatamicCommand extends AbstractCommand
     {
         $this->comment('Cleaning up...');
 
+        // Release the lock here otherwise the following command will never progress.
+        app('stache')->lock()->release();
+
         $process = new Process(vsprintf('%s please update:housekeeping --from=%s', [
             PHP_BINARY, STATAMIC_VERSION
         ]));

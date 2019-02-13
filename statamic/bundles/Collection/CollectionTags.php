@@ -26,27 +26,27 @@ class CollectionTags extends Tags
     /**
      * @var bool
      */
-    private $paginated;
+    protected $paginated;
 
     /**
      * @var int
      */
-    private $limit;
+    protected $limit;
 
     /**
      * @var int
      */
-    private $offset;
+    protected $offset;
 
     /**
      * @var array
      */
-    private $pagination_data;
+    protected $pagination_data;
 
     /**
      * @var int|null
      */
-    private $total_results;
+    protected $total_results;
 
     /**
      * Maps to the {{ collection }} tag.
@@ -89,7 +89,7 @@ class CollectionTags extends Tags
      * @return string
      * @throws \Exception
      */
-    private function collect($collection)
+    protected function collect($collection)
     {
         $collection = $this->getCollection($collection);
 
@@ -112,7 +112,7 @@ class CollectionTags extends Tags
         return $this->output();
     }
 
-    private function getCollection($collection)
+    protected function getCollection($collection)
     {
         // If a content collection has been passed in directly, we already have what we need.
         if ($collection instanceof ContentCollection) {
@@ -129,9 +129,17 @@ class CollectionTags extends Tags
         return $this->getEntryCollection($collection);
     }
 
-    private function getEntryCollection($collection)
+    protected function getEntryCollection($collection)
     {
         $collections = Helper::ensureArray($collection);
+
+        if (in_array('*', $collections)) {
+            $collections = Collection::handles();
+
+            if ($exclude = $this->getList(['not_from', 'not_folder', 'dont_use'])) {
+                $collections = array_diff($collections, $exclude);
+            }
+        }
 
         foreach ($collections as $collection) {
             if (! Collection::handleExists($collection)) {
@@ -142,7 +150,7 @@ class CollectionTags extends Tags
         return Entry::whereCollection($collections);
     }
 
-    private function getTaxonomyCollection($collection)
+    protected function getTaxonomyCollection($collection)
     {
         // If a boolean taxonomy parameter has been provided, retrieve the collection
         // associated with the URI. Otherwise, get it from any taxonomy parameters.
@@ -170,7 +178,7 @@ class CollectionTags extends Tags
         });
     }
 
-    private function getTaxonomyCollectionFromUri()
+    protected function getTaxonomyCollectionFromUri()
     {
         $data = Term::whereSlug(
             array_get($this->context, 'page.default_slug'),
@@ -180,7 +188,7 @@ class CollectionTags extends Tags
         return ($data) ? $data->collection() : $data;
     }
 
-    private function getTaxonomyCollectionFromParams($collection)
+    protected function getTaxonomyCollectionFromParams($collection)
     {
         // If a taxonomy parameter was provided without any suffix, we will assume that the terms are stored in there.
         if (array_key_exists('taxonomy', $this->parameters)) {
@@ -211,7 +219,8 @@ class CollectionTags extends Tags
             // Term slugs may be provided as a string, which may be pipe delimited.
             // They may also reference a field, which means at this point the value may already be an array.
             $terms = (is_string($terms)) ? Helper::explodeOptions($terms) : $terms;
-            $terms = array_filter($terms);
+
+            $terms = ($terms) ? array_filter($terms) : $terms;
 
             return compact('taxonomy', 'method', 'terms');
         });
@@ -250,7 +259,7 @@ class CollectionTags extends Tags
         return collect_entries($entries);
     }
 
-    private function getCollectionWhereMultipleTermsExist($collection, $terms)
+    protected function getCollectionWhereMultipleTermsExist($collection, $terms)
     {
         return $this
             ->getEntryCollection($collection)
@@ -266,7 +275,7 @@ class CollectionTags extends Tags
             });
     }
 
-    private function getAllTaxonomyCollection($taxonomy, $slugs, $collection)
+    protected function getAllTaxonomyCollection($taxonomy, $slugs, $collection)
     {
         return $this
             ->getEntryCollection($collection)
@@ -276,7 +285,7 @@ class CollectionTags extends Tags
             });
     }
 
-    private function getAnyTaxonomyCollection($taxonomy, $slugs)
+    protected function getAnyTaxonomyCollection($taxonomy, $slugs)
     {
         $entryCollection = collect_content();
 
@@ -362,35 +371,35 @@ class CollectionTags extends Tags
         }
     }
 
-    private function filterUnpublished()
+    protected function filterUnpublished()
     {
         if (! $this->getBool('show_unpublished', false)) {
             $this->collection = $this->collection->removeUnpublished();
         }
     }
 
-    private function filterPublished()
+    protected function filterPublished()
     {
         if (! $this->getBool('show_published', true)) {
             $this->collection = $this->collection->removePublished();
         }
     }
 
-    private function filterFuture()
+    protected function filterFuture()
     {
         if (! $this->getBool('show_future', false)) {
             $this->collection = $this->collection->removeFuture();
         }
     }
 
-    private function filterPast()
+    protected function filterPast()
     {
         if (! $this->getBool('show_past', true)) {
             $this->collection = $this->collection->removePast();
         }
     }
 
-    private function filterSince()
+    protected function filterSince()
     {
         if ($since = $this->get('since')) {
             $date = array_get($this->context, $since, $since);
@@ -398,7 +407,7 @@ class CollectionTags extends Tags
         }
     }
 
-    private function filterUntil()
+    protected function filterUntil()
     {
         if ($until = $this->get('until')) {
             $date = array_get($this->context, $until, $until);
@@ -406,7 +415,7 @@ class CollectionTags extends Tags
         }
     }
 
-    private function sort()
+    protected function sort()
     {
         if ($sort = $this->getSortOrder()) {
             $this->collection = $this->collection->multisort($sort)->values();
@@ -425,7 +434,7 @@ class CollectionTags extends Tags
     protected function getSortOrder()
     {
         // If a sort parameter has been explicitly specified, we're done.
-        if ($sort = $this->get('sort')) {
+        if (! is_null($sort = $this->get('sort'))) {
             return $sort;
         }
 
@@ -479,7 +488,7 @@ class CollectionTags extends Tags
         }
     }
 
-    private function paginate()
+    protected function paginate()
     {
         // No limit, no pagination.
         if ( ! $this->limit) return;
@@ -528,7 +537,7 @@ class CollectionTags extends Tags
         $this->collection = $paginator->getCollection();
     }
 
-    private function filterConditions()
+    protected function filterConditions()
     {
         if ($filter = $this->get('filter')) {
             // If a "filter" parameter has been specified, we want to use a custom filter class.
@@ -545,7 +554,7 @@ class CollectionTags extends Tags
         }
     }
 
-    private function customFilter($filter)
+    protected function customFilter($filter)
     {
         $class = app(FilterLoader::class)->load($filter, [
             'collection' => $this->collection,
@@ -561,7 +570,7 @@ class CollectionTags extends Tags
         return $class->filter($this->collection);
     }
 
-    private function groupByDate()
+    protected function groupByDate()
     {
         $data = [];
 
@@ -572,7 +581,7 @@ class CollectionTags extends Tags
             $this->collection = $this->collection->supplement('date_group', function ($entry) use ($format, $field) {
                 $date = ($field === 'date')
                         ? $entry->date()
-                        : carbon($entry->get($field));
+                        : carbon($entry->getWithDefaultLocale($field));
 
                 return $date->format($format);
             });
@@ -627,7 +636,9 @@ class CollectionTags extends Tags
         if (! $this->collection) {
             $collection = $this->get(['collection', 'in']);
 
-            $this->collection = Entry::whereCollection($collection)->values();
+            $this->collection = Entry::whereCollection($collection)
+                ->localize($this->get('locale', site_locale()))
+                ->values();
         }
 
         if ($this->getBool('supplement_taxonomies', true)) {
@@ -644,12 +655,12 @@ class CollectionTags extends Tags
             return $this->parseNoResults();
         }
 
-        $current = Str::ensureLeft($this->get('current', URL::getCurrent()), '/');
+        $current = URL::makeAbsolute($this->get('current', URL::getCurrent()));
         $current_index = null;
 
         // Get the index of the 'current' entry
         foreach ($this->collection as $index => $entry) {
-            if ($entry->url() === $current) {
+            if ($entry->absoluteUrl() === $current) {
                 $current_index = $index;
                 break;
             }

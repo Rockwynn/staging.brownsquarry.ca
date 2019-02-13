@@ -3,6 +3,7 @@
 namespace Statamic\Stache;
 
 use Statamic\API\Cache;
+use Statamic\API\Config;
 use Statamic\Events\StacheUpdated;
 
 class Manager
@@ -23,6 +24,7 @@ class Manager
         'UserGroups',
         'AssetContainers',
         'Taxonomies',
+        'Terms',
     ];
 
     /**
@@ -64,10 +66,20 @@ class Manager
 
     public function load()
     {
+        $this->waitForUpdateToComplete();
+
         $this->loader->load();
     }
 
     public function update()
+    {
+        if ($this->stache->lock()->acquire(true)) {
+            $this->doUpdate();
+            $this->stache->lock()->release();
+        }
+    }
+
+    protected function doUpdate()
     {
         $locale = site_locale();
 
@@ -95,5 +107,34 @@ class Manager
         }
 
         return $this->stache->buildConfig() !== Cache::get('stache::config');
+    }
+
+    protected function waitForUpdateToComplete()
+    {
+        if (! Config::get('caching.stache_lock_enabled')) {
+            return;
+        }
+
+        $start = time();
+
+        while ($this->isLocked()) {
+            if (time() - $start >= Config::get('caching.stache_lock_wait_length')) {
+                throw new TimeoutException;
+            }
+
+            sleep(1);
+        }
+
+        // We want to immediately release the lock that was acquired when checking,
+        // otherwise this request will hold it until it's complete. That would
+        // result in all other requests waiting for this one to finish.
+        $this->stache->lock()->release();
+    }
+
+    protected function isLocked()
+    {
+        $block = app()->runningInConsole();
+
+        return ! $this->stache->lock()->acquire($block);
     }
 }

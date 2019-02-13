@@ -2,6 +2,7 @@
 
 namespace Statamic\Data\Taxonomies;
 
+use Carbon\Carbon;
 use Statamic\API\Data;
 use Statamic\API\Config;
 use Statamic\API\Entry;
@@ -558,5 +559,20 @@ class Term extends Content implements TermContract
         }
 
         $data->save();
+    }
+
+    public function lastModified()
+    {
+        if (File::disk('content')->exists($path = $this->path())) {
+            return Carbon::createFromTimestamp(File::disk('content')->lastModified($path));
+        }
+
+        if ($entry = $this->collection()->first()) {
+            return $entry->lastModified();
+        }
+
+        // A term with no file or entries have been created programatically and
+        // haven't been saved yet. We'll use the current time in that case.
+        return Carbon::now();
     }
 }

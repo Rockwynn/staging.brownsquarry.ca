@@ -3,6 +3,7 @@
 namespace Statamic\StaticCaching;
 
 use Statamic\API\Config;
+use Statamic\Stache\Stache;
 use Statamic\Contracts\Data\Pages\Page;
 use Statamic\Contracts\Data\Entries\Entry;
 use Statamic\Contracts\Data\Content\Content;
@@ -23,11 +24,17 @@ class Invalidator
     private $cacher;
 
     /**
+     * @var \Statamic\Stache\Stache
+     */
+    private $stache;
+
+    /**
      * @param \Statamic\StaticCaching\Cacher $cacher
      */
-    public function __construct(Cacher $cacher)
+    public function __construct(Cacher $cacher, Stache $stache)
     {
         $this->cacher = $cacher;
+        $this->stache = $stache;
     }
 
     /**
@@ -49,6 +56,10 @@ class Invalidator
      */
     public function handle($event)
     {
+        if ($this->stache->isCold()) {
+            return;
+        }
+
         $content = $event->item;
 
         if (! $content instanceof Content) {

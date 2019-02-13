@@ -224,9 +224,10 @@ class URL
      * Make a relative URL absolute
      *
      * @param string $url
+     * @param string $locale
      * @return string
      */
-    public static function makeAbsolute($url)
+    public static function makeAbsolute($url, $locale = null)
     {
         // If it starts with a protocol, we'll just leave it as-is.
         if (preg_match('/^(?:(ht|f)tp(s?)\:\/\/)/', $url)) {
@@ -235,7 +236,7 @@ class URL
 
         // Get the root URL as defined in the config.
         // This may be relative (eg. `/` or `/subdir/`) or absolute (eg. `http://example.com/`)
-        $siteUrl = Config::getSiteUrl();
+        $siteUrl = Config::getSiteUrl($locale);
 
         // Make sure URLs have trailing slashes.
         $url = Str::ensureLeft($url, '/');
@@ -264,6 +265,22 @@ class URL
     public static function getCurrent()
     {
         return format_url(app('request')->path());
+    }
+
+    /**
+     * Get the current URL with query string
+     *
+     * @return string
+     */
+    public static function getCurrentWithQueryString()
+    {
+        $url = self::getCurrent();
+
+        if ($qs = request()->getQueryString()) {
+            $url .= '?' . $qs;
+        }
+
+        return $url;
     }
 
     /**

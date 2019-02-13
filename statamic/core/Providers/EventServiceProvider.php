@@ -12,6 +12,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         \Statamic\Events\DataIdCreated::class => [
             \Statamic\Stache\Listeners\SaveCreatedId::class
+        ],
+        'kernel.handled' => [
+            \Statamic\Stache\Listeners\PersistStache::class
         ]
     ];
 
@@ -20,7 +23,6 @@ class EventServiceProvider extends ServiceProvider
         \Statamic\Data\Taxonomies\TermTracker::class,
         \Statamic\Listeners\GeneratePresetImageManipulations::class,
         \Statamic\StaticCaching\Invalidator::class,
-        \Statamic\Listeners\UpdateRoutes::class,
     ];
 
     public function register()

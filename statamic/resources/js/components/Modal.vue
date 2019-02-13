@@ -1,7 +1,7 @@
 <template>
     <div class="modal" :class="classes" role="dialog" tabindex="-1" v-if="show">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content animated" :class="{'shake': shake}" v-on-clickaway="closeIfDismissible">
 
                 <div class="saving" v-if="saving">
                     <div class="inner">
@@ -35,7 +35,12 @@
 </template>
 
 <script>
+
+import { mixin as clickaway } from 'vue-clickaway';
+
 export default {
+
+    mixins: [ clickaway ],
 
     props: {
         show: {
@@ -54,8 +59,16 @@ export default {
                 return {};
             }
         },
+        dismissible: {
+            type: Boolean,
+            default: false
+        },
         loading: Boolean,
-        saving: Boolean
+        saving: Boolean,
+        shake: {
+            type: Boolean,
+            default: false
+        }
     },
 
     computed: {
@@ -80,7 +93,12 @@ export default {
     methods: {
         close: function() {
             this.show = false
-        }
+        },
+        closeIfDismissible: function() {
+            if (this.dismissible) {
+                this.show = false
+            }
+        },
     },
 
     watch: {
@@ -92,7 +110,7 @@ export default {
     },
 
     ready: function() {
-        Mousetrap.bind('esc', function(e) {
+        Mousetrap.bindGlobal('esc', function(e) {
             this.close();
         }.bind(this), 'keyup');
     },

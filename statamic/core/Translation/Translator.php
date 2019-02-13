@@ -72,6 +72,12 @@ class Translator extends \Illuminate\Translation\Translator
     {
         $translation = parent::get($key, $replace, $locale, $fallback);
 
+        // If it's an addon translation, here's a temporary workaround to return the proper value for the addon.
+        if ($key == $translation && str_contains($translation, 'addons.')) {
+            $translations = array_dot($this->getAddonTranslations());
+            $translation = isset($translations[$key]) ? $translations[$key] : $key;
+        }
+
         // We can't use `has($key)` since we'll end up in the infinite void of space and time.
         if ($key == $translation) {
             $translation = $this->getFallbackTranslator()->get($key, $replace, $locale, $fallback);

@@ -8,6 +8,8 @@ use Statamic\API\Hash;
 use Statamic\API\Role;
 use Statamic\Data\Users\User as FileUser;
 use Statamic\Data\Users\Eloquent\Model as UserModel;
+use Statamic\Events\Data\UserDeleted;
+use Statamic\Events\Data\UserSaved;
 
 class User extends FileUser
 {
@@ -28,21 +30,39 @@ class User extends FileUser
         $this->model = $model;
     }
 
+    /**
+     * Save the user.
+     *
+     * @return $this
+     */
     public function save()
     {
         $this->updateRoles();
 
         $this->model()->save();
 
-        event('user.saved', $this);
+        event('user.saved', $this); // Deprecated! Please listen on UserSaved event instead!
+        event(new UserSaved($this, []));
 
         return $this;
     }
 
+    /**
+     * Delete the user.
+     */
+    public function delete()
+    {
+        $this->model()->delete();
+
+        event(new UserDeleted($this->id(), []));
+    }
+
     private function updateRoles()
     {
-        $roles = collect($this->get('roles', []));
-        $this->remove('roles');
+        $roles = $this->roles()->map(function ($role) {
+            return $role->uuid();
+        });
+
         (new Roles($this))->sync($roles);
     }
 
@@ -92,6 +112,10 @@ class User extends FileUser
 
     public function set($key, $value)
     {
+        if ($key === 'roles') {
+            return $this->setRoles($value);
+        }
+
         $columns = \Schema::getColumnListing($this->model()->getTable());
 
         if (array_has(array_flip($columns), $key)) {
@@ -199,12 +223,17 @@ class User extends FileUser
     }
 
     /**
-     * Get the roles for the user
+     * Get or set the roles for the user
      *
+     * @param null|array $roles
      * @return \Illuminate\Support\Collection
      */
-    public function roles()
+    public function roles($roles = null)
     {
+        if ($roles) {
+            return $this->set('roles', $roles);
+        }
+
         if ($this->roles) {
             return $this->roles;
         }
@@ -214,6 +243,13 @@ class User extends FileUser
         });
 
         return $this->roles = $roles;
+    }
+
+    protected function setRoles($roles)
+    {
+        $this->roles = collect($roles)->map(function ($role) {
+            return Role::find($role);
+        });
     }
 
     public function lastModified()

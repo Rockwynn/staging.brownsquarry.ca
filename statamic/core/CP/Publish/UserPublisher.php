@@ -41,6 +41,11 @@ class UserPublisher extends Publisher
             $this->id = Helper::makeUuid();
             $this->content->id($this->id);
 
+            // If user can't edit roles, ensure default roles are used.
+            if (User::getCurrent()->cant('users:edit-roles')) {
+                $this->fields['roles'] = Config::get('users.new_user_roles');
+            }
+
             $this->addUserValidation('new');
 
         } else {
@@ -51,6 +56,11 @@ class UserPublisher extends Publisher
 
             $this->content->username($username);
             $this->content->email($email);
+
+            // If user can't edit roles, ensure existing roles are used.
+            if (User::getCurrent()->cant('users:edit-roles')) {
+                $this->fields['roles'] = $this->content->get('roles');
+            }
         }
 
         $this->content->groups($groups);
@@ -96,9 +106,7 @@ class UserPublisher extends Publisher
 
         $fields = $this->addBasicUserValidation($fields);
 
-        $fieldset = Fieldset::create('user', ['fields' => $fields]);
-
-        $this->content->fieldset($fieldset);
+        $this->fieldset = Fieldset::create('user', ['fields' => $fields]);
     }
 
     /**

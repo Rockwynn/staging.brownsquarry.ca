@@ -10,6 +10,7 @@ use Statamic\API\Folder;
 use Statamic\API\Fieldset;
 use Statamic\Data\DataFolder;
 use Statamic\Events\Data\CollectionDeleted;
+use Statamic\Events\Data\CollectionSaved;
 use Statamic\Contracts\Data\Entries\Collection as CollectionContract;
 
 class Collection extends DataFolder implements CollectionContract
@@ -33,6 +34,25 @@ class Collection extends DataFolder implements CollectionContract
      * @var string|null
      */
     protected $original_route;
+
+    /**
+     * Get the yaml path.
+     *
+     * @param bool $fromContent
+     * @return string
+     */
+    public function yamlPath($fromContent = false)
+    {
+        $path = 'collections/' . $this->path() . '/folder.yaml';
+
+        if ($fromContent) {
+            return $path;
+        }
+
+        $prefix = Config::get('system.filesystems.content.root');
+
+        return "{$prefix}/{$path}";
+    }
 
     /**
      * @return int
@@ -113,15 +133,17 @@ class Collection extends DataFolder implements CollectionContract
      */
     public function save()
     {
-        $path = 'collections/' . $this->path() . '/folder.yaml';
-
-        File::disk('content')->put($path, YAML::dump($this->data()));
+        // Save yaml file.
+        File::disk('content')->put($this->yamlPath(true), YAML::dump($this->data()));
 
         // If the route was modified, update routes.yaml
         if ($this->route && ($this->original_route !== $this->route)) {
             Config::set('routes.collections.'.$this->path(), $this->route());
             Config::save();
         }
+
+        // Whoever wants to know about it can do so now.
+        event(new CollectionSaved($this));
     }
 
     /**
@@ -151,11 +173,21 @@ class Collection extends DataFolder implements CollectionContract
      */
     public function delete()
     {
-        $path = 'collections/' . $this->path();
+        // Delete each child entry first, to ensure events get fired, etc.
+        $this->entries()->each(function ($entry) {
+            $entry->delete();
+        });
 
-        Folder::disk('content')->delete($path);
+        // Delete folder.
+        Folder::disk('content')->delete('collections/' . $this->path());
 
-        event(new CollectionDeleted($this->path()));
+        // Remove from routes.
+        $routes = collect(Config::get('routes.collections'))->except($this->path())->all();
+        Config::set('routes.collections', $routes);
+        Config::save();
+
+        // Whoever wants to know about it can do so now.
+        event(new CollectionDeleted($this));
     }
 
     /**
@@ -216,6 +248,17 @@ class Collection extends DataFolder implements CollectionContract
             $this->get('fieldset'),
             Config::get('theming.default_entry_fieldset'),
             Config::get('theming.default_fieldset')
-        ]);
+        ])->withTaxonomies();
+    }
+
+    /**
+     * Get or set the ID
+     *
+     * @param null|string $id
+     * @return string
+     */
+    public function id($id = null)
+    {
+        return $this->path($id);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Statamic\Assets;
 
+use Statamic\API\Config;
 use Statamic\API\Folder;
 use Statamic\API\Str;
 use Statamic\API\Fieldset;
@@ -103,11 +104,7 @@ class AssetContainer implements AssetContainerContract
             return $this->data;
         }
 
-        $path = "assets/{$this->id}.yaml";
-
-        $this->data = YAML::parse(File::disk('content')->get($path));
-
-        return $this->data;
+        return $this->data = YAML::parse(File::disk('content')->get($this->yamlPath(true)));
     }
 
     /**
@@ -138,6 +135,25 @@ class AssetContainer implements AssetContainerContract
         }
 
         return $this->path;
+    }
+
+    /**
+     * Get the yaml path.
+     *
+     * @param bool $fromContent
+     * @return string
+     */
+    public function yamlPath($fromContent = false)
+    {
+        $path = "assets/{$this->id}.yaml";
+
+        if ($fromContent) {
+            return $path;
+        }
+
+        $prefix = Config::get('system.filesystems.content.root');
+
+        return "{$prefix}/{$path}";
     }
 
     /**
@@ -232,8 +248,6 @@ class AssetContainer implements AssetContainerContract
      */
     public function save()
     {
-        $path = "assets/{$this->id}.yaml";
-
         $data = array_filter($this->toArray());
         unset($data['id']);
 
@@ -248,10 +262,10 @@ class AssetContainer implements AssetContainerContract
             $data['assets'] = $assets;
         }
 
-        $yaml = YAML::dump($data);
+        // Save yaml file.
+        File::disk('content')->put($this->yamlPath(true), YAML::dump($data));
 
-        File::disk('content')->put($path, $yaml);
-
+        // Whoever wants to know about it can do so now.
         event(new AssetContainerSaved($this));
     }
 
@@ -262,11 +276,11 @@ class AssetContainer implements AssetContainerContract
      */
     public function delete()
     {
-        $path = "assets/{$this->id}.yaml";
+        // Delete yaml file.
+        File::disk('content')->delete($this->yamlPath(true));
 
-        File::disk('content')->delete($path);
-
-        event(new AssetContainerDeleted($this->id(), $path));
+        // Whoever wants to know about it can do so now.
+        event(new AssetContainerDeleted($this));
     }
 
     public function disk($type = 'folder')
@@ -294,7 +308,8 @@ class AssetContainer implements AssetContainerContract
 
         // Get rid of files we never want to show up.
         $files = $files->reject(function ($path) {
-            return Str::endsWith($path, ['.DS_Store', 'folder.yaml']);
+            $file = collect(explode('/', $path))->last();
+            return $file === 'folder.yaml' || Str::startsWith($file, '.');
         });
 
         return $files->values();
@@ -316,6 +331,12 @@ class AssetContainer implements AssetContainerContract
         }
 
         $folders = collect($this->disk()->getFolders($folder, $recursive));
+
+        // Get rid of folders we never want to show up.
+        $folders = $folders->reject(function ($path) {
+            $folder = collect(explode('/', $path))->last();
+            return Str::startsWith($folder, '.');
+        });
 
         return $folders->values();
     }

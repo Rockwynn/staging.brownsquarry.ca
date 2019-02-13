@@ -9,6 +9,8 @@
                 :errors="errors"
                 :hidden-fields="hiddenFields"
                 :autofocus="autofocus"
+                :regular-title-field="!metaFields"
+                :env="env"
             ></publish-fields>
 
         </div>
@@ -30,7 +32,9 @@ export default {
         data: Object,
         errors: Object,
         hiddenFields: Array,
-        autofocus: Boolean
+        autofocus: Boolean,
+        metaFields: { type: Boolean, default: true },
+        env: { type: Object, default: {} }
     },
 
     computed: {

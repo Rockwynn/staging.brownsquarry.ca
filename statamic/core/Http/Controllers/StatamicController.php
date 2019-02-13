@@ -413,6 +413,8 @@ class StatamicController extends Controller
 
         $this->setUpDebugBar();
 
+        $this->fireResponseEvent();
+
         return $this->response;
     }
 
@@ -467,6 +469,11 @@ class StatamicController extends Controller
             $this->response->header($header, $value);
         }
 
+        $this->fireResponseEvent();
+    }
+
+    private function fireResponseEvent()
+    {
         // Allow addons to modify the response. They can add headers, modify the content, etc.
         // The event will get the Response object as a payload, which they simply need to modify.
         event('response.created', $this->response);

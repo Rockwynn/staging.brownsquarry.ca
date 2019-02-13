@@ -16,13 +16,13 @@
                 <div class="form-group">
                     <label class="block">{{ translate('cp.title') }}</label>
                     <small class="help-block">{{ translate('cp.globals_title_instructions') }}</small>
-                    <input type="text" name="title" class="form-control" autofocus="autofocus" />
+                    <input type="text" name="title" value="{{ old('title') }}" class="form-control" autofocus="autofocus" />
                 </div>
 
                 <div class="form-group">
                     <label class="block">{{ translate('cp.slug') }}</label>
                     <small class="help-block">{!! translate('cp.globals_slug_instructions') !!}</small>
-                    <input type="text" name="slug" class="form-control" />
+                    <input type="text" name="slug" value="{{ old('slug') }}" class="form-control" />
                 </div>
 
                 <div class="form-group">

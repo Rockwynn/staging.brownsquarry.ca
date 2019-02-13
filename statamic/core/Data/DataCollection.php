@@ -90,7 +90,7 @@ abstract class DataCollection extends IlluminateCollection
      */
     private function getSortableValue($item, $key)
     {
-        if ($supplement = $item->getSupplement($key)) {
+        if (method_exists($item, 'getSupplement') && ($supplement = $item->getSupplement($key))) {
             return $supplement;
         }
 

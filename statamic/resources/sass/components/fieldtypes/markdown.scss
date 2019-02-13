@@ -7,7 +7,6 @@
     .markdown-fieldtype-wrapper {
         border: 1px solid $border;
         border-radius: 3px;
-        overflow: hidden;
     }
 
     .markdown-toolbar {
@@ -328,6 +327,11 @@
         margin: 0 auto;
     }
 
+    .CodeMirror, .markdown-preview {
+        max-height: calc(100vh - 40px);
+        overflow-y: scroll;
+    }
+
     .CodeMirror-lines {
         border-right: none !important;
     }
@@ -386,7 +390,7 @@
     .markdown-fieldtype .CodeMirror-lines { max-width: 280px; }
 }
 
-@media (min-width: 1400px) and (max-width: 1600px) {
+@media (min-width: 1366px) and (max-width: 1600px) {
 .markdown-fieldtype .CodeMirror-lines {
         max-width: 720px;
     }

@@ -733,6 +733,8 @@ abstract class Data implements DataContract
     public function supplementTaxonomies()
     {
         $this->supplement_taxonomies = true;
+
+        return $this;
     }
 
     /**

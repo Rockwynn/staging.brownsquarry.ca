@@ -51,7 +51,7 @@
                 <div class="form-group">
                     <label class="block">{{ t('route') }}</label>
                     <small class="help-block">{{ t('collection_route_instructions') }}</small>
-                    <input type="text" name="route" class="form-control" value="{{ old('route') }}">
+                    <routes-fieldtype :data="{{ old('routes', '[]') }}" name="routes"></routes-fieldtype>
                 </div>
 
             </div>

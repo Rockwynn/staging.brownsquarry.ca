@@ -2,6 +2,7 @@
 
 namespace Statamic\Http\Controllers;
 
+use Statamic\API\Arr;
 use Statamic\API\Addon;
 use Statamic\API\Config;
 use Statamic\API\Fieldset;
@@ -78,15 +79,11 @@ class FieldsetController extends CpController
     private function process($fields, $fallback_type = 'text')
     {
         // Go through each field in the fieldset
-        foreach ($fields as $field_name => &$field_config) {
+        return collect($fields)->map(function ($field_config, $field_name) use ($fallback_type, $fields) {
             // Get the config fieldset for that field's fieldtype. Still with me?
             $type = array_get($field_config, 'type', $fallback_type);
             $fieldtype = FieldtypeFactory::create($type);
             $fieldtypes = $fieldtype->getConfigFieldset()->fieldtypes();
-
-            if (is_array($field_config)) {
-                $field_config = FieldsetObject::cleanFieldForSaving($field_config);
-            }
 
             // Go through each fieldtype in the config fieldset and process the values.
             foreach ($fieldtypes as $k => $field) {
@@ -99,11 +96,11 @@ class FieldsetController extends CpController
                     continue;
                 }
 
-                $fields[$field_name][$field->getName()] = $field->process($fields[$field_name][$field->getName()]);
+                $field_config[$field->getName()] = $field->process($field_config[$field->getName()]);
             }
-        }
 
-        return $fields;
+            return FieldsetObject::cleanFieldForSaving($field_config);
+        })->all();
     }
 
     /**
@@ -233,7 +230,7 @@ class FieldsetController extends CpController
                 return $this->processSection($section);
             })->all();
 
-        $fieldset = Fieldset::create($slug, $contents);
+        $fieldset = Fieldset::create($slug, Arr::removeNullValues($contents));
 
         return $fieldset;
     }

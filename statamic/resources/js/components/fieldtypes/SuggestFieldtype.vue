@@ -47,7 +47,17 @@ export default {
 
         populateSuggestions(suggestions) {
             this.suggestions = suggestions;
+
+            if (this.data) {
+                var formatted = [];
+                _.each(this.data, function(value, key, list) {
+                    formatted.push({'value': value, 'text': value});
+                });
+                this.suggestions = _.union(suggestions, formatted);
+            }
+
             this.loading = false;
+
             this.$nextTick(function() {
                 this.initSelectize();
             });
@@ -56,7 +66,7 @@ export default {
         initSelectize: function() {
             var self = this;
 
-            $(this.$el).find('select').selectize({
+            let opts = {
                 options: this.suggestions,
                 items: this.data,
                 create: this.config.create || false,
@@ -66,7 +76,17 @@ export default {
                 onChange: function(value) {
                     self.data = value;
                 }
-            });
+            };
+
+            const optgroups = _.chain(this.suggestions).pluck('optgroup').unique().filter().map(optgroup => {
+                return { value: optgroup, label: optgroup };
+            }).value();
+
+            if (optgroups.length) {
+                opts.optgroups = optgroups;
+            }
+
+            $(this.$el).find('select').selectize(opts);
         },
 
         getReplicatorPreviewText() {

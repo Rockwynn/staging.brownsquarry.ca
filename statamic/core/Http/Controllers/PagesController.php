@@ -11,6 +11,7 @@ use Statamic\API\Helper;
 use Statamic\API\Stache;
 use Statamic\API\Content;
 use Statamic\API\Collection;
+use Statamic\Events\Data\PagesReordered;
 use Statamic\Contracts\Data\Pages\PageTreeReorderer;
 
 /**
@@ -23,7 +24,9 @@ class PagesController extends CpController
      */
     public function pages()
     {
-        $this->access('pages:view');
+        if (!me()->can('pages:view')) {
+            return redirect()->route('assets');
+        }
 
         $this->ensureHome();
 
@@ -163,7 +166,9 @@ class PagesController extends CpController
 
         $reorderer->reorder($tree);
 
-        Stache::clear();
+        Stache::update();
+
+        event(new PagesReordered);
 
         return [
             'success' => true,

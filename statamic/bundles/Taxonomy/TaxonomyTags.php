@@ -39,10 +39,12 @@ class TaxonomyTags extends Tags
 
     protected function taxonomy($taxonomy)
     {
+        $locale = $this->get('locale', site_locale());
+
         $this->terms = Term::whereTaxonomy($taxonomy);
 
         // Swap to the appropriate locale. By default it's the site locale.
-        $this->terms = $this->terms->localize($this->get('locale', site_locale()));
+        $this->terms = $this->terms->localize($locale);
 
         $this->filter();
 
@@ -50,8 +52,8 @@ class TaxonomyTags extends Tags
             return $this->parseNoResults();
         }
 
-        $this->terms->supplement('collection', function ($term) {
-            return $term->collection();
+        $this->terms->supplement('collection', function ($term) use ($locale) {
+            return $term->collection()->localize($locale);
         });
 
         $data = $this->terms->toArray();
@@ -89,7 +91,7 @@ class TaxonomyTags extends Tags
 
         if ($min > 0) {
             $this->terms = $this->terms->filter(function($taxonomy) use ($min) {
-                return $taxonomy->count() > $min;
+                return $taxonomy->count() >= $min;
             });
         }
     }

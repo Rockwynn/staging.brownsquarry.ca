@@ -7,6 +7,7 @@ use Statamic\API\Taxonomy;
 use Statamic\API\Term;
 use Statamic\API\Fieldset;
 use Stringy\StaticStringy as Stringy;
+use Statamic\Events\Data\PublishFieldsetFound;
 
 class PublishTaxonomyController extends PublishController
 {
@@ -24,10 +25,10 @@ class PublishTaxonomyController extends PublishController
             return redirect(route('collections'))->withErrors("Taxonomy [$group->path()] doesn't exist.");
         }
 
-        $data = $this->addBlankFields($fieldset = $group->fieldset());
+        $fieldset = $group->fieldset();
+        event(new PublishFieldsetFound($fieldset, 'term'));
+        $data = $this->addBlankFields($fieldset);
         $data['slug'] = null;
-
-        $fieldset = $fieldset->name();
 
         $title = translate(
             'cp.create_taxonomy_term',
@@ -44,7 +45,7 @@ class PublishTaxonomyController extends PublishController
             'is_new'            => true,
             'content_data'      => $data,
             'content_type'      => 'taxonomy',
-            'fieldset'          => $fieldset,
+            'fieldset'          => $fieldset->toPublishArray(),
             'title'             => $title,
             'uuid'              => null,
             'url'               => null,
@@ -54,7 +55,7 @@ class PublishTaxonomyController extends PublishController
             'locale'            => default_locale(),
             'is_default_locale' => true,
             'locales'           => $this->getLocales(),
-            'suggestions'       => $this->getSuggestions(Fieldset::get($fieldset)),
+            'suggestions'       => $this->getSuggestions($fieldset),
         ]);
     }
 
@@ -87,7 +88,10 @@ class PublishTaxonomyController extends PublishController
             'default_slug' => $slug
         ];
 
-        $data = $this->addBlankFields($term->fieldset(), $term->processedData());
+        $fieldset = $term->fieldset();
+        event(new PublishFieldsetFound($fieldset, 'term', $term));
+
+        $data = $this->addBlankFields($fieldset, $term->processedData());
         $data['title'] = $term->title();
         $data['slug'] = $term->slug();
 
@@ -96,7 +100,7 @@ class PublishTaxonomyController extends PublishController
             'is_new'            => false,
             'content_data'      => $data,
             'content_type'      => 'taxonomy',
-            'fieldset'          => $term->fieldset()->name(),
+            'fieldset'          => $fieldset->toPublishArray(),
             'title'             => array_get($data, 'title', $slug),
             'uuid'              => $id,
             'uri'               => $term->uri(),
@@ -106,7 +110,7 @@ class PublishTaxonomyController extends PublishController
             'locale'            => $locale,
             'is_default_locale' => $term->isDefaultLocale(),
             'locales'           => $this->getLocales($id),
-            'suggestions'       => $this->getSuggestions($term->fieldset()),
+            'suggestions'       => $this->getSuggestions($fieldset),
         ]);
     }
 
@@ -119,14 +123,18 @@ class PublishTaxonomyController extends PublishController
      */
     protected function redirect(Request $request, $term)
     {
-        if (! $request->continue) {
-            return route('terms.show', $term->taxonomyName());
+        if ($request->continue) {
+            return route('term.edit', [
+                'group' => $term->taxonomyName(),
+                'slug'  => $term->slug(),
+            ]);
         }
 
-        return route('term.edit', [
-            'group' => $term->taxonomyName(),
-            'slug'  => $term->slug(),
-        ]);
+        if ($request->another) {
+            return route('term.create', $term->taxonomyName());
+        }
+
+        return route('terms.show', $term->taxonomyName());
     }
 
     /**

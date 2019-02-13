@@ -1,6 +1,6 @@
 <template>
     <div>
-        <modal :show.sync="show" :saving="saving" :loading="loading" class="modal-small">
+        <modal :show.sync="show" :saving="saving" :loading="loading" class="modal-small" :dismissible="true">
             <template slot="header">{{ translate('cp.choose_page_type') }}</template>
 
             <template slot="body">

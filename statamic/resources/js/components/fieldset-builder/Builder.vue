@@ -160,11 +160,13 @@ export default {
                 this.fieldset = data;
                 self.loading = false;
 
-                // Add the watcher after the request is complete otherwise it will
-                // be marked as changed even though the user did nothing.
-                this.$watch('fieldset', () => {
-                    this.$dispatch('changesMade', true);
-                }, { deep: true });
+                // Add the watcher on the next tick after the request is complete. This prevents any changes being
+                // triggered by this component or any child components that modify the fieldset when they are initialized.
+                this.$nextTick(() => {
+                    this.$watch('fieldset', () => {
+                        this.$dispatch('changesMade', true);
+                    }, { deep: true });
+                });
             }).error(function (data) {
                 self.errorMessage = data.message;
             });

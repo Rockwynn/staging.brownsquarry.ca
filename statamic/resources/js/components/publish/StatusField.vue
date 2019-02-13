@@ -3,7 +3,7 @@
     <div class="mr-2">
 
         <template v-if="singleLocale && allowStatuses">
-            <button class="btn btn-default" @click.prevent="status = !status">
+            <button class="btn btn-default status-field" @click.prevent="status = !status">
                 <span class="mr-8 icon-status {{ status ? 'icon-status-live' : 'icon-status-hidden' }}"></span>
                 {{ status ? translate('cp.published') : translate('cp.draft') }}
             </button>
@@ -78,6 +78,11 @@
         .toggle-container.on .toggle-slider {
             width: 34px;
         }
+    }
+
+    .status-field .icon-status {
+        position: relative;
+        top: -1px;
     }
 
     @media (max-width: 768px) {

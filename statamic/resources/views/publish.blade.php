@@ -10,7 +10,8 @@
         Statamic.Publish = {
             locale: '{!! $locale !!}',
             contentData: {!! json_encode($content_data) !!},
-            suggestions: {!! json_encode($suggestions) !!}
+            suggestions: {!! json_encode($suggestions) !!},
+            fieldset: {!! json_encode($fieldset) !!}
         };
     </script>
 
@@ -19,7 +20,6 @@
              :is-new="{{ bool_str($is_new) }}"
              content-type="{{ $content_type }}"
              uuid="{{ $uuid }}"
-             fieldset-name="{{ $fieldset }}"
              slug="{{ $slug }}"
              uri="{{ $uri }}"
              url="{{ $url }}"
@@ -29,6 +29,7 @@
              locales="{{ json_encode($locales) }}"
              :is-default-locale="{{ bool_str($is_default_locale) }}"
              :remove-title="true"
+             :allow-save-and-add-another="{{ bool_str(in_array($content_type, ['page', 'entry', 'taxonomy'])) }}"
     ></publish>
 
 @endsection

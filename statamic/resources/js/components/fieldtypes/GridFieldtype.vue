@@ -20,7 +20,7 @@
 			<tr v-for="(rowIndex, row) in data" :class="{excess: isExcessive(rowIndex)}">
 				<td v-for="field in config.fields">
 					<div class="{{ field.type }}-fieldtype">
-						<component :is="field.type + '-fieldtype'"
+						<component :is="componentName(field.type)"
 						           :name="name + '.' + rowIndex + '.' + field.name"
 						           :data.sync="row[field.name]"
 						           :config="field">
@@ -29,7 +29,9 @@
 				</td>
                 <td class="row-controls">
                     <span class="icon icon-menu move drag-handle"></span>
-                    <span class="icon icon-cross delete" v-on:click="deleteRow(rowIndex)"></span>
+                    <template v-if="canDeleteRows">
+                        <span class="icon icon-cross delete" v-on:click="deleteRow(rowIndex)"></span>
+                    </template>
                 </td>
 			</tr>
 		</tbody>
@@ -40,11 +42,13 @@
 			<div class="list-group-item group-header pl-3 drag-handle">
 				<div class="flexy">
 					<label class="fill">{{ rowIndex + 1 }}</label>
-					<i class="icon icon-cross" v-on:click="deleteRow(rowIndex)"></i>
+                    <template v-if="canDeleteRows">
+                        <i class="icon icon-cross" v-on:click="deleteRow(rowIndex)"></i>
+                    </template>
 				</div>
 			</div>
 			<div class="list-group-item p-0">
-				<div class="publish-fields p-1">
+				<div class="publish-fields">
 					<div v-for="field in config.fields" :class="stackedFieldClasses(field)">
 							<label class="block">
 								<template v-if="field.display">{{ field.display }}</template>
@@ -54,7 +58,7 @@
 
 							<small class="help-block" v-if="field.instructions" v-html="field.instructions | markdown"></small>
 
-							<component :is="field.type + '-fieldtype'"
+							<component :is="componentName(field.type)"
 							           :name="name + '.' + rowIndex + '.' + field.name"
 							           :data.sync="row[field.name]"
 							           :config="field">
@@ -107,6 +111,14 @@ export default {
              return this.$parent.$options.name === 'grid-fieldtype';
         },
 
+        canDeleteRows: function() {
+            if (this.min_rows && this.data) {
+                return (this.data.length > this.min_rows);
+            }
+
+            return true;
+        },
+
         canAddRows: function() {
             if (this.max_rows && this.data) {
                 return (this.data.length < this.max_rows);
@@ -136,7 +148,7 @@ export default {
         }
 
         this.trackContainerWidth();
-        this.initSortable();
+        this.$nextTick(() => this.initSortable());
         this.bindChangeWatcher();
 
         // Re-initialize sortable when the stacking mode changes
@@ -273,6 +285,7 @@ export default {
             this.$root.$on('livepreview.opened', throttled);
             this.$root.$on('livepreview.closed', throttled);
             this.$root.$on('livepreview.resizing', throttled);
+            this.$root.$on('publish.section.changed', throttled);
             addEventListener('resize', throttled);
 
             this.$once('hook:beforeDestroy', () => {
@@ -280,7 +293,12 @@ export default {
                 this.$root.$off('livepreview.opened', throttled);
                 this.$root.$off('livepreview.closed', throttled);
                 this.$root.$off('livepreview.resizing', throttled);
+                this.$root.$off('publish.section.changed', throttled);
             });
+        },
+
+        componentName(type) {
+            return type.replace('.', '-') + '-fieldtype';
         }
     }
 };

@@ -63,10 +63,10 @@
         </table>
 
         <div v-if="showBulkActions" :class="{ 'bulk-actions': true, 'no-checkboxes': !hasCheckboxes }">
-          <button type="button" class="btn action" @click="uncheckAllItems">
-            {{ translate('cp.uncheck_all') }}
-          </button>
-          <button type="button" class="btn btn-delete action" @click.prevent="call('deleteMultiple', 'foo', 'bar')">
+            <button type="button" class="btn action" @click="uncheckAllItems">
+                {{ translate('cp.uncheck_all') }}
+            </button>
+            <button type="button" class="btn btn-delete action" @click.prevent="call('deleteMultiple', 'foo', 'bar')">
                 {{ translate('cp.delete') }} {{ checkedItems.length }} {{ translate_choice('cp.items', checkedItems.length)}}
             </button>
         </div>
@@ -294,7 +294,12 @@ export default {
                 return html;
             }
 
-            return Array.isArray(value) ? value.join(', ') : value;
+            function htmlEntities(str) {
+                if (!str) return '';
+                return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+
+            return Array.isArray(value) ? value.map(v => htmlEntities(v)).join(', ') : htmlEntities(value);
         }
     },
 

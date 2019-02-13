@@ -3,12 +3,12 @@
 namespace Statamic\Providers;
 
 use Carbon\Carbon;
-use Statamic\Outpost;
 use Statamic\API\URL;
 use Statamic\API\File;
 use Statamic\DataStore;
 use Statamic\CP\Router;
 use Statamic\API\Config;
+use Statamic\Outpost\Outpost;
 use Illuminate\Support\Collection;
 use Statamic\Extensions\FileStore;
 use Illuminate\Support\Facades\Auth;

@@ -60,14 +60,17 @@ body > svg { display: none; }
         bottom: -3px;
     }
 
-    #typeahead {
+    .global-search {
         @extend .z-depth-1;
         border-radius: 4px;
         background: #fff;
-        padding: 0 8px;
         width: 100%;
         max-width: 400px;
         margin-right: 16px;
+
+        .typeahead {
+            padding: 0 8px;
+        }
     }
 
 	.search {
@@ -86,12 +89,25 @@ body > svg { display: none; }
     }
 }
 
-.site-status-stripe {
-    background: $brand-darker;
+.site-warning-stripe {
+    background: $color_red;
     box-shadow: inset 0 -2px 3px rgba(0,0,0,.1);
     padding: 8px 24px;
     font-size: 14px;
     color: #fff;
+
+    > a, > a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+
+    &.status-trial {
+        background: $brand-darker;
+
+        > a, > a:hover { color: $brand-primary; }
+    }
+
+    .btn { text-decoration: none; }
 }
 
 @media (max-width: 980px) {

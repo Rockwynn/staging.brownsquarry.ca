@@ -33,6 +33,8 @@ class GeneratorCommand extends Command
             $type = 'API';
         } elseif ($this->type === 'provider') {
             $type = 'ServiceProvider';
+        } elseif ($this->type === 'suggest') {
+            $type = 'SuggestMode';
         } else {
             $type = ucfirst($this->type);
         }

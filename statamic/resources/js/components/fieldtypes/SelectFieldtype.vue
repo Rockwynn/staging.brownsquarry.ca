@@ -32,7 +32,12 @@ export default {
 
     computed: {
         label: function() {
-            var option = _.findWhere(this.selectOptions, {value: this.data});
+            // type juggle to make sure integers are treated as thus.
+            const parsed = parseInt(this.data);
+            const val = isNaN(parsed) ? this.data : parsed;
+
+            var option = _.findWhere(this.selectOptions, {value: val});
+
             return (option) ? option.text : this.data;
         }
     },

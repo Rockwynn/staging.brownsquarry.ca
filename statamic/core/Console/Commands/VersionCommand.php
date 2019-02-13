@@ -2,11 +2,8 @@
 
 namespace Statamic\Console\Commands;
 
-use Statamic\API\Pattern;
+use Statamic\API\Addon;
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Artisan;
-use Symfony\Component\Console\Helper\DescriptorHelper;
 
 class VersionCommand extends Command
 {
@@ -15,7 +12,7 @@ class VersionCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'version';
+    protected $signature = 'version {addon?}';
 
     /**
      * The console command description.
@@ -31,6 +28,24 @@ class VersionCommand extends Command
      */
     public function handle()
     {
-        $this->line(sprintf('<info>Statamic</info> version <comment>%s</comment>', STATAMIC_VERSION));
+        $item = 'Statamic';
+        $version = STATAMIC_VERSION;
+
+        if ($addon = $this->argument('addon')) {
+            list($item, $version) = $this->getAddonDetails($addon);
+        }
+
+        $this->line(sprintf('<info>%s</info> version <comment>%s</comment>', $item, $version));
+    }
+
+    protected function getAddonDetails($item)
+    {
+        $addon = Addon::create($item);
+
+        if (! $exists = is_dir($addon->directory())) {
+            throw new \Exception("Addon [{$item}] does not exist.");
+        }
+
+        return [$addon->name(), $addon->version()];
     }
 }

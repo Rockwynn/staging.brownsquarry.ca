@@ -24,6 +24,7 @@ export default {
             value: this.data || this.config.default || '',
             mode: 'yaml',
             lineNumbers: true,
+            lineWrapping: true,
             viewportMargin: Infinity
         });
 

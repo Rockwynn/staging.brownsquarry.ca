@@ -17,14 +17,16 @@ class CollectionsController extends CpController
      */
     public function index()
     {
-        $this->access('collections:*:view');
-
         $collections = collect(Collection::all())->filter(function ($collection) {
             return User::getCurrent()->can("collections:{$collection->path()}:view");
         })->all();
 
         if (count($collections) === 1) {
             return redirect()->route('entries.show', reset($collections)->path());
+        }
+
+        if (count($collections) === 0) {
+            return redirect()->route('taxonomies');
         }
 
         return view('collections.index', [
@@ -72,9 +74,18 @@ class CollectionsController extends CpController
     {
         $collection = Collection::whereHandle($collection);
 
+        if (is_string($routes = $collection->route())) {
+            $routes = [site_locale() => $routes];
+        }
+
+        $routes = collect($routes)->map(function ($route, $locale) {
+            return ['locale' => $locale, 'route' => $route];
+        })->values()->all();
+
         return view('collections.edit', [
             'title' => 'Editing collection',
-            'collection' => $collection
+            'collection' => $collection,
+            'routes' => $routes
         ]);
     }
 
@@ -106,8 +117,8 @@ class CollectionsController extends CpController
         $folder = Collection::create($slug);
         $folder->data($data);
 
-        if ($this->request->has('route')) {
-            $folder->route($this->request->input('route'));
+        if ($routes = $this->getRoutes()) {
+            $folder->route($routes);
         }
 
         $folder->save();
@@ -122,17 +133,16 @@ class CollectionsController extends CpController
 
         $fields = $this->request->input('fields');
 
-        $route = $fields['route'];
-        unset($fields['route']);
-
         $data = array_merge($collection->data(), $fields);
-
         $collection->data($data);
-        $collection->route($route);
+
+        if ($routes = $this->getRoutes()) {
+            $collection->route($routes);
+        }
 
         $collection->save();
 
-        return redirect()->route('entries.show', $collection->path())
+        return back()
             ->with('success', translate('cp.thing_updated', ['thing' => $collection->title()]));
     }
 
@@ -145,5 +155,16 @@ class CollectionsController extends CpController
         }
 
         return ['success' => true];
+    }
+
+    private function getRoutes()
+    {
+        $routes = collect(json_decode($this->request->input('routes'), true))->pluck('route', 'locale');
+
+        if ($routes->isEmpty()) {
+            return;
+        }
+
+        return $routes->count() === 1 ? $routes->first() : $routes->all();
     }
 }

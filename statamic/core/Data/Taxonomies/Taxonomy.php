@@ -10,6 +10,7 @@ use Statamic\API\Folder;
 use Statamic\API\Fieldset;
 use Statamic\Data\DataFolder;
 use Statamic\Events\Data\TaxonomyDeleted;
+use Statamic\Events\Data\TaxonomySaved;
 use Statamic\Contracts\Data\Taxonomies\Taxonomy as TaxonomyContract;
 
 class Taxonomy extends DataFolder implements TaxonomyContract
@@ -38,6 +39,25 @@ class Taxonomy extends DataFolder implements TaxonomyContract
      * @var string|null
      */
     protected $original_route;
+
+    /**
+     * Get the yaml path.
+     *
+     * @param bool $fromContent
+     * @return string
+     */
+    public function yamlPath($fromContent = false)
+    {
+        $path = 'taxonomies/' . $this->path() . '.yaml';
+
+        if ($fromContent) {
+            return $path;
+        }
+
+        $prefix = Config::get('system.filesystems.content.root');
+
+        return "{$prefix}/{$path}";
+    }
 
     /**
      * @return int
@@ -123,15 +143,17 @@ class Taxonomy extends DataFolder implements TaxonomyContract
      */
     public function save()
     {
-        $path = 'taxonomies/' . $this->path() . '.yaml';
-
-        File::disk('content')->put($path, YAML::dump($this->data()));
+        // Save yaml file.
+        File::disk('content')->put($this->yamlPath(true), YAML::dump($this->data()));
 
         // If the route was modified, update routes.yaml
         if ($this->route && ($this->original_route !== $this->route)) {
             Config::set('routes.taxonomies.'.$this->path(), $this->route());
             Config::save();
         }
+
+        // Whoever wants to know about it can do so now.
+        event(new TaxonomySaved($this));
     }
 
     /**
@@ -141,10 +163,20 @@ class Taxonomy extends DataFolder implements TaxonomyContract
      */
     public function delete()
     {
-        File::disk('content')->delete('taxonomies/' . $this->path() . '.yaml');
-        Folder::disk('content')->delete('taxonomies/' . $this->path());
+        // Delete each child term first, to ensure events get fired, etc.
+        $this->terms()->each(function ($term) {
+            $term->delete();
+        });
 
-        event(new TaxonomyDeleted($this->path()));
+        File::disk('content')->delete('taxonomies/' . $this->path() . '.yaml');
+
+        // Remove from routes.
+        $routes = collect(Config::get('routes.taxonomies'))->except($this->path())->all();
+        Config::set('routes.taxonomies', $routes);
+        Config::save();
+
+        // Whoever wants to know about it can do so now.
+        event(new TaxonomyDeleted($this));
     }
 
     /**

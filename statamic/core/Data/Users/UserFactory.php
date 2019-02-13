@@ -4,6 +4,7 @@ namespace Statamic\Data\Users;
 
 use Statamic\API\Arr;
 use Statamic\API\Config;
+use Statamic\API\Helper;
 use Statamic\Contracts\Data\Users\User;
 use Statamic\Contracts\Data\Users\UserFactory as UserFactoryContract;
 

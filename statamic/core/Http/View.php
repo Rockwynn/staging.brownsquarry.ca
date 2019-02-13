@@ -12,6 +12,7 @@ use Statamic\API\Config;
 use Statamic\API\Helper;
 use Statamic\Config\Globals;
 use Statamic\Routing\ExceptionRoute;
+use Statamic\Contracts\Data\LocalizedData;
 
 /**
  * Controls the rendering of templates in views
@@ -21,12 +22,12 @@ class View
     /**
      * @var array|\Statamic\Contracts\Data\Content\Content
      */
-    private $data;
+    protected $data;
 
     /**
      * @var string
      */
-    private $template;
+    protected $template;
 
     /**
      * Create a new View instance
@@ -79,7 +80,7 @@ class View
     /**
      * Update the DataStore with necessary data
      */
-    private function updateDataStore()
+    protected function updateDataStore()
     {
         // Add some helper variables into the scope
         $this->store->merge([
@@ -98,6 +99,7 @@ class View
         $data = (is_object($this->data)) ? $this->data->toArray() : $this->data;
         $this->store->merge($data);
         $this->store->mergeInto('page', $data);
+        $this->store->merge(['page_object' => $this->data instanceof LocalizedData ? $this->data->get() : $this->data]);
     }
 
     /**
@@ -105,7 +107,7 @@ class View
      *
      * @return void
      */
-    private function mergeGlobalsIntoDataStore()
+    protected function mergeGlobalsIntoDataStore()
     {
         GlobalSet::all()->each(function ($global) {
             $global = $global->in(site_locale())->get();
@@ -126,7 +128,7 @@ class View
      *
      * @return array
      */
-    private function getTemplate()
+    protected function getTemplate()
     {
         // First, if one was specified earlier, we'll just use that
         if ($this->template) {
@@ -141,7 +143,7 @@ class View
      *
      * @return array|string
      */
-    private function getLayout()
+    protected function getLayout()
     {
         if ($this->errorLayoutShouldBeUsed()) {
             return 'error';
@@ -150,7 +152,7 @@ class View
         return $this->data->layout();
     }
 
-    private function errorLayoutShouldBeUsed()
+    protected function errorLayoutShouldBeUsed()
     {
         return $this->data instanceof ExceptionRoute
             && File::disk('theme')->exists('layouts/error.html');

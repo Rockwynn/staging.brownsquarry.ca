@@ -2,11 +2,13 @@ import Vue from 'vue';
 
 Vue.config.debug = false;
 Vue.config.silent = true;
+Vue.config.devtools = true;
 
 window.Vue = Vue;
 window._ = require('underscore');
 window.$ = window.jQuery = require('jquery');
-window.MediumEditor = require('medium-editor');
+window.moment = require('moment');
+window.rangy = require('rangy');
 
 require('./bootstrap/vue-resource');
 require('./bootstrap/globals');

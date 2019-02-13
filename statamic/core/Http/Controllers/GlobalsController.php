@@ -12,16 +12,19 @@ class GlobalsController extends CpController
 {
     public function index()
     {
-        $this->access('globals:*:view');
-
-        $globals = GlobalSet::all();
+        $globals = collect(GlobalSet::all())->filter(function ($global) {
+            return me()->can("globals:{$global->slug()}:view");
+        });
 
         if (count($globals) === 1) {
             return redirect()->route('globals.edit', $globals->first()->slug());
         }
+        if (count($globals) === 0) {
+            return redirect()->route('globals.create');
+        }
 
         return view('globals.index', [
-            'title' => t('cp.globals')
+            'title' => t('nav_globals')
         ]);
     }
 
@@ -34,9 +37,9 @@ class GlobalsController extends CpController
 
     public function get()
     {
-        $this->access('globals:*:view');
-
-        $globals = GlobalSet::all()->supplement('title', function ($global) {
+        $globals = GlobalSet::all()->filter(function ($global) {
+            return me()->can("globals:{$global->slug()}:view");
+        })->supplement('title', function ($global) {
             return $global->title();
         })->toArray();
 

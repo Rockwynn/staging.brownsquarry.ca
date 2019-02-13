@@ -66,8 +66,14 @@ class FieldsetJsonController extends CpController
 
         $fieldset->locale($this->request->input('locale', default_locale()));
 
+        if ($this->request->taxonomies === 'true') {
+            $fieldset->withTaxonomies();
+        }
+
+        event('fieldsets.json.show', $fieldset);
+
         try {
-            $array = $fieldset->toArray(bool($this->request->input('partials', true)));
+            $array = $fieldset->toPublishArray();
         } catch (\Exception $e) {
             return response(['success' => false, 'message' => $e->getMessage()], 500);
         }
@@ -76,31 +82,15 @@ class FieldsetJsonController extends CpController
             // If logging in using emails, make sure there is no username field.
             if (Config::get('users.login_type') === 'email') {
                 $array['sections'] = collect($array['sections'])->map(function ($section) {
-                    $section['fields'] = collect($section['fields'])->reject(function ($field) {
-                        return $field['name'] === 'username';
-                    })->values()->all();
+                    $section['fields'] = collect($section['fields'])->filterWithKey(function ($field, $name) {
+                        return $name !== 'username';
+                    })->all();
                     return $section;
                 })->all();
             }
         }
 
-        $array['taxonomies'] = $this->addTaxonomies($fieldset);
-
         return $array;
-    }
-
-    private function addTaxonomies($fieldset)
-    {
-        if ($fieldset->taxonomies() === false) {
-            return [];
-        }
-
-        return Taxonomy::all()->map(function ($taxonomy) {
-            return [
-                'title' => $taxonomy->title(),
-                'handle' => $taxonomy->path(),
-            ];
-        })->values()->all();
     }
 
     private function addConditions($field)

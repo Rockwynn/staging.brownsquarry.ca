@@ -12,4 +12,13 @@ class TagsFieldtype extends Fieldtype
     {
         return ($data) ? $data : [];
     }
+
+    public function process($data)
+    {
+        if ($data == ['']) {
+            return null;
+        }
+
+        return $data;
+    }
 }

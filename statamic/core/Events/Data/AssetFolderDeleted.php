@@ -2,11 +2,18 @@
 
 namespace Statamic\Events\Data;
 
+use Statamic\API\Path;
+use Statamic\Assets\AssetFolder;
+use Statamic\Contracts\Data\DataEvent;
 use Statamic\Events\Event;
-use Statamic\Contracts\Assets\AssetContainer;
 
-class AssetFolderDeleted extends Event
+class AssetFolderDeleted extends Event implements DataEvent
 {
+    /**
+     * @var AssetFolder
+     */
+    public $folder;
+
     /**
      * @var AssetContainer
      */
@@ -23,14 +30,34 @@ class AssetFolderDeleted extends Event
     public $paths;
 
     /**
-     * @param string $container  The asset container
-     * @param string $path       The path to the folder
+     * @param AssetFolder $folder
      * @param array  $paths      Any paths that have been deleted. They are relative to the asset container.
      */
-    public function __construct(AssetContainer $container, $path, array $paths)
+    public function __construct(AssetFolder $folder, array $paths)
     {
-        $this->container = $container;
-        $this->folder_path = $path;
+        $this->folder = $folder;
+        $this->container = $folder->container();
+        $this->folder_path = $folder->path();
         $this->paths = $paths;
+    }
+
+    /**
+     * Get contextual data related to event.
+     *
+     * @return array
+     */
+    public function contextualData()
+    {
+        return $this->folder->data();
+    }
+
+    /**
+     * Get paths affected by event.
+     *
+     * @return array
+     */
+    public function affectedPaths()
+    {
+        return [Path::makeFull($this->folder->resolvedYamlPath())];
     }
 }

@@ -2,7 +2,7 @@
 
     <div class="asset-table-listing">
 
-        <table v-if="hasResults">
+        <table v-if="!isSearching || (isSearching && hasResults)">
 
             <thead>
                 <tr>
