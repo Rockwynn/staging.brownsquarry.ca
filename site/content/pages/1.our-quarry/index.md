@@ -23,11 +23,9 @@ id: 57649ac5-6899-403e-a2e9-83836580202f
 <h4>The result is either a quality quarried aggregate or granite landscape products</h4>
 {{ imgix:responsive_image_tag path="our-quarry/IMG_2666.jpg" ch="Width,DPR" auto="compress,enhance,format" w="700"}}
 </br>
-<h4>Brown’s Quarry operates a diamond wire saw which utilizes the most advanced granite cutting technology.</h4>
+<h4>Brown's Quarry uses a Double Diamond wire saw, manufactured in house, which utilizes the most advanced cutting technology.</h4>
 {{ imgix:responsive_image_tag path="misc/saw-00240.jpg" ch="Width,DPR" auto="compress,enhance,format" w="700"}}
-<h4>Stone is sawn on the beds to specific heights & lengths.</h4>
-{{ imgix:responsive_image_tag path="misc/sliced-00302.jpg" ch="Width,DPR" rot="90" auto="compress,enhance,format" w="700" fit="fillmax"}}
-<h4> Alongside our cut granite products, we offer a complete line of natural stone in a variety of colors and thickness for a number of creative applications.</h4>
+<h4>Stone is sawn to produce granite stone steps, oversized flag or any custom requirements.</h4>
 <hr>
 <h2>Our Quarry</h2>
 </article>
