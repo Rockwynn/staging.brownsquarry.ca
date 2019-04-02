@@ -1,4 +1,3 @@
----
 title: 'Lakeside Patio'
 images:
   - '00lakeside-patio/P1-1000774.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
@@ -14,8 +13,7 @@ images:
   - '00lakeside-patio/P11-1000654.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
   - '00lakeside-patio/P12-1000152.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
   - '00lakeside-patio/P13-1000700.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
-nav_title: Lakeside Patio
+nav_title: 'Lakeside Patio'
 template: gallery
 fieldset: gallery
-id: 
----
+id: 2addb31f-67ea-40fa-ace9-101982363a64
