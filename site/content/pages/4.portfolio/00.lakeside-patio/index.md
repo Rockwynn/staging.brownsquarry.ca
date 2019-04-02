@@ -17,5 +17,5 @@ images:
 nav_title: Lakeside Patio
 template: gallery
 fieldset: gallery
-id: 3272f9e3-d9f7-4ee9-8cdc-ee2110d10a27
+id: 
 ---
