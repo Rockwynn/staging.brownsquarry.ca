@@ -9,7 +9,6 @@ images:
   - '00lakeside-patio/P6-1000649.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
   - '00lakeside-patio/P7-1000645.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
   - '00lakeside-patio/P8-1000646.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
-  - '00lakeside-patio/P9-1000647.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
   - '00lakeside-patio/P10-1000648.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
   - '00lakeside-patio/P11-1000654.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
   - '00lakeside-patio/P12-1000152.jpg?ch=DPR&auto=compress,enhance,format&w=475&h=300'
