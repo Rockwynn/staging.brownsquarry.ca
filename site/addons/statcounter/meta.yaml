@@ -1,0 +1,5 @@
+name: StatCounter
+version: 1.0.0
+description: 'Adds StatCounter code to your Statamic powered website.'
+developer: 'Duncan McClean'
+developer_url: 'http://duncan.mcclean.co.uk'
