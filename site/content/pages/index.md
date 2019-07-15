@@ -12,7 +12,7 @@ id: db0ae4e3-4f10-4802-bc40-0b880cbf02c7
 {{ imgix:responsive_image_tag path="driveway/front-04-110.jpg" ch=Width,DPR" auto="compress,enhance,format" fit="crop" w="700" class="captioned" alt="Driveways, Walkways, Path and Stairs to Dock" data-action="zoom"}}
 <p>We have made a strong presence in our community and are continuously striving to offer the best to our customers, something you will quickly realize when you choose us. Brown’s Quarry Inc. has achieved success through the use of hard work and the understanding of our customers’ needs. We know that you will find what you are looking for with our products and services because we stand behind our work and know that we will deliver the satisfaction that you’re looking for.</p>
 <p>
-{{ imgix:responsive_image_tag path="amphitheater/10-rich.jpg" ch="Width,DPR" auto="compress,enhance,format" fit="crop" w="700" class="captioned" alt="Lakeside Armour Stone Amphitheater" data-action="zoom" }}
+{{ imgix:responsive_image_tag path="amphitheater/06-024.jpg" ch="Width,DPR" auto="compress,enhance,format" fit="crop" w="700" class="captioned" alt="Lakeside Armour Stone Amphitheater" data-action="zoom" }}
 </p>
 <p>Whether you need flagstone for your patio, custom cutting of a hearth, or a custom carved sign rock we’re here to help. All you need to do is give us a call and we’ll take care of the rest. In the mean time, feel free to take a look around our site to learn more about our services. If you have any questions or concerns, please don’t hesitate to contact us at any time.</p>
 <p>President – Budd Brown</p>
